@@ -5,7 +5,9 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const { connection } = require("./configs/db");
-
+const {hotelsRoute}=require("./Routes/Hotels.Route")
+const { authenticate} =require("./Middlewares/authenticate");
+const { usersRoute } =require("./Routes/User.Route")
 //Middlewares
 app.use(express.json());
 app.use(
@@ -13,6 +15,13 @@ app.use(
     origin: "*",
   })
 );
+//user Route
+app.use("/users",usersRoute)
+//Authenticate
+app.use(authenticate)
+//Hotels Route
+app.use("/hotels",hotelsRoute)
+//Bus Route
 app.use("/bus",busRouter)
 
 app.get("/", (req, res) => {
