@@ -24,6 +24,8 @@ import {
   BsFillCloudSunFill,
 } from "react-icons/bs";
 import axios from "axios";
+import Signup from "../Components/Signup";
+import Login from "../Components/Login";
 function Buses() {
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
