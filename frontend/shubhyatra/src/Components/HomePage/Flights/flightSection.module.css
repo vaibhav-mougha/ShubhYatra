@@ -1,0 +1,36 @@
+/* Travellers & Classes */
+.adultChild {
+  font-size: 0.8em;
+  font-weight: bold;
+  color: black;
+}
+
+.passengerButtonContainer {
+  display: flex;
+  margin-top: 4px;
+}
+
+.passengerButton {
+  margin: 5px 0 5px;
+  padding: 4px 10px;
+  font-size: small;
+  cursor: pointer;
+}
+.clickPassenger {
+  margin: 5px 0 5px;
+  padding: 4px 10px;
+  font-size: small;
+  cursor: pointer;
+  background-color: #0a1c93;
+  color: white;
+}
+.passengerButton:hover {
+  background-color: rgb(179, 170, 170);
+}
+
+.infantChildren {
+  margin-left: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+/* Travellers & Classes */
