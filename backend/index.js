@@ -1,9 +1,9 @@
 require("dotenv").config();
 const PORT = process.env.port;
+const busRouter=require("./Routes/bus.routes")
 const express = require("express");
 const app = express();
 const cors = require("cors");
-
 const { connection } = require("./configs/db");
 
 //Middlewares
@@ -13,6 +13,7 @@ app.use(
     origin: "*",
   })
 );
+app.use("/bus",busRouter)
 
 app.get("/", (req, res) => {
   res.send("Welcome Home Page");
