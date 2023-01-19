@@ -12,6 +12,7 @@ import {
   Stack,
   Text,
   useColorModeValue,
+  useToast,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
@@ -27,6 +28,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const {login}=React.useContext(AuthContext)
   const Navigate=useNavigate()
+  const toast = useToast()
   const HnadleLogin = () => {
     const payload = {
       email,
@@ -44,12 +46,29 @@ function Login() {
         // console.log(res);
         localStorage.setItem("token", res.token);
         // localStorage.setItem("name", res.name);
+        console.log(res)
         if(res.token){
-          login(res.token,res.name)
+          login(res.token,res.name,res.email)
+          toast({
+            title: 'Login Success.',
+            description:"You have successfully logged in",
+            status: 'success',
+            duration: 9000,
+            isClosable: true,
+          })
         }
         Navigate("/")
       })
-      .catch((err) => console.log("err :>> ", err));
+      .catch((err) => {
+        console.log("err :>> ", err)
+        toast({
+          title: 'Login Failed.',
+          description:"Please Enter Correct Details",
+          status: 'error',
+          duration: 9000,
+          isClosable: true,
+        })
+      });
   };
   return (
     <>

@@ -181,7 +181,7 @@ const NavContainer = () => {
                   _hover={{ color: "#EB2226" }}
                   fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
                 >
-                  <Link to="/">
+                  <Link to="/buses">
                     <FaBus />
                     <Text
                       textAlign="center"
@@ -310,9 +310,15 @@ const NavContainer = () => {
                       {authState.name.toUpperCase()}
                     </MenuButton>
                     <MenuList color={"black"}>
-                      <NavLink to="/profile">
-                        <MenuItem>Profile</MenuItem>
-                      </NavLink>
+                      {authState.email === "admin@shubhyatra.com" ? (
+                        <NavLink to="/admin">
+                          <MenuItem>Admin</MenuItem>
+                        </NavLink>
+                      ) : (
+                        <NavLink to="/profile">
+                          <MenuItem>Profile</MenuItem>
+                        </NavLink>
+                      )}
                       <MenuItem onClick={logout}>Logout</MenuItem>
                     </MenuList>
                   </Menu>
@@ -536,27 +542,29 @@ const NavContainer = () => {
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
-                      <Flex
-                        bg="white"
-                        color="#555454"
-                        _hover={{ color: "#EB2226" }}
-                        fontSize="30"
-                      >
-                        <FaBus />
-                        <Text
-                          textAlign="center"
-                          fontSize={{
-                            base: "1.2rem",
-                            md: "0.8rem",
-                            lg: "1rem",
-                          }}
-                          // color="#555454"
-                          // _hover={{ color: "#EB2226" }}
-                          ml="1rem"
+                      <NavLink to="/buses">
+                        <Flex
+                          bg="white"
+                          color="#555454"
+                          _hover={{ color: "#EB2226" }}
+                          fontSize="30"
                         >
-                          Buses
-                        </Text>
-                      </Flex>
+                          <FaBus />
+                          <Text
+                            textAlign="center"
+                            fontSize={{
+                              base: "1.2rem",
+                              md: "0.8rem",
+                              lg: "1rem",
+                            }}
+                            // color="#555454"
+                            // _hover={{ color: "#EB2226" }}
+                            ml="1rem"
+                          >
+                            Buses
+                          </Text>
+                        </Flex>
+                      </NavLink>
                     </AccordionButton>
                   </h2>
                 </AccordionItem>
@@ -722,9 +730,15 @@ const NavContainer = () => {
                     {authState.name.toUpperCase()}
                   </MenuButton>
                   <MenuList color={"black"}>
-                    <NavLink to="/profile">
-                      <MenuItem>Profile</MenuItem>
-                    </NavLink>
+                  {authState.email === "admin@shubhyatra.com" ? (
+                        <NavLink to="/admin">
+                          <MenuItem>Admin</MenuItem>
+                        </NavLink>
+                      ) : (
+                        <NavLink to="/profile">
+                          <MenuItem>Profile</MenuItem>
+                        </NavLink>
+                      )}
                     <MenuItem onClick={logout}>Logout</MenuItem>
                   </MenuList>
                 </Menu>

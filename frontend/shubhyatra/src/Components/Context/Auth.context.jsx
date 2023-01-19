@@ -6,14 +6,16 @@ function AuthContextProvider({children}) {
     const [state,setState]=React.useState({
         isAuth:false,
         token:null,
-        Name:null
+        Name:null,
+        email:null
     })
-    const login=(token,name)=>{
+    const login=(token,name,email)=>{
         setState({
            ...state,
            isAuth:true,
            token,
-           name
+           name,
+           email
         })
     }
     const logout=()=>{
@@ -21,7 +23,8 @@ function AuthContextProvider({children}) {
            ...state,
            isAuth:false,
            token:null,
-           name:null
+           name:null,
+           email:null
         })
     }
      return(

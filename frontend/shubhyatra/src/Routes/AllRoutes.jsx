@@ -7,8 +7,11 @@ import HomePage from "../Pages/HomePage";
 import Profile from "../Pages/Profile";
 import PrivateRoute from "./Private.routes";
 import Admin from "../Components/AdminSection/Admin";
+import { AuthContext } from "../Components/Context/Auth.context";
+import NotFound from "../Pages/PageNotFound";
 
 const AllRoutes = () => {
+  const { authState } = React.useContext(AuthContext);
   return (
     <>
       <Routes>
@@ -31,14 +34,15 @@ const AllRoutes = () => {
         ></Route>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route
-          path="/admin"
-          element={
-            // <PrivateRoute>
-              <Admin />
-            // </PrivateRoute>
-          }
-        ></Route>
+        {authState.email === "admin@shubhyatra.com" && (
+          <Route
+            path="/admin"
+            element={
+                <Admin />
+            }
+          ></Route>
+        )}
+        <Route path="*" element={<NotFound/>}/>
       </Routes>
     </>
   );
