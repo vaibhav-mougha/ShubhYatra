@@ -122,20 +122,6 @@ flightRouter.post("/create",async(req,res)=>{
     }
 })
 
-// flightRouter.get("/", async (req, res) => {
-
-//   let flights;
-//   try {
-//     flights = await FlightModel.find(); 
-//     res.status(200).json({flights});
-//   } catch (error) {
-//     res.status(401).json({
-//       error,
-//       message: "Something went wrong in getting all the flights present",
-//     });
-//   }
-
-// });
 
 // Strictly for ADMIN only
 
