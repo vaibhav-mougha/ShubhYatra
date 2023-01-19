@@ -9,23 +9,18 @@ import {
   InputGroup,
   InputRightElement,
   Link,
-  Modal,
-  ModalContent,
-  ModalOverlay,
   Stack,
   Text,
   useColorModeValue,
-  useDisclosure,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import React from "react";
-
+import { NavLink } from "react-router-dom";
+import NavContainer from "../HomePage/TopSection/Navbar";
+import Footer from "../HomePage/Footer/Footer"
 function Signup() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const [showPassword, setShowPassword] = useState(false);
-  const initialRef = React.useRef(null);
-  const finalRef = React.useRef(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -49,17 +44,7 @@ function Signup() {
   };
   return (
     <>
-      <Button color={"white"} w="180px" bg="blue" onClick={onOpen}>
-        SignUp
-      </Button>
-      <Modal
-        initialFocusRef={initialRef}
-        finalFocusRef={finalRef}
-        isOpen={isOpen}
-        onClose={onClose}
-      >
-        <ModalOverlay />
-        <ModalContent>
+         <NavContainer/>
           <Flex
             minH={"100vh"}
             align={"center"}
@@ -146,15 +131,14 @@ function Signup() {
                   </Stack>
                   <Stack pt={6}>
                     <Text align={"center"}>
-                      Already a user? <Link color={"blue.400"}>Login</Link>
+                      Already a user? <NavLink to="/login"><Link color={"blue.400"}>Login</Link></NavLink>
                     </Text>
                   </Stack>
                 </Stack>
               </Box>
             </Stack>
           </Flex>
-        </ModalContent>
-      </Modal>
+          <Footer/>
     </>
   );
 }

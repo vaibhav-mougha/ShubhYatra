@@ -7,7 +7,6 @@ const {login}=require("../Middlewares/Validetor")
 
 const bcrypt = require('bcrypt');
 usersRoute.use(login)
-
 usersRoute.post("/register",async (req,res)=>{
   const {name,email,password,gender}=req.body
   try{
@@ -55,7 +54,8 @@ usersRoute.post("/register",async (req,res)=>{
     bcrypt.compare(password, user[0].password, function(err, result) {
     if(result){
     const token = jwt.sign({ userID:user[0]._id }, 'masai');
-    res.send({"msg":"Login Successfull","token":token})
+    res.send({"msg":"Login Successfull","token":token,"name":user[0].name})
+    
     } else {res.send("Wrong Credntials")}
     });
     } else {
