@@ -9,6 +9,8 @@ import PrivateRoute from "./Private.routes";
 import Admin from "../Components/AdminSection/Admin";
 import { AuthContext } from "../Components/Context/Auth.context";
 import NotFound from "../Pages/PageNotFound";
+import FlightBooking from "../Pages/FlightBooking";
+
 
 const AllRoutes = () => {
   const { authState } = React.useContext(AuthContext);
@@ -34,6 +36,7 @@ const AllRoutes = () => {
         ></Route>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        
         {authState.email === "admin@shubhyatra.com" && (
           <Route
             path="/admin"
@@ -43,6 +46,16 @@ const AllRoutes = () => {
           ></Route>
         )}
         <Route path="*" element={<NotFound/>}/>
+
+        <Route
+          path="/flight"
+          element={
+            <PrivateRoute>
+              <FlightBooking />
+            </PrivateRoute>
+          }
+        />
+
       </Routes>
     </>
   );
