@@ -1,0 +1,25 @@
+.shubhYatra_wrapper_bus {
+    background: linear-gradient(
+      to top,
+      rgb(14, 38, 172) 100%,
+      rgb(2, 8, 97) 50%,
+      rgb(12, 3, 97) 50%,
+      rgb(0, 1, 32) 0%
+    );
+    padding: 1px;
+    position: relative;
+    height: auto;
+  }
+/* .shubhYatra_wrapper_bus {
+    background: linear-gradient(
+      to top,
+      rgb(14, 38, 172) 0%,
+      rgb(2, 8, 97) 50%,
+      rgb(12, 3, 97) 50%,
+      rgb(0, 1, 32) 100%
+    );
+    padding: 1px;
+    position: relative;
+    height: auto;
+  } */
+  

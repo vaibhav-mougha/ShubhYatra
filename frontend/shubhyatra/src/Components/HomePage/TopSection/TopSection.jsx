@@ -4,7 +4,6 @@ import {
   Box,
   Flex,
   Image,
-  Button,
   Menu,
   MenuButton,
   Hide,
@@ -19,7 +18,10 @@ import {
   DrawerContent,
   DrawerCloseButton,
   useDisclosure,
+  Button,
   Text,
+  MenuList,
+  MenuItem,
 } from "@chakra-ui/react";
 import { MdFlight, MdDownhillSkiing } from "react-icons/md";
 import {
@@ -32,13 +34,24 @@ import {
   FaChevronDown,
 } from "react-icons/fa";
 import { GiCommercialAirplane, GiHamburgerMenu } from "react-icons/gi";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import FlightSection from "../Flights/FlightSection";
+import { AuthContext } from "../../Context/Auth.context";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 
 const NavContainer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
-
+  const { authState, logout } = React.useContext(AuthContext);
+  // const [name, setName] = React.useState("");
+  // const [token, setToken] = React.useState(false);
+  // useEffect(() => {
+  //   const data = localStorage.getItem("name");
+  //   if (data) {
+  //     setName(data);
+  //     setToken(true);
+  //   }
+  // }, [token, name]);
   return (
     <div className={styles.shubhYatra_wrapper}>
       {/* NAVBAR */}
@@ -166,7 +179,7 @@ const NavContainer = () => {
                   _hover={{ color: "#EB2226" }}
                   fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
                 >
-                  <Link to="/">
+                  <Link to="/buses">
                     <FaBus />
                     <Text
                       textAlign="center"
@@ -257,24 +270,52 @@ const NavContainer = () => {
 
                 {/* Registration & Login */}
                 <Box>
-                  <Link to={"/"}>
-                    <Button
-                      fontSize={{ base: "0.4rem", md: "0.6rem", lg: "1rem" }}
-                      // w={{ base: "1.7rem", md: "3rem", lg: "8.7rem" }}
-                      // h={{ base: "1.2rem", md: "1.8rem", lg: "2.3rem" }}
-                      _hover={{
-                        background: "#257CFF",
-                        color: "white",
-                      }}
-                      bg="#0A1C93"
-                      color="white"
-                      py={{ base: "0.1rem", md: "0.1rem", lg: "0.5rem" }}
-                      px={{ base: "0.1rem", md: "0.5rem", lg: "2.2rem" }}
-                    >
-                      Login or Create Account <Box mr="0.2rem"></Box>
-                      <FaChevronDown />
-                    </Button>
-                  </Link>
+                  {!authState.token ? (
+                    <Link to="/login">
+                      <Button
+                        fontSize={{ base: "0.4rem", md: "0.6rem", lg: "1rem" }}
+                        // w={{ base: "1.7rem", md: "3rem", lg: "8.7rem" }}
+                        // h={{ base: "1.2rem", md: "1.8rem", lg: "2.3rem" }}
+                        _hover={{
+                          background: "#257CFF",
+                          color: "white",
+                        }}
+                        bg="#0A1C93"
+                        color="white"
+                        py={{ base: "0.1rem", md: "0.1rem", lg: "0.5rem" }}
+                        px={{ base: "0.1rem", md: "0.5rem", lg: "2.2rem" }}
+                      >
+                        Login or Create Account <Box mr="0.2rem"></Box>
+                        <FaChevronDown />
+                      </Button>
+                    </Link>
+                  ) : (
+                    <Menu>
+                      <MenuButton
+                        fontSize={{ base: "0.4rem", md: "0.6rem", lg: "1rem" }}
+                        // w={{ base: "1.7rem", md: "3rem", lg: "8.7rem" }}
+                        // h={{ base: "1.2rem", md: "1.8rem", lg: "2.3rem" }}
+                        _hover={{
+                          background: "#257CFF",
+                          color: "white",
+                        }}
+                        bg="#0A1C93"
+                        color="white"
+                        py={{ base: "0.1rem", md: "0.1rem", lg: "0.5rem" }}
+                        px={{ base: "0.1rem", md: "0.5rem", lg: "2.2rem" }}
+                        as={Button}
+                        rightIcon={<ChevronDownIcon />}
+                      >
+                        {authState.name.toUpperCase()}
+                      </MenuButton>
+                      <MenuList color={"black"}>
+                        <NavLink to="/profile">
+                          <MenuItem>Profile</MenuItem>
+                        </NavLink>
+                        <MenuItem onClick={logout}>Logout</MenuItem>
+                      </MenuList>
+                    </Menu>
+                  )}
                 </Box>
               </Flex>
             </Box>
@@ -650,28 +691,52 @@ const NavContainer = () => {
               </Link>
 
               {/* Registration & Login */}
-              <Link to="/">
-                <AccordionItem>
-                  <h2>
-                    <AccordionButton>
-                      <Button
-                        fontSize={{ base: "1.2rem", md: "0.8rem", lg: "1rem" }}
-                        mt="1rem"
-                        _hover={{
-                          background: "#257CFF",
-                          color: "white",
-                        }}
-                        bg="#0A1C93"
-                        color="white"
-                        py={{ base: "0rem", md: "0.1rem", lg: "0.5rem" }}
-                        px={{ base: "1.5rem", md: "2.2rem", lg: "2.2rem" }}
-                      >
-                        Login or Create Account
-                      </Button>
-                    </AccordionButton>
-                  </h2>
-                </AccordionItem>
-              </Link>
+              {!authState.token ? (
+                <Link to="/login">
+                  <Button
+                    fontSize={{ base: "0.4rem", md: "0.6rem", lg: "1rem" }}
+                    // w={{ base: "1.7rem", md: "3rem", lg: "8.7rem" }}
+                    // h={{ base: "1.2rem", md: "1.8rem", lg: "2.3rem" }}
+                    _hover={{
+                      background: "#257CFF",
+                      color: "white",
+                    }}
+                    bg="#0A1C93"
+                    color="white"
+                    py={{ base: "0.1rem", md: "0.1rem", lg: "0.5rem" }}
+                    px={{ base: "0.1rem", md: "0.5rem", lg: "2.2rem" }}
+                  >
+                    Login or Create Account <Box mr="0.2rem"></Box>
+                    <FaChevronDown />
+                  </Button>
+                </Link>
+              ) : (
+                <Menu>
+                  <MenuButton
+                    fontSize={{ base: "0.4rem", md: "0.6rem", lg: "1rem" }}
+                    // w={{ base: "1.7rem", md: "3rem", lg: "8.7rem" }}
+                    // h={{ base: "1.2rem", md: "1.8rem", lg: "2.3rem" }}
+                    _hover={{
+                      background: "#257CFF",
+                      color: "white",
+                    }}
+                    bg="#0A1C93"
+                    color="white"
+                    py={{ base: "0.1rem", md: "0.1rem", lg: "0.5rem" }}
+                    px={{ base: "0.1rem", md: "0.5rem", lg: "2.2rem" }}
+                    as={Button}
+                    rightIcon={<ChevronDownIcon />}
+                  >
+                    {authState.name.toUpperCase()}
+                  </MenuButton>
+                  <MenuList color={"black"}>
+                    <NavLink to="/profile">
+                      <MenuItem>Profile</MenuItem>
+                    </NavLink>
+                    <MenuItem onClick={logout}>Logout</MenuItem>
+                  </MenuList>
+                </Menu>
+              )}
             </Accordion>
           </DrawerContent>
         </Drawer>
