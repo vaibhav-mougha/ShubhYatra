@@ -309,9 +309,15 @@ const NavContainer = () => {
                         {authState.name.toUpperCase()}
                       </MenuButton>
                       <MenuList color={"black"}>
+                      {authState.email === "admin@shubhyatra.com" ? (
+                        <NavLink to="/admin">
+                          <MenuItem>Admin</MenuItem>
+                        </NavLink>
+                      ) : (
                         <NavLink to="/profile">
                           <MenuItem>Profile</MenuItem>
                         </NavLink>
+                      )}
                         <MenuItem onClick={logout}>Logout</MenuItem>
                       </MenuList>
                     </Menu>
@@ -544,6 +550,7 @@ const NavContainer = () => {
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
+                      <NavLink>
                       <Flex
                         bg="white"
                         color="#555454"
@@ -565,6 +572,7 @@ const NavContainer = () => {
                           Buses
                         </Text>
                       </Flex>
+                      </NavLink>
                     </AccordionButton>
                   </h2>
                 </AccordionItem>
@@ -730,9 +738,15 @@ const NavContainer = () => {
                     {authState.name.toUpperCase()}
                   </MenuButton>
                   <MenuList color={"black"}>
-                    <NavLink to="/profile">
-                      <MenuItem>Profile</MenuItem>
-                    </NavLink>
+                  {authState.email === "admin@shubhyatra.com" ? (
+                        <NavLink to="/admin">
+                          <MenuItem>Admin</MenuItem>
+                        </NavLink>
+                      ) : (
+                        <NavLink to="/profile">
+                          <MenuItem>Profile</MenuItem>
+                        </NavLink>
+                      )}
                     <MenuItem onClick={logout}>Logout</MenuItem>
                   </MenuList>
                 </Menu>

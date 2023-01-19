@@ -12,6 +12,7 @@ import {
   Stack,
   Text,
   useColorModeValue,
+  useToast,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
@@ -25,6 +26,7 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
+  const toast = useToast()
   const HandleSubmit = () => {
     const payload={
       name,
@@ -39,8 +41,26 @@ function Signup() {
           "content-type":"application/json"
       }
    }).then(res=>res.json())
-   .then(res=>console.log(res))
-   .catch(err=>console.log('err :>> ', err))
+   .then(res=>{
+    console.log(res)
+    toast({
+      title: 'Account Created',
+      description:"Account Has Been Created Success.",
+      status: 'success',
+      duration: 9000,
+      isClosable: true,
+    })
+  })
+   .catch(err=>{
+    console.log('err :>> ', err)
+    toast({
+      title: 'Signup  Failed',
+      description:"Please Enter All Data",
+      status: 'error',
+      duration: 9000,
+      isClosable: true,
+    })
+  })
   };
   return (
     <>

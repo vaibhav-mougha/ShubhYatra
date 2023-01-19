@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import Footer from "../HomePage/Footer/Footer";
 import FlightAdmin from "./FlightAdmin";
+import BusAdmin from "./BusAdmin";
 
 const Admin = () => {
 
@@ -26,7 +27,7 @@ const Admin = () => {
           <Box
             mt="2rem"
             mb="2rem"
-            w="85%"
+            w="100%"
             //   border="2px solid black"
             bg="white"
             borderRadius="2rem"
@@ -134,7 +135,7 @@ const Admin = () => {
                     </TabPanel>
 
                     <TabPanel>
-                      <h1>Sumit Admin</h1>
+                     <BusAdmin/>
                     </TabPanel>
                   </TabPanels>
                 </Tabs>
