@@ -19,7 +19,7 @@ function AllBuses({ data,date,month }) {
             month={month}
           />
         )
-      }):<Heading>Data not found</Heading>}
+      }):<Heading>Please Search the buses</Heading>}
     </Box>
   );
 }
