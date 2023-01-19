@@ -64,7 +64,7 @@ usersRoute.post("/register",async (req,res)=>{
     if(result){
     const token = jwt.sign({ userID:user[0]._id }, 'masai');
 
-    res.send({"msg":"Login Successfull","token":token,"name":user[0].name})
+    res.send({"msg":"Login Successfull","token":token,"name":user[0].name,"email":user[0].email})
     
 
     } else {res.send("Wrong Credntials")}
