@@ -14,18 +14,25 @@ hotelsRoute.get("/",async(req,res)=>{
     {
         try{
             const data=await HotelModel.find({$or:[{"rating":rating},{"price":price},{"star_category":star_category},{"property_type":property_type},{"location":location}]})
-            res.send(data)
+            // res.send(data)
+            res.status(200).json({data})
            }
            catch{ 
-              res.send("err")
+            res.status(401).json({
+                error,
+                message: "Something went wrong in getting all the hotels present",
+              })
            } 
     }else{
         try{
             const data=await HotelModel.find()
-            res.send(data)
+            res.status(200).json({data})
            }
            catch{ 
-              res.send("err")
+            res.status(401).json({
+                error,
+                message: "Something went wrong in getting all the hotels present",
+              })
            } 
     }
    
@@ -34,9 +41,12 @@ hotelsRoute.delete("/delete/:id",async (req,res)=>{
     const id=req.params.id
     try{
         await HotelModel.findByIdAndDelete({"_id":id})
-        res.send("deleted")
+        res.json({status: 200, "message":"Deleted The Hotels"});
     }catch{
-        res.send("err")
+        res.status(401).json({
+            error,
+            message: "Something went wrong",
+          });
     }
 })
 hotelsRoute.post("/addhotels",async(req,res)=>{
@@ -44,9 +54,12 @@ hotelsRoute.post("/addhotels",async(req,res)=>{
      try{
         const hotel=new HotelModel(payload)
         await hotel.save()
-        res.send("hotel")
+        res.status(201).json({"message":"Created The Hotels",hotel});
      }catch{
-         res.send("err")
+        res.status(401).json({
+            error,
+            message: "Something went wrong",
+          });
      }
 })
 module.exports={

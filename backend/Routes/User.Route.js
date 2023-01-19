@@ -8,23 +8,32 @@ const {login}=require("../Middlewares/Validetor")
 const bcrypt = require('bcrypt');
 usersRoute.use(login)
 usersRoute.post("/register",async (req,res)=>{
-  const {name,email,password,gender}=req.body
-  try{
-    const cheak=await RegisterModule.find({"email":email})
-    if(cheak.length>0){
-      res.send("Email already register")
-    }else{
-      bcrypt.hash(password, 8, async (err, hash)=>{
-        const user=new RegisterModule({name,email,password:hash,gender})
-        await user.save()
-        res.send("Registered")
-      });
-    }
-    
-    }catch(err){
-    res.send("Error in registering the user")
-    console.log(err)
-    }
+  const {name,email,password,phone}=req.body
+  if(name && email && password && phone){
+    try{
+      const cheak=await RegisterModule.find({"email":email})
+      if(cheak.length>0){
+        res.send("Email already register")
+
+      }else{
+        bcrypt.hash(password, 8, async (err, hash)=>{
+          const user=new RegisterModule({name,email,password:hash,phone})
+          await user.save()
+          res.send("Registered")
+          res.status(201).json({"message":"Registered",user});
+        });
+      }
+      
+      }catch(err){
+        res.status(401).json({
+          error,
+          message: "Something went wrong",
+        });
+      
+      }
+  }else{
+    res.send("Fill All Details")
+  }
   })
 // usersRoute.get("/",async(req,res)=>{
 //   try{
@@ -54,16 +63,21 @@ usersRoute.post("/register",async (req,res)=>{
     bcrypt.compare(password, user[0].password, function(err, result) {
     if(result){
     const token = jwt.sign({ userID:user[0]._id }, 'masai');
+
     res.send({"msg":"Login Successfull","token":token,"name":user[0].name})
     
+
     } else {res.send("Wrong Credntials")}
     });
     } else {
     res.send("Wrong Credntials")
     }
     } catch(err){
-    res.send("Something went wrong")
-    console.log(err)
+      res.status(401).json({
+        error,
+        message: "Something went wrong",
+      });
+    
     }
     })
 
