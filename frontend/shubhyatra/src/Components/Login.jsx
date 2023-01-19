@@ -28,10 +28,23 @@ function Login() {
   const finalRef = React.useRef(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const[data,setData] = useState({})
   const HnadleLogin=()=>{
-    setData({email,password});
-    console.log(data);
+    const payload={
+      email,
+      password
+   }
+   fetch("http://localhost:8080/users/login",{
+      method:"POST",
+      body:JSON.stringify(payload),
+      headers:{
+          "content-type":"application/json"
+      }
+   }).then(res=>res.json())
+   .then(res=>{
+      console.log(res)
+      localStorage.setItem("token",res.token)
+   })
+   .catch(err=>console.log('err :>> ', err))
   }
   return (
     <>

@@ -13,7 +13,7 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsArrowLeftRight } from "react-icons/bs";
 import AllBuses from "../Components/Buses/AllBuses";
 import {
@@ -50,7 +50,11 @@ function Buses() {
 
   const handleSubmit = () => {
     axios
-      .get(`http://localhost:8080/bus/?from=${start}&to=${end}`)
+      .get(`http://localhost:8080/bus/?from=${start}&to=${end}`,{
+        headers:{
+          "authorization":localStorage.getItem("token")
+      }
+      })
       .then((res) => setData(res.data))
       .catch((err) => console.error(err));
     let newDate = date.split("-");
@@ -66,7 +70,11 @@ function Buses() {
 
   function handleSort(sort) {
     axios
-      .get(`http://localhost:8080/bus/?from=${start}&to=${end}&sort=${sort}`)
+      .get(`http://localhost:8080/bus/?from=${start}&to=${end}&sort=${sort}`,{
+        headers:{
+          "authorization":localStorage.getItem("token")
+      }
+      })
       .then((res) => setData(res.data))
       .catch((err) => console.error(err));
     let newDate = date.split("-");
@@ -82,7 +90,11 @@ function Buses() {
 
   const handleFilter=(filter)=>{
     axios
-    .get(`http://localhost:8080/bus/?from=${start}&to=${end}&filter=${filter}`)
+    .get(`http://localhost:8080/bus/?from=${start}&to=${end}&filter=${filter}`,{
+      headers:{
+        "authorization":localStorage.getItem("token")
+    }
+    })
     .then((res) => setData(res.data))
     .catch((err) => console.error(err));
   let newDate = date.split("-");
@@ -137,6 +149,8 @@ function Buses() {
           >
             Search
           </Button>
+          <Signup/>
+          <Login/>
         </HStack>
       </Box>
       <Grid
@@ -144,8 +158,8 @@ function Buses() {
         gridTemplateColumns={[
           "repeat(1,1fr)",
           "repeat(1,1fr)",
-          "repeat(1,1fr)",
-          "repeat(1,1fr)",
+          "repeat(2,1fr)",
+          "repeat(2,1fr)",
           "0.20fr 0.75fr",
         ]}
         p="8px"
@@ -154,7 +168,7 @@ function Buses() {
       >
         <div w="95%" p="3" m="auto">
           <Grid
-            justifyContent={"space-evenly"}
+            justifyContent={"space-around"}
             alignItems="center"
             gridTemplateColumns={[
               "repeat(2,1fr)",
@@ -163,22 +177,20 @@ function Buses() {
               "repeat(1,1fr)",
               "repeat(1,1fr)",
             ]}
-            spacing={"5"}
-            gap="7"
+            gap={["0","2","3","5","7"]}
           >
-            <Heading m="auto" size={"md"}>
+            <Heading m="auto" size={["sm","sm","sm","md","md"]}>
               Showing {data.length} buses from {start}
             </Heading>
             <Menu>
               <MenuButton
-                w="250px"
                 m="auto"
                 as={Button}
                 rightIcon={<BsFillCaretDownFill />}
               >
                 Sorted By
               </MenuButton>
-              <MenuList w="250px" m="auto">
+              <MenuList   w={["100px","150px","200px","200px","250px"]} m="auto">
                 <MenuItem onClick={()=>handleSort("lowToHigh")}>Lowest Price</MenuItem>
                 <MenuItem onClick={()=>handleSort("highToLow")}>Highest Price</MenuItem>
                 <MenuItem onClick={()=>handleSort("earlyDeparture")}>Early Departure</MenuItem>
@@ -186,7 +198,7 @@ function Buses() {
                 <MenuItem onClick={()=>handleSort("duration")}>Duration</MenuItem>
               </MenuList>
             </Menu>
-            <Box cursor={"pointer"} w="80%" m="auto">
+            <Box cursor={"pointer"}  m="auto">
               <Heading mb="3px" size="md">
                 Pickup Time
               </Heading>
@@ -221,7 +233,7 @@ function Buses() {
                 </VStack>
               </Grid>
             </Box>
-            <Box cursor={"pointer"} w="80%" m="auto">
+            <Box cursor={"pointer"}  m="auto">
               <Heading mb="3px" size="md">
                 Drop Time
               </Heading>
@@ -258,14 +270,14 @@ function Buses() {
             </Box>
             <Menu>
               <MenuButton
-                w="250px"
+                w={["100px","150px","200px","200px","250px"]}
                 m="auto"
                 as={Button}
                 rightIcon={<BsFillCaretDownFill />}
               >
                 Bus Types
               </MenuButton>
-              <MenuList w="250px" m="auto">
+              <MenuList w={["100px","150px","200px","200px","250px"]} m="auto">
                 <MenuItem onClick={()=>handleFilter("ac")}>A/C Sleeper</MenuItem>
                 <MenuItem onClick={()=>handleFilter("nac")}>Non A/C Sleeper</MenuItem>
               </MenuList>

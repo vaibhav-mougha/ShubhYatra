@@ -30,11 +30,22 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
-  const[data,setData]=useState({})
-  
   const HandleSubmit = () => {
-    setData({name,email,password,phone})
-    console.log(data)
+    const payload={
+      name,
+      phone,
+      email,
+      password
+    }
+    fetch("http://localhost:8080/users/register",{
+      method:"POST",
+      body:JSON.stringify(payload),
+      headers:{
+          "content-type":"application/json"
+      }
+   }).then(res=>res.json())
+   .then(res=>console.log(res))
+   .catch(err=>console.log('err :>> ', err))
   };
   return (
     <>
