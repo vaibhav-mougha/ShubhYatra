@@ -7,6 +7,7 @@ import HomePage from "../Pages/HomePage";
 import Profile from "../Pages/Profile";
 import PrivateRoute from "./Private.routes";
 import Admin from "../Components/AdminSection/Admin";
+import FlightBooking from "../Pages/FlightBooking";
 
 const AllRoutes = () => {
   return (
@@ -35,10 +36,18 @@ const AllRoutes = () => {
           path="/admin"
           element={
             // <PrivateRoute>
-              <Admin />
+            <Admin />
             // </PrivateRoute>
           }
         ></Route>
+        <Route
+          path="/flight"
+          element={
+            <PrivateRoute>
+              <FlightBooking />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </>
   );
