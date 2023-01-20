@@ -1,0 +1,164 @@
+.mindiv{
+    display: flex;
+    border: 1px solid black;
+    /* width: 60%; */
+    margin-top: 20px;
+    border-radius: 5px;
+}
+.filter_price{
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.filter_div{
+ /* border: 1px solid black; */
+ width: 300px;
+ padding-left: 10px;
+ 
+}
+.res{
+    display: none;
+
+}
+.first{
+    width: 30%;
+    padding: 15px;
+    
+}
+.res_name{
+    padding-left: 5px;
+}
+h3{
+    background-color: rgb(77, 118, 216);
+    border-radius: 3px;
+    padding: 0px 2px 0px 2px;
+}
+.namediv{
+    margin-top: -30px;
+    
+}
+.pay{
+    color: rgb(54, 54, 217);
+    font-weight: bold;
+}
+.night{
+    font-size: 11px;
+    /* margin-top: -15px; */
+}
+.EMI{
+    background-color: rgba(248, 87, 18, 0.416);
+    padding: 0px 5px 0px 5px ;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.emi{
+    /* margin-top: -8px; */
+    font-weight: bold;
+}
+/* .rate{
+    margin-bottom: -20px;
+} */
+.end{
+    text-align: end;
+    padding: 10px;
+}
+img{
+    width: 100%;
+    border-radius: 5px;
+}
+.couple{
+    background-color: rgb(224, 222, 222);
+    width:100px;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 3px;
+    padding: 3px 0px 3px 0px;
+}
+.cheak{
+    margin-top: -5px;
+}
+
+p{
+    font-size: 12px;
+}
+.location{
+    margin-top: -25px;
+    font-size: 12px;
+}
+.Main{
+    display: flex;
+    width: 80%;
+    justify-self: center;
+    gap: 20px;
+}
+.price{
+    display: flex;
+    /* margin-top: -30px; */
+}
+.tag{
+    width: 150px;
+}
+/* .main{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+} */
+/* span{
+    color: blue;
+} */
+.sec{
+    width: 50%;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.third_res{
+    background-color: rgb(247, 238, 238);
+    border-radius: 5px 0px 5px 0px;
+}
+.third{
+    width: 20%;
+    background-color: rgb(247, 238, 238);
+    border-radius: 0px 5px 5px 0px;
+}
+.rating{
+    display: flex;
+}
+.bookbt{
+    display: none;
+}
+
+@media only screen and (max-width:850px){
+    .res{
+        display: block;
+    }
+    .third{
+        display: none;
+    }
+    .mindiv{
+     display: grid;
+    }
+    .first{
+        width: 100%;
+        padding: 0px;
+    }
+    .sec{
+        width: 100%;
+    }
+    .Main{
+        width: 100%;
+        
+       }
+}
+@media only screen and (max-width:500px){
+   .res{
+    display: none;
+   }
+   .bookbt{
+    display: block;
+   }
+   .Main{
+    width: 100%;
+  
+   }
+}

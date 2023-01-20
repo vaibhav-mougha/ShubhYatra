@@ -13,7 +13,7 @@ hotelsRoute.get("/",async(req,res)=>{
     if(rating || price || star_category || property_type || location)
     {
         try{
-            const data=await HotelModel.find({$or:[{"rating":rating},{"price":price},{"star_category":star_category},{"property_type":property_type},{"location":location}]})
+            const data=await HotelModel.find({$or:[{"rating":{$gte:rating}},{"price":{$lte:price}},{"star_category":{$gte:star_category}},{"property_type":property_type},{"location":location}]})
             // res.send(data)
             res.status(200).json({data})
            }
