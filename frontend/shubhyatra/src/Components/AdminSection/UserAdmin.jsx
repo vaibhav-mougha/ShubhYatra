@@ -25,65 +25,16 @@ import {
 import axios from "axios";
 import { useEffect } from "react";
 
-const FlightAdmin = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const initialRef = React.useRef(null);
+const UserAdmin = () => {
+
   const [page, setPage] = React.useState(1);
   const [data, setData] = React.useState([]);
   const [query, setQuery] = React.useState("");
-  const [name,setName]=React.useState("")
-  const [from,setfrom]=React.useState("")
-  const [to,setto]=React.useState("")
-  const [start,setstart]=React.useState("")
-  const [end,setend]=React.useState("")
-  const [type,settype]=React.useState("")
-  const [price,setprice]=React.useState("")
-  const [duration,setduration]=React.useState("")
-
-  const postData=()=>{
-    const payload={
-        name,
-        from,
-        to,
-        start,
-        end,
-        type,
-        price,
-        duration
-    }
-    axios.post("http://localhost:8080/bookedflight/create",payload,{
-        headers: {
-            authorization: localStorage.getItem("token"),
-          },
-    })
-    .then((res)=>{
-        console.log(res)
-        getAllData(page)
-        toast({
-            title: 'Flight Details Added',
-            description:`You successfully Added`,
-            status: 'success',
-            duration: 3000,
-            isClosable: true,
-          })
-    })
-    .catch((err)=>{
-        console.log('err', err)
-        toast({
-            title: 'Flight Details not added in Admin DB',
-            description:`Please Enter Proper Details`,
-            status: 'error',
-            duration: 3000,
-            isClosable: true,
-          })
-    })
-
-  }
 
   const toast = useToast()
   const getAllData = (page=1) => {
     axios
-      .get(`http://localhost:8080/bookedflight?page=${page}`, {
+      .get(`http://localhost:8080/users?page=${page}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -93,9 +44,10 @@ const FlightAdmin = () => {
       })
       .catch((err) => console.error(err));
   };
+
   const getDataFromCity = () => {
     axios
-      .get(`http://localhost:8080/bookedflight?q=${query}&page=${page}`, {
+      .get(`http://localhost:8080/users?name=${query}&page=${page}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -107,35 +59,29 @@ const FlightAdmin = () => {
   };
 
   const handleDelete=(id)=>{
-    axios.delete(`http://localhost:8080/bookedflight/delete/${id}`,{
+    axios.delete(`http://localhost:8080/users/delete/${id}`,{
         headers: {
             authorization: localStorage.getItem("token"),
           },
-    })
-    fetch(`http://localhost:8080/bookedflight/delete/${id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: localStorage.getItem("token"),
-      },
     })
     .then((res)=>{
         console.log(res)
         getAllData(page)
         toast({
-            title: 'Flight details has been deleted',
-            description:`You successfully deleted Flight details for id: ${id}`,
+            title: 'User has been deleted Successfully',
+            description:`You successfully deleted User with id: ${id}`,
             status: 'success',
-            duration: 3000,
+            duration: 2000,
             isClosable: true,
           })
     })
     .catch((err) => {
         console.error(err)
         toast({
-            title: 'Failed to Delete the Flight',
+            title: 'Failed to Delete the User',
             description:`You are not autherised`,
             status: 'error',
-            duration: 3000,
+            duration: 2000,
             isClosable: true,
           })
     })
@@ -160,7 +106,7 @@ const FlightAdmin = () => {
           <Input
             w="15rem"
             size={["sm", "sm", "md", "md"]}
-            placeholder="Search Flights By City"
+            placeholder="Search Users by Name"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
@@ -186,11 +132,11 @@ const FlightAdmin = () => {
             variant={"outline"}
             textTransform={"capitalize"}
           >
-            All Flights
+            All Existing Users
           </Button>
 
           {/*  Add New Flights */}
-          <Button
+          {/* <Button
             bg="#257CFF"
             borderRadius="1rem"
             variant="solid"
@@ -207,9 +153,9 @@ const FlightAdmin = () => {
             onClick={onOpen}
           >
             Add New Flight
-          </Button>
+          </Button> */}
           {/* Save Flights will route you to the Booked Flights page */}
-          <Modal
+          {/* <Modal
             initialFocusRef={initialRef}
             isOpen={isOpen}
             onClose={onClose}
@@ -219,7 +165,7 @@ const FlightAdmin = () => {
             <ModalContent
             // border="1rem solid #257cff"
             >
-              <ModalHeader
+              {/* <ModalHeader
                 textDecoration="underline"
                 color="#257cff"
                 fontWeight="bold"
@@ -227,9 +173,9 @@ const FlightAdmin = () => {
               >
                 Flight Details
               </ModalHeader>
-              <ModalCloseButton />
+              <ModalCloseButton /> */}
 
-              <ModalBody pb={6}>
+              {/* <ModalBody pb={6}>
                 <FormControl>
                   <FormLabel>Name</FormLabel>
                   <Input
@@ -336,8 +282,8 @@ const FlightAdmin = () => {
                 </Button>
                 <Button onClick={onClose}>Cancel</Button>
               </ModalFooter>
-            </ModalContent>
-          </Modal>
+            </ModalContent> */}
+          {/* </Modal>  */}
           <Button
             bg="#31AE33"
             borderRadius="1rem"
@@ -349,6 +295,7 @@ const FlightAdmin = () => {
               color: "#31AE33",
               border: "2px solid #31AE33",
             }}
+            ml="1rem"
           >
             Save
           </Button>
@@ -360,13 +307,8 @@ const FlightAdmin = () => {
             <Thead>
               <Tr>
                 <Th>Name</Th>
-                <Th>From</Th>
-                <Th>To</Th>
-                <Th>Start</Th>
-                <Th>End</Th>
-                <Th>Type</Th>
-                <Th>Duration</Th>
-                <Th>Price</Th>
+                <Th>Email ID</Th>
+                <Th>Mobile No.</Th>
               </Tr>
             </Thead>
             <Tbody>
@@ -375,13 +317,8 @@ const FlightAdmin = () => {
                   return (
                     <Tr>
                       <Td>{i.name}</Td>
-                      <Td>{i.from}</Td>
-                      <Td>{i.to}</Td>
-                      <Td>{i.start}</Td>
-                      <Td>{i.end}</Td>
-                      <Td>{i.type}</Td>
-                      <Td>{i.duration}</Td>
-                      <Td>{i.price}</Td>
+                      <Td>{i.email}</Td>
+                      <Td>{i.phone}</Td>
                       <Td>
                         <Button onClick={()=>handleDelete(i._id)} colorScheme="red"
             borderRadius="1rem"
@@ -410,4 +347,4 @@ const FlightAdmin = () => {
   );
 };
 
-export default FlightAdmin;
+export default UserAdmin;

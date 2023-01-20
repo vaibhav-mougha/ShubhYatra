@@ -13,6 +13,7 @@ import {
 import Footer from "../HomePage/Footer/Footer";
 import FlightAdmin from "./FlightAdmin";
 import BusAdmin from "./BusAdmin";
+import UserAdmin from "./UserAdmin";
 
 const Admin = () => {
 
@@ -76,8 +77,18 @@ const Admin = () => {
                       fontWeight="bold"
                       mr="2rem"
                     >
-                      PLAN
+                      Database
                     </Text>
+
+                    <Tab>
+                      <Text
+                        textAlign="center"
+                        fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
+                        fontWeight="bold"
+                      >
+                        USERS
+                      </Text>
+                    </Tab>
 
                     <Tab>
                       <Text
@@ -121,8 +132,14 @@ const Admin = () => {
                   </TabList>
 
                   <TabPanels>
+
+                  <TabPanel>
+                      {/* <h1>Users</h1> */}
+                      <UserAdmin />
+                    </TabPanel>
+
                     <TabPanel>
-                      <h1>Vaibhav Admin</h1>
+                      {/* <h1>Vaibhav Admin</h1> */}
                       <FlightAdmin />
                     </TabPanel>
 

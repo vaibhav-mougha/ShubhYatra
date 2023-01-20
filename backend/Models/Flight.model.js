@@ -1,15 +1,15 @@
 const mongoose = require("mongoose");
 
-const flightSchema=mongoose.Schema({
-  name:String,
-  from:String,
-  to:String,
-  start:String,
-  end:String,
-  type:String,
-  price:Number,
-  duration:String
-})
+const flightSchema = mongoose.Schema({
+  name: { type: String, required: true },
+  from: { type: String, required: true },
+  to: { type: String, required: true },
+  start: { type: String, required: true },
+  end: { type: String, required: true },
+  type: { type: String, required: true },
+  price: { type: String, required: true },
+  duration: { type: String, required: true },
+});
 
 const FlightModel = mongoose.model("bookedflight", flightSchema);
 

@@ -35,26 +35,39 @@ usersRoute.post("/register",async (req,res)=>{
     res.send("Fill All Details")
   }
   })
-// usersRoute.get("/",async(req,res)=>{
-//   try{
-//    const data=await RegisterModule.find()
-//    res.send(data)
-//   }
-//   catch{
-//     res.send("err")
-//   }
-// })
 
-// usersRoute.delete("/delete/:id",async(req,res)=>{
-//   const id=req.params.id
-//   try{
-//     await RegisterModule.findByIdAndDelete({"_id":id})
-//     res.send("deleted")
-//   }
-//   catch{
-//     res.send("err")
-//   }
-// })
+usersRoute.get("/",async(req,res)=>{
+  const {name} = req.query;
+  try{
+  //  let data=await RegisterModule.find()
+   if(name){
+    const{page=1,limit=5}=req.query
+    let data = await RegisterModule.find({name:name}).limit(limit*1).skip((page-1)*limit); 
+    res.send(data); 
+  }else {
+    const { page = 1, limit = 5} = req.query;
+    let data = await RegisterModule.find()
+      .limit(limit * 1)
+      .skip((page - 1) * limit);
+    res.send(data);
+  }
+  }
+  catch{
+    res.send("err")
+  }
+})
+
+usersRoute.delete("/delete/:id",async(req,res)=>{
+  const id=req.params.id
+  try{
+    await RegisterModule.findByIdAndDelete({"_id":id})
+    res.send("Deleted")
+  }
+  catch{
+    res.send("err")
+  }
+})
+
   usersRoute.post("/login",async (req,res)=>{
     const {email,password}=req.body
     try{
