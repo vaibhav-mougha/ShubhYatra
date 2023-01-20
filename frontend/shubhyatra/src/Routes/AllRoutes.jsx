@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Login from "../Components/LoginSignup/Login";
 import Signup from "../Components/LoginSignup/Signup";
 import Buses from "../Pages/Buses";
+import { Trains } from "../Pages/Trains";
 import HomePage from "../Pages/HomePage";
 import Profile from "../Pages/Profile";
 import PrivateRoute from "./Private.routes";
@@ -56,6 +57,10 @@ const AllRoutes = () => {
             </PrivateRoute>
           }
         />
+
+        
+        <Route path="/trains" element={<Trains />} />
+
        <Route
           path="/hotels"
           element={
@@ -64,6 +69,7 @@ const AllRoutes = () => {
             </PrivateRoute>
           }
         />
+
       </Routes>
     </>
   );
