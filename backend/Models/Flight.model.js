@@ -7,7 +7,7 @@ const flightSchema = mongoose.Schema({
   start: { type: String, required: true },
   end: { type: String, required: true },
   type: { type: String, required: true },
-  price: { type: String, required: true },
+  price: { type: Number, required: true },
   duration: { type: String, required: true },
 });
 
