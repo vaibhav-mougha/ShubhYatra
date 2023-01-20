@@ -1,4 +1,7 @@
-import { Box, Flex, Radio, RadioGroup, Stack, Text } from "@chakra-ui/react"
+import { Box, Button, Flex, Input, 
+    InputGroup, Radio, RadioGroup, 
+    Select, Stack, Text,
+ } from "@chakra-ui/react"
 
 
 export const TrainsTabs = ()=>{
@@ -27,6 +30,26 @@ export const TrainsTabs = ()=>{
                     <Text>IRCTC Authorized e-ticketing</Text>
                 </Stack>    
             </Flex>
+
+            <Flex>
+                <Input type="text" value = "Delhi" placeholder="From" />
+                <Input type="text" value = "Mumbai" placeholder="To" />
+                <Input type = "date" />
+
+                <Select placeholder="Select class">
+                    <option value="All Class">All Class</option>
+                    <option value="Sleeper Class">Sleeper Class</option>
+                    <option value="Third AC">Third AC</option>
+                    <option value="Second AC">Second AC</option>
+                    <option value="First AC">First AC</option>
+                    <option value="Second Seating">Second Seating</option>
+                    <option value="AC Chair Car">AC Chair Car</option>
+                    <option value="First Class">First Class</option>
+                    <option value="Third AC Economy">Third AC Economy</option>
+                </Select>
+            </Flex>
+
+            <Button>SEARCH</Button>
         </Box>
 
        
