@@ -35,7 +35,7 @@ import {
 } from "react-icons/fa";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { GiCommercialAirplane, GiHamburgerMenu } from "react-icons/gi";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/Auth.context";
 
 const NavContainer = () => {
@@ -53,6 +53,12 @@ const NavContainer = () => {
   //     console.log(token);
   //   }
   // }, [data, token, name]);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/")
+  }
 
   return (
     <div className={styles.shubhYatra_wrapper}>
@@ -319,7 +325,7 @@ const NavContainer = () => {
                           <MenuItem>Profile</MenuItem>
                         </NavLink>
                       )}
-                      <MenuItem onClick={logout}>Logout</MenuItem>
+                      <MenuItem onClick={handleLogout}>Logout</MenuItem>
                     </MenuList>
                   </Menu>
                 )}
@@ -739,7 +745,7 @@ const NavContainer = () => {
                           <MenuItem>Profile</MenuItem>
                         </NavLink>
                       )}
-                    <MenuItem onClick={logout}>Logout</MenuItem>
+                    <MenuItem onClick={handleLogout}>Logout</MenuItem>
                   </MenuList>
                 </Menu>
               )}

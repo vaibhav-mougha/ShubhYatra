@@ -53,7 +53,7 @@ function Login() {
             title: 'Login Success.',
             description:"You have successfully logged in",
             status: 'success',
-            duration: 1000,
+            duration: 2000,
             isClosable: true,
           })
         }
@@ -65,7 +65,7 @@ function Login() {
           title: 'Login Failed.',
           description:"Please Enter Correct Details",
           status: 'error',
-          duration: 1000,
+          duration: 2000,
           isClosable: true,
         })
       });
