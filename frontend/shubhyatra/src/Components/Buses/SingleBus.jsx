@@ -9,6 +9,9 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import React from "react";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context/Auth.context";
 import Amenities from "./Amenities";
 import Photo from "./Photo";
 import Policies from "./Policies";
@@ -24,6 +27,12 @@ function SingleBus({
   date,
   month,
 }) {
+  const{handleProdId}=useContext(AuthContext)
+  const Navigate=useNavigate()
+  const handleBook = () => {
+    handleProdId(id)
+    Navigate("/checkout")
+  };
   return (
     <Box
       p={["1", "2", "4"]}
@@ -100,7 +109,9 @@ function SingleBus({
               ₹{price}
             </Heading>
           </Flex>
-          <Button w={["100px", "150px"]}>Book Now</Button>
+          <Button onClick={handleBook} w={["100px", "150px"]}>
+            Book Now
+          </Button>
         </Grid>
       </Grid>
     </Box>
