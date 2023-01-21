@@ -14,6 +14,7 @@ import FlightBooking from "../Pages/FlightBooking";
 import PaymentPage from "../Pages/PaymentPage";
 import Hotel from "../Pages/Hotel";
 import Payment from "../Components/CreditCard/Payment"
+import UserPage from "../Pages/UserPage";
 
 
 const AllRoutes = () => {
@@ -82,6 +83,8 @@ const AllRoutes = () => {
         />
 
         <Route path="/payment" element={<Payment />}/>
+
+        <Route path="/userpage" element={<UserPage />}/>
 
       </Routes>
     </>
