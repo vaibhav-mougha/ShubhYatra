@@ -36,7 +36,7 @@ function PaymentPage() {
   return (
     <>
     <NavContainer/>
-    <Box w={"75%"} p="5" m="auto">
+    <Box w={"90%"} p="5" m="auto">
       <Flex>
         <Box w="100%">
           <Flex w="90%" justifyContent={"space-between"} alignItems="center">

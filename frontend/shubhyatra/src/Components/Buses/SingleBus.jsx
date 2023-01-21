@@ -31,7 +31,7 @@ function SingleBus({
   const Navigate=useNavigate()
   const handleBook = () => {
     handleProdId(id)
-    Navigate("/payment")
+    Navigate("/checkout")
   };
   return (
     <Box
