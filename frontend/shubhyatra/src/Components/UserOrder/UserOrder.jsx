@@ -2,6 +2,7 @@ import { Box, Button, Flex, Heading, Text, VStack } from "@chakra-ui/react";
 import React from "react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { CgArrowLongRight } from "react-icons/cg";
+import { Link } from "react-router-dom";
 
 const UserOrder = ({data}) => {
   const current = new Date();
@@ -9,8 +10,8 @@ const UserOrder = ({data}) => {
   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
 ];
 const dayNames = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
-  const date = `${current.getDate()}${monthNames[current.getMonth()]}'${current.getFullYear()},${dayNames[current.getDay()-1]}`;
-  const Newdate = `${current.getDate()+2}${monthNames[current.getMonth()]}'${current.getFullYear()},${dayNames[current.getDay()-1]}`;
+  const date = `${current.getDate()}${monthNames[current.getMonth()]}'${current.getFullYear()},${dayNames[current.getDay()-1]==undefined?"sun":dayNames[current.getDay()-1]}`;
+  const Newdate = `${current.getDate()+2}${monthNames[current.getMonth()]}'${current.getFullYear()},${dayNames[current.getDay()-1]==undefined?"sun":dayNames[current.getDay()-1]}`;
   return (
     <>
       <Box
@@ -149,7 +150,7 @@ const dayNames = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
               Paid on : {date}
             </Text>
 
-<Button 
+<Link to="/"><Button 
 // onClick=route to home page or their respective route
                   bg="#257CFF"
                   borderRadius="1rem"
@@ -161,7 +162,7 @@ const dayNames = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
                     color: "#257CFF",
                     border: "2px solid #257CFF",
                   }}
-                  mr={3}>Book Again</Button>
+                  mr={3}>Book Again</Button></Link>
       </Box>
     </>
   );

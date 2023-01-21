@@ -116,7 +116,7 @@ const UserPage = () => {
                   fontSize={{ base: "0.6rem", md: "0.8rem", lg: "1rem" }}
                   color="black"
                 >
-                  Mobile NO. : {user.phone?user.phone:7848964863}
+                  Mobile No. : {user.phone?user.phone:7848964863}
                 </Text>
               </Box>
 
