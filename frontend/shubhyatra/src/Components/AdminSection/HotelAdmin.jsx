@@ -311,7 +311,7 @@ const HotelAdmin = () => {
                   />
                 </FormControl>
                 <FormControl mt={4}>
-                  <FormLabel>Tex</FormLabel>
+                  <FormLabel>Tax</FormLabel>
                   <Input
                     placeholder="Enter Tex Price"
                     type="number"
