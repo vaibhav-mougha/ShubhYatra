@@ -46,7 +46,7 @@ function PaymentPage() {
       headers:{
           "content-type":"application/json"
       }
-   }).then(console.log(payload))
+   }).then(Navigate("/payment"))
    .catch((err)=>console.log(err))
   }
   return (
