@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Login from "../Components/LoginSignup/Login";
 import Signup from "../Components/LoginSignup/Signup";
 import Buses from "../Pages/Buses";
+import { Trains } from "../Pages/Trains";
 import HomePage from "../Pages/HomePage";
 import Profile from "../Pages/Profile";
 import PrivateRoute from "./Private.routes";
@@ -11,6 +12,8 @@ import { AuthContext } from "../Components/Context/Auth.context";
 import NotFound from "../Pages/PageNotFound";
 import FlightBooking from "../Pages/FlightBooking";
 import PaymentPage from "../Pages/PaymentPage";
+import Hotel from "../Pages/Hotel";
+import Payment from "../Components/CreditCard/Payment"
 
 
 const AllRoutes = () => {
@@ -19,6 +22,7 @@ const AllRoutes = () => {
     <>
       <Routes>
         <Route path="/" element={<HomePage />} />
+
         <Route
           path="/buses"
           element={
@@ -27,6 +31,7 @@ const AllRoutes = () => {
             </PrivateRoute>
           }
         ></Route>
+
         <Route
           path="/profile"
           element={
@@ -35,18 +40,16 @@ const AllRoutes = () => {
             </PrivateRoute>
           }
         ></Route>
+
         <Route path="/login" element={<Login />} />
+
         <Route path="/signup" element={<Signup />} />
-        
+
         {authState.email === "admin@shubhyatra.com" && (
-          <Route
-            path="/admin"
-            element={
-                <Admin />
-            }
-          ></Route>
+          <Route path="/admin" element={<Admin />}></Route>
         )}
-        <Route path="*" element={<NotFound/>}/>
+
+        <Route path="*" element={<NotFound />} />
 
         <Route
           path="/flight"
@@ -56,6 +59,7 @@ const AllRoutes = () => {
             </PrivateRoute>
           }
         />
+
         <Route
           path="/payment"
           element={
@@ -64,6 +68,21 @@ const AllRoutes = () => {
             </PrivateRoute>
           }
         />
+
+
+        <Route path="/trains" element={<PrivateRoute><Trains /></PrivateRoute>} />
+
+        <Route
+          path="/hotels"
+          element={
+            <PrivateRoute>
+              <Hotel />
+            </PrivateRoute>
+          }
+        />
+
+        <Route path="/payment" element={<Payment />} />
+
       </Routes>
     </>
   );

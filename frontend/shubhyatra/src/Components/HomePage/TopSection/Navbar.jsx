@@ -35,7 +35,7 @@ import {
 } from "react-icons/fa";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { GiCommercialAirplane, GiHamburgerMenu } from "react-icons/gi";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/Auth.context";
 
 const NavContainer = () => {
@@ -53,6 +53,12 @@ const NavContainer = () => {
   //     console.log(token);
   //   }
   // }, [data, token, name]);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/")
+  }
 
   return (
     <div className={styles.shubhYatra_wrapper}>
@@ -124,7 +130,7 @@ const NavContainer = () => {
                   _hover={{ color: "#EB2226" }}
                   fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
                 >
-                  <Link to="/">
+                  <Link to="/hotels">
                     <FaHotel />
                     <Text
                       textAlign="center"
@@ -162,7 +168,7 @@ const NavContainer = () => {
                   _hover={{ color: "#EB2226" }}
                   fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
                 >
-                  <Link to="/">
+                  <Link to="/trains">
                     <FaTrain />
                     <Text
                       textAlign="center"
@@ -319,7 +325,7 @@ const NavContainer = () => {
                           <MenuItem>Profile</MenuItem>
                         </NavLink>
                       )}
-                      <MenuItem onClick={logout}>Logout</MenuItem>
+                      <MenuItem onClick={handleLogout}>Logout</MenuItem>
                     </MenuList>
                   </Menu>
                 )}
@@ -448,7 +454,7 @@ const NavContainer = () => {
                 </AccordionItem>
               </Link>
 
-              <Link to="/">
+              <Link to="/hotels">
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
@@ -508,7 +514,7 @@ const NavContainer = () => {
                 </AccordionItem>
               </Link>
 
-              <Link to="/">
+              <Link to="/trains">
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
@@ -739,7 +745,7 @@ const NavContainer = () => {
                           <MenuItem>Profile</MenuItem>
                         </NavLink>
                       )}
-                    <MenuItem onClick={logout}>Logout</MenuItem>
+                    <MenuItem onClick={handleLogout}>Logout</MenuItem>
                   </MenuList>
                 </Menu>
               )}

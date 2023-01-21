@@ -47,7 +47,7 @@ function Signup() {
       title: 'Account Created',
       description:"Account Has Been Created Success.",
       status: 'success',
-      duration: 1000,
+      duration: 2000,
       isClosable: true,
     })
   })
@@ -57,7 +57,7 @@ function Signup() {
       title: 'Signup  Failed',
       description:"Please Enter All Data",
       status: 'error',
-      duration: 1000,
+      duration: 2000,
       isClosable: true,
     })
   })

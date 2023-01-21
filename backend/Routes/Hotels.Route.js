@@ -13,7 +13,9 @@ hotelsRoute.get("/",async(req,res)=>{
     if(rating || price || star_category || property_type || location)
     {
         try{
-            const data=await HotelModel.find({$or:[{"rating":rating},{"price":price},{"star_category":star_category},{"property_type":property_type},{"location":location}]})
+            const { page = 1, limit = 10 } = req.query;
+            const data=await HotelModel.find({$or:[{"rating":{$gte:rating}},{"price":{$lte:price}},{"star_category":{$gte:star_category}},{"property_type":property_type},{"location":location}]}) .limit(limit * 1)
+            .skip((page - 1) * limit);
             // res.send(data)
             res.status(200).json({data})
            }
@@ -25,7 +27,9 @@ hotelsRoute.get("/",async(req,res)=>{
            } 
     }else{
         try{
-            const data=await HotelModel.find()
+            const { page = 1, limit = 10 } = req.query;
+            const data=await HotelModel.find() .limit(limit * 1)
+            .skip((page - 1) * limit);
             res.status(200).json({data})
            }
            catch{ 
@@ -37,6 +41,19 @@ hotelsRoute.get("/",async(req,res)=>{
     }
    
 })
+
+hotelsRoute.get("/:id",async(req,res)=>{
+    const id=req.params.id
+    try{
+       const data=await HotelModel.findOne({"_id":id})
+       res.send(data)
+    }
+    catch{
+       res.send("Err")
+    }
+})
+
+
 hotelsRoute.delete("/delete/:id",async (req,res)=>{
     const id=req.params.id
     try{
