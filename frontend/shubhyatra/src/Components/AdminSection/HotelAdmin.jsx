@@ -313,7 +313,7 @@ const HotelAdmin = () => {
                 <FormControl mt={4}>
                   <FormLabel>Tax</FormLabel>
                   <Input
-                    placeholder="Enter Tex Price"
+                    placeholder="Enter Tax Price"
                     type="number"
                     name="fare"
                     value={duration}
