@@ -12,22 +12,24 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { AuthContext } from "../Components/Context/Auth.context";
+import { AuthContext } from "../Context/Auth.context";
 import axios from "axios";
 import { useState } from "react";
 import { HiArrowLongRight } from "react-icons/hi2";
 import { CgArrowLongRight } from "react-icons/cg";
 import { FaArrowRight } from "react-icons/fa";
-import NavContainer from "../Components/HomePage/TopSection/Navbar";
-import Footer from "../Components/HomePage/Footer/Footer";
+import NavContainer from "../HomePage/TopSection/Navbar";
+import Footer from "../HomePage/Footer/Footer";
 import { useNavigate } from "react-router-dom";
-function PaymentPage() {
+
+function FlightPaymentPage() {
   const { authState } = useContext(AuthContext);
   const [data, setData] = useState([]);
   const Navigate=useNavigate()
+
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/bus/${authState.ProdId}`, {
+      .get(`http://localhost:8080/bookedflight/${authState.ProdId}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -35,11 +37,13 @@ function PaymentPage() {
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, [authState.ProdId]);
+
   const handleOrder=()=>{
     const payload={
       ...data,
       email:authState.email
     }
+
     fetch("http://localhost:8080/order/add",{
       method:"POST",
       body:JSON.stringify(payload),
@@ -49,9 +53,18 @@ function PaymentPage() {
    }).then(Navigate("/payment"))
    .catch((err)=>console.log(err))
   }
+
+  const current = new Date();
+  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+];
+const dayNames = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
+  const date = `${current.getDate()}${monthNames[current.getMonth()]}'${current.getFullYear()},${dayNames[current.getDay()-1]}`;
+
   return (
     <>
     <NavContainer/>
+
     <Box w={"90%"} p="5" m="auto">
       <Flex>
         <Box w="100%">
@@ -79,11 +92,11 @@ function PaymentPage() {
               <Flex mt="2" gap="4">
                 <Heading size="lg">{data.start}</Heading>
                 <Heading mt="2" size="md" color="teal">
-                  26JAN'23,THU
+                  {date}
                 </Heading>
               </Flex>
               <Heading size="md" color="green.300">
-                {data.from}:Nehru Nagar
+                {data.from}:Indira Gandhi International Airport
               </Heading>
             </VStack>
             <VStack>
@@ -93,11 +106,11 @@ function PaymentPage() {
               <Flex mt="2" gap="4">
                 <Heading size="lg">{data.end}</Heading>
                 <Heading mt="2" size="md" color="teal">
-                  28JAN'23,THU
+                  {date}
                 </Heading>
               </Flex>
               <Heading size="md" color="green.300">
-                {data.to}:Tilak Nagar
+                {data.to}:Chhatrapati Shivaji Maharaj International Airport
               </Heading>
             </VStack>
           </Flex>
@@ -176,4 +189,4 @@ function PaymentPage() {
   );
 }
 
-export default PaymentPage;
+export default FlightPaymentPage;

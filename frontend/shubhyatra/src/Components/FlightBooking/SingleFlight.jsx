@@ -10,6 +10,9 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import React from "react";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context/Auth.context";
 import Amenities from "./Amenities";
 import Photo from "./Photo";
 import Policies from "./Policies";
@@ -24,8 +27,16 @@ function SingleFlight({
   price,
   date,
   month,
-  logo
+  logo,
 }) {
+
+  const{handleProdId}=useContext(AuthContext)
+  const Navigate=useNavigate()
+  const handleBook = () => {
+    handleProdId(id)
+    Navigate("/flightcheckout")
+  };
+
   return (
     <Box
       p={["1", "2", "4"]}
@@ -47,7 +58,16 @@ function SingleFlight({
       >
         <VStack gap={["1", "2", "2"]} textAlign="left">
           <Flex gap={["1", "2", "5"]}>
-            <Heading size={["xs", "sm", "lg"]} display="flex" > <Image mr="0.5rem" w={{base:"2.2rem"}} src={logo} alt="" /> {title}</Heading>
+            <Heading size={["xs", "sm", "lg"]} display="flex">
+              {" "}
+              <Image
+                mr="0.5rem"
+                w={{ base: "2.2rem" }}
+                src={logo}
+                alt=""
+              />{" "}
+              {title}
+            </Heading>
             <Badge
               variant="solid"
               colorScheme="blue"
@@ -118,6 +138,7 @@ function SingleFlight({
             }}
             bg="#0B5FF4"
             color="white"
+            onClick={handleBook} 
           >
             Book Now
           </Button>
