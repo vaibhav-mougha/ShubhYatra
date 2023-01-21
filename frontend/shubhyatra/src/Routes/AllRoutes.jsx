@@ -58,7 +58,7 @@ const AllRoutes = () => {
           }
         />
 
-        <Route path="/trains" element={<Trains />} />
+        <Route path="/trains" element={<PrivateRoute><Trains /></PrivateRoute>} />
 
         <Route
           path="/hotels"

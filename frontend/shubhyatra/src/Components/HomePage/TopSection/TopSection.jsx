@@ -167,7 +167,7 @@ const NavContainer = () => {
                   _hover={{ color: "#EB2226" }}
                   fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
                 >
-                  <Link to="/">
+                  <Link to="/trains">
                     <FaTrain />
                     <Text
                       textAlign="center"
@@ -523,7 +523,7 @@ const NavContainer = () => {
                 </AccordionItem>
               </Link>
 
-              <Link to="/">
+              <Link to="/trains">
                 <AccordionItem>
                   <h2>
                     <AccordionButton>

@@ -514,7 +514,7 @@ const NavContainer = () => {
                 </AccordionItem>
               </Link>
 
-              <Link to="/">
+              <Link to="/trains">
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
