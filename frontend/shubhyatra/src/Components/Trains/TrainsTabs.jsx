@@ -2,6 +2,7 @@ import { Box, Button, Center, Flex, Input,
     InputGroup, Radio, RadioGroup, 
     Select, Stack, Text,
  } from "@chakra-ui/react"
+import { Link, Navigate } from "react-router-dom"
 
 
 export const TrainsTabs = ()=>{
@@ -67,14 +68,14 @@ export const TrainsTabs = ()=>{
                 </Flex>
 
                 <Center>
-                    <Button
-                    
+                    <Button  
                     mt="20px"
                     colorScheme="blue"
                     px="50px"
                     borderRadius="30px"
                     >
-                    SEARCH
+                    <Link to="./listing">SEARCH</Link>
+                    
                     </Button>
                 </Center>
                 

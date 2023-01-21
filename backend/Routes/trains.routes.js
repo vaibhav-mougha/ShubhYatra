@@ -5,7 +5,7 @@ const TrainsRoute = express.Router();
 
 
 //get trains 
-TrainsRoute.get("/", async (req, res) => {
+TrainsRoute.get("/listing", async (req, res) => {
     const {from, to, date} = req.query;
 
     try{
@@ -37,7 +37,7 @@ TrainsRoute.get("/", async (req, res) => {
 
 
 //get train details using id
-TrainsRoute.get("/:id", async (req, res) => {
+TrainsRoute.get("/listing/:id", async (req, res) => {
     const { id } = req.params;
 
     if(!id){
@@ -61,14 +61,14 @@ TrainsRoute.get("/:id", async (req, res) => {
 
 // add new train using admin account
 TrainsRoute.post("/addtrain", async (req, res) => {
-    const { name, arrival, departure, from, to, classtype, price } = req.body;
+    const { name, arrival, departure, from, to, classtype, price, date } = req.body;
 
-    if(!name || !arrival || !departure || !from || !to || !classtype || !price){
+    if(!name || !arrival || !departure || !from || !to || !classtype || !price || !date){
         return res.send("Please fill all feilds!");
     }
 
     try {
-        const train = new TrainsModel({name, arrival, departure, from, to, classtype, price});
+        const train = new TrainsModel({name, arrival, departure, from, to, date, classtype, price});
         await train.save();
         res.send("New train added successfully.");
     } catch (e) {
