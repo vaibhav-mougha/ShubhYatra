@@ -8,7 +8,8 @@ function AuthContextProvider({children}) {
         isAuth:false,
         token:null,
         Name:null,
-        email:null
+        email:null,
+        ProdId:null
     })
     const login=(token,name,email)=>{
         setState({
@@ -17,6 +18,12 @@ function AuthContextProvider({children}) {
            token,
            name,
            email
+        })
+    }
+    const handleProdId=(id)=>{
+        setState({
+            ...state,
+            ProdId:id
         })
     }
     const logout=()=>{
@@ -29,7 +36,7 @@ function AuthContextProvider({children}) {
         })
     }
      return(
-            <AuthContext.Provider value={{authState:state,login,logout}}>
+            <AuthContext.Provider value={{authState:state,login,logout,handleProdId}}>
                 {children}
             </AuthContext.Provider>
      )

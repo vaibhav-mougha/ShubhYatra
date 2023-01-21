@@ -11,8 +11,10 @@ import Admin from "../Components/AdminSection/Admin";
 import { AuthContext } from "../Components/Context/Auth.context";
 import NotFound from "../Pages/PageNotFound";
 import FlightBooking from "../Pages/FlightBooking";
+import PaymentPage from "../Pages/PaymentPage";
 import Hotel from "../Pages/Hotel";
 import Payment from "../Components/CreditCard/Payment"
+
 
 const AllRoutes = () => {
   const { authState } = React.useContext(AuthContext);
@@ -57,6 +59,16 @@ const AllRoutes = () => {
             </PrivateRoute>
           }
         />
+
+        <Route
+          path="/payment"
+          element={
+            <PrivateRoute>
+              <PaymentPage />
+            </PrivateRoute>
+          }
+        />
+
 
         <Route path="/trains" element={<PrivateRoute><Trains /></PrivateRoute>} />
 

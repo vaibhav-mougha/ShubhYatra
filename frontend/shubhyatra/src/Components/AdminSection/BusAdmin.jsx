@@ -23,7 +23,6 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
-import { useEffect } from "react";
 
 const BusAdmin = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
