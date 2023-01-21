@@ -13,6 +13,7 @@ import NotFound from "../Pages/PageNotFound";
 import FlightBooking from "../Pages/FlightBooking";
 import PaymentPage from "../Pages/PaymentPage";
 import Hotel from "../Pages/Hotel";
+import { TrainsListing } from "../Pages/TrainsListing";
 
 
 const AllRoutes = () => {
@@ -69,13 +70,10 @@ const AllRoutes = () => {
         />
 
 
-        {/* <Route path="/trains" element={<PrivateRoute><Trains /></PrivateRoute>} /> */}
+        <Route path="/trains" element={<PrivateRoute><Trains /></PrivateRoute>} />
 
-        <Route path="/trains" element={
-        
-        <Trains />
-        
-        } />
+
+        <Route path="/trains/listing" element={<PrivateRoute><TrainsListing /></PrivateRoute>} />
         
         <Route
           path="/hotels"

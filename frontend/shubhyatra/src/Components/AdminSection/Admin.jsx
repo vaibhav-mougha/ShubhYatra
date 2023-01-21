@@ -15,6 +15,7 @@ import FlightAdmin from "./FlightAdmin";
 import BusAdmin from "./BusAdmin";
 import UserAdmin from "./UserAdmin";
 import HotelAdmin from "./HotelAdmin";
+import TrainsAdmin from "./TrainsAdmin";
 
 const Admin = () => {
 
@@ -149,7 +150,7 @@ const Admin = () => {
                     </TabPanel>
 
                     <TabPanel>
-                      <h1>Priyanka Admin</h1>
+                      <TrainsAdmin />
                     </TabPanel>
 
                     <TabPanel>
