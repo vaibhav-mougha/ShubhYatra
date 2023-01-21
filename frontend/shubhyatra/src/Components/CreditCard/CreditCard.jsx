@@ -9,6 +9,7 @@ import {
 
 import "react-credit-cards/es/styles-compiled.css";
 import { Box, Button, Grid, Image, Input, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 export default class App extends React.Component {
   state = {
@@ -45,9 +46,9 @@ export default class App extends React.Component {
     this.setState({ [target.name]: target.value });
   };
 
-  handlePay=()=>{
-    window.location.href="/"
-  }
+  // handlePay=()=>{
+  //   window.location.href="/profile"
+  // }
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -219,8 +220,9 @@ export default class App extends React.Component {
               <Input mt="0.7rem" type="hidden" name="issuer" value={issuer} />
               <div className="form-actions">
                 <button className="btn btn-primary btn-block">
-                  <Button
-                  onClick={this.handlePay}
+
+                  <Link to="/profile"><Button
+                  // onClick={this.handlePay}
                     bg="#FFA200"
                     borderRadius="1rem"
                     variant="solid"
@@ -237,7 +239,7 @@ export default class App extends React.Component {
                     w="10rem"
                   >
                     Pay Now
-                  </Button>
+                  </Button></Link>
                 </button>
               </div>
             </Box>

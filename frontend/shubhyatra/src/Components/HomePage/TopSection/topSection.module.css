@@ -9,4 +9,9 @@
   padding: 1px;
   position: relative;
   height: auto;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  /* margin-bottom: 5rem; */
 }
