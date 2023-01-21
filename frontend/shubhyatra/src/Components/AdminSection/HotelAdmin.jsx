@@ -24,8 +24,10 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 const HotelAdmin = () => {
+  const Navigate=useNavigate()
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = React.useRef(null);
   const [page, setPage] = React.useState(1);
@@ -42,6 +44,10 @@ const HotelAdmin = () => {
   const [rate,setRate]=React.useState("")
   const [total,setTotal]=React.useState("")
 
+  const handleSave = () => {
+   
+    Navigate("/hotels")
+  };
   const postData=()=>{
     const payload={
         name,
@@ -376,6 +382,7 @@ const HotelAdmin = () => {
               color: "#31AE33",
               border: "2px solid #31AE33",
             }}
+            onClick={handleSave}
           >
             Save
           </Button>

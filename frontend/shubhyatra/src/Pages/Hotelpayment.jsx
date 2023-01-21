@@ -19,12 +19,16 @@ import { AuthContext } from "../Components/Context/Auth.context";
   import { FaArrowRight } from "react-icons/fa";
   import NavContainer from "../Components/HomePage/TopSection/Navbar";
   import Footer from "../Components/HomePage/Footer/Footer";
-
+  import { useNavigate } from "react-router-dom";
 export default function Hotelpayment(id) {
 const [data,setData]=useState("")
 const { authState } = useContext(AuthContext);
 
-
+const Navigate=useNavigate()
+const handlePayment = () => {
+  
+  Navigate("/payment")
+};
 
 
 console.log(data)
@@ -41,9 +45,9 @@ console.log(data)
   return (
     <>
      <NavContainer />
-    <Flex className="main">
-        <Box className="mindiv" style={{border:"none"}}>
-        <Box className="first">
+    <Flex className="main" justifyContent="center">
+        <Box className="mindiv" style={{border:"0px",width:"60%"}} justifyContent="center">
+        <Box className="first" width="50%">
             <Image src={data.image} />
           </Box>
           <Box className="sec" >
@@ -139,6 +143,7 @@ console.log(data)
             size="lg"
             fontSize="md"
             rightIcon={<FaArrowRight />}
+            onClick={handlePayment}
           >
            Continue to Book Now
           </Button>
