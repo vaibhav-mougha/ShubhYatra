@@ -1,7 +1,16 @@
 import { Box, Button,Image } from '@chakra-ui/react'
 import React from 'react'
 import "../../Styles/hotel.css"
-export default function Sing({name,image,rating,verified_rating,location,rate,price,tax}) {
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context/Auth.context";
+export default function Sing({id,name,image,rating,verified_rating,location,rate,price,tax}) {
+  const{handleProdId}=useContext(AuthContext)
+  const Navigate=useNavigate()
+  const handleBook = () => {
+    handleProdId(id)
+    Navigate("/hotelcheckout")
+  };
   
   return (
     
@@ -35,7 +44,7 @@ export default function Sing({name,image,rating,verified_rating,location,rate,pr
                 </p>
               </Box >
               <p className="couple">couple friendly</p>
-              <Button className="bookbt" mt="0.5rem">Book Now</Button>
+              <Button className="bookbt" mt="0.5rem" onClick={handleBook}>Book Now</Button>
             </Box>
 
             <Box className="res">
