@@ -29,6 +29,7 @@ function AllFlights({ data,date,month }) {
             date={date}
             month={month}
             logo={logo[i]}
+            id={ele._id}
           />
         )
       }):<Heading>Please Search the Flights</Heading>}

@@ -10,6 +10,7 @@ const { authenticate,AdminAuthenticate} =require("./Middlewares/authenticate");
 const { usersRoute } =require("./Routes/User.Route")
 const { flightRouter } = require("./Routes/Flight.route");
 const OrderRouter = require("./Routes/order.route");
+const { TrainsRoute } = require("./Routes/trains.routes");
 
 //Middlewares
 app.use(express.json());
@@ -33,6 +34,9 @@ app.use("/bus",busRouter)
 // Booked Flight Route
 app.use("/bookedflight", flightRouter);
 //Order Route
+
+// Trains Route
+app.use("/trains", TrainsRoute);
 
 app.get("/", (req, res) => {
   res.send("Welcome Home Page");
