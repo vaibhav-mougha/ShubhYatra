@@ -72,8 +72,14 @@ const AllRoutes = () => {
         />
 
 
-        <Route path="/trains" element={<PrivateRoute><Trains /></PrivateRoute>} />
+        {/* <Route path="/trains" element={<PrivateRoute><Trains /></PrivateRoute>} /> */}
 
+        <Route path="/trains" element={
+        
+        <Trains />
+        
+        } />
+        
         <Route
           path="/hotels"
           element={

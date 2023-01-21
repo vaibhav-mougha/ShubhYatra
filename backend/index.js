@@ -8,7 +8,8 @@ const { connection } = require("./configs/db");
 const {hotelsRoute}=require("./Routes/Hotels.Route")
 const { authenticate,AdminAuthenticate} =require("./Middlewares/authenticate");
 const { usersRoute } =require("./Routes/User.Route")
-const { flightRouter } = require("./Routes/Flight.route")
+const { flightRouter } = require("./Routes/Flight.route");
+const { TrainsRoute } = require("./Routes/trains.routes");
 
 //Middlewares
 app.use(express.json());
@@ -29,6 +30,9 @@ app.use("/hotels",hotelsRoute)
 app.use("/bus",busRouter)
 // Booked Flight Route
 app.use("/bookedflight", flightRouter);
+
+// Trains Route
+app.use("/trains", TrainsRoute);
 
 app.get("/", (req, res) => {
   res.send("Welcome Home Page");
