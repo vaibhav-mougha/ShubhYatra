@@ -13,6 +13,7 @@ import NotFound from "../Pages/PageNotFound";
 import FlightBooking from "../Pages/FlightBooking";
 import PaymentPage from "../Pages/PaymentPage";
 import Hotel from "../Pages/Hotel";
+import Payment from "../Components/CreditCard/Payment"
 
 
 const AllRoutes = () => {
@@ -80,6 +81,7 @@ const AllRoutes = () => {
           }
         />
 
+        <Route path="/payment" element={<Payment />}/>
 
       </Routes>
     </>

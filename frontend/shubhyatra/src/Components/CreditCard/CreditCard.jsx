@@ -45,6 +45,10 @@ export default class App extends React.Component {
     this.setState({ [target.name]: target.value });
   };
 
+  handlePay=()=>{
+    window.location.href="/"
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
     const { issuer } = this.state;
@@ -216,6 +220,7 @@ export default class App extends React.Component {
               <div className="form-actions">
                 <button className="btn btn-primary btn-block">
                   <Button
+                  onClick={this.handlePay}
                     bg="#FFA200"
                     borderRadius="1rem"
                     variant="solid"

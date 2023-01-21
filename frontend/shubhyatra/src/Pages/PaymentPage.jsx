@@ -20,9 +20,11 @@ import { CgArrowLongRight } from "react-icons/cg";
 import { FaArrowRight } from "react-icons/fa";
 import NavContainer from "../Components/HomePage/TopSection/Navbar";
 import Footer from "../Components/HomePage/Footer/Footer";
+import { useNavigate } from "react-router-dom";
 function PaymentPage() {
   const { authState } = useContext(AuthContext);
   const [data, setData] = useState([]);
+  const Navigate=useNavigate()
   useEffect(() => {
     axios
       .get(`http://localhost:8080/bus/${authState.ProdId}`, {
@@ -33,6 +35,20 @@ function PaymentPage() {
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, [authState.ProdId]);
+  const handleOrder=()=>{
+    const payload={
+      ...data,
+      email:authState.email
+    }
+    fetch("http://localhost:8080/order/add",{
+      method:"POST",
+      body:JSON.stringify(payload),
+      headers:{
+          "content-type":"application/json"
+      }
+   }).then(console.log(payload))
+   .catch((err)=>console.log(err))
+  }
   return (
     <>
     <NavContainer/>
@@ -108,23 +124,23 @@ function PaymentPage() {
           </Card>
         </Box>
         <Stack spacing="8" borderWidth="1px" rounded="lg" padding="8" w="450px">
-          <Heading size="md">Order Summary</Heading>
+          <Heading fontWeight="extrabold" size="md">Order Summary</Heading>
 
           <Flex justify="space-between">
             <Text fontSize="lg" fontWeight="semibold">
             Bus Fare
             </Text>
-            <Link href="#" textDecor="underline">
-            {data.price}
-          </Link>
+            <Text fontSize="xl" fontWeight="extrabold">
+            ₹{data.price}
+          </Text>
           </Flex>
           <Flex justify="space-between">
             <Text fontSize="lg" fontWeight="semibold">
             Tax
             </Text>
-            <Link href="#" textDecor="underline">
-            ₹ 151
-          </Link>
+            <Text  fontSize="xl" fontWeight="extrabold">
+            ₹151
+          </Text>
           </Flex>
           <Flex justify="space-between">
             <Text fontSize="lg" fontWeight="semibold">
@@ -144,6 +160,7 @@ function PaymentPage() {
             </Text>
           </Flex>
           <Button
+          onClick={handleOrder}
             colorScheme="blue"
             size="lg"
             fontSize="md"
