@@ -13,6 +13,7 @@ import NotFound from "../Pages/PageNotFound";
 import FlightBooking from "../Pages/FlightBooking";
 import PaymentPage from "../Pages/PaymentPage";
 import Hotel from "../Pages/Hotel";
+import Hotelpayment from "../Pages/Hotelpayment";
 
 
 const AllRoutes = () => {
@@ -80,6 +81,14 @@ const AllRoutes = () => {
           }
         />
 
+<Route
+          path="/hotelcheckout"
+          element={
+            <PrivateRoute>
+              <Hotelpayment />
+            </PrivateRoute>
+          }
+        />
 
       </Routes>
     </>
