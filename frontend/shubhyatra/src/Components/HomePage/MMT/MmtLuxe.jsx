@@ -13,7 +13,7 @@ const MmtLuxe = () => {
         justify="center"
         margin="auto"
       >
-        <Box className={styleMMT.bigcard} p="0.5rem" margin="auto">
+        <Box className={styleMMT.bigcard} p="0.5rem" margin="auto" textAlign="left">
           <Box className={styleMMT.title}>
             <h4>
               {" "}
@@ -32,7 +32,7 @@ const MmtLuxe = () => {
               </Box>
             </h1>
             <p>
-              <Box fontSize={{ base: "0.7rem", md: "0.8rem", lg: "18px" }}>
+              <Box fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}>
                 Escape to the epitome of luxury, packed <br />
                 With signature amenities and services
               </Box>
@@ -56,12 +56,12 @@ const MmtLuxe = () => {
               />
               <Box className={styleMMT.titleCard}>
                 <h2>
-                  <Box fontSize={{ base: "0.7rem", md: "0.9rem", lg: "18px" }}>
+                  <Box fontSize={{ base: "0.7rem", md: "0.9rem", lg: "1rem" }}>
                     Discover by Brands
                   </Box>
                 </h2>
                 <p>
-                  <Box fontSize={{ base: "0.6rem", md: "0.6rem", lg: "18px" }}>
+                  <Box fontSize={{ base: "0.6rem", md: "0.6rem", lg: "0.8rem" }} textAlign="center">
                     Taj, Marriott,Oberoi,Hyatt & <br /> More{" "}
                   </Box>
                 </p>
@@ -75,12 +75,12 @@ const MmtLuxe = () => {
               />
               <Box className={styleMMT.titleCard}>
                 <h2>
-                  <Box fontSize={{ base: "0.7rem", md: "0.9rem", lg: "18px" }}>
+                  <Box fontSize={{ base: "0.7rem", md: "0.9rem", lg: "1rem" }}>
                     Luxe Vilas
                   </Box>
                 </h2>
                 <p>
-                  <Box fontSize={{ base: "0.6rem", md: "0.6rem", lg: "18px" }}>
+                <Box fontSize={{ base: "0.6rem", md: "0.6rem", lg: "0.8rem" }} textAlign="center">
                     Premimu Villas with Superlative <br /> Experience
                   </Box>
                 </p>
@@ -94,12 +94,12 @@ const MmtLuxe = () => {
               />
               <Box className={styleMMT.titleCard}>
                 <h2>
-                  <Box fontSize={{ base: "0.7rem", md: "0.9rem", lg: "18px" }}>
+                  <Box fontSize={{ base: "0.7rem", md: "0.9rem", lg: "1rem" }}>
                     Discover by Themes
                   </Box>
                 </h2>
                 <p>
-                  <Box fontSize={{ base: "0.6rem", md: "0.6rem", lg: "18px" }}>
+                <Box fontSize={{ base: "0.6rem", md: "0.6rem", lg: "0.8rem" }} textAlign="center">
                     Explore Luxury Stays based on <br /> your interest
                   </Box>
                 </p>
