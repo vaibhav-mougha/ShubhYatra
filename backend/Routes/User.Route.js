@@ -38,12 +38,16 @@ usersRoute.post("/register",async (req,res)=>{
 
 usersRoute.get("/",async(req,res)=>{
   const {name} = req.query;
+  const {email}=req.query
   try{
   //  let data=await RegisterModule.find()
    if(name){
     const{page=1,limit=5}=req.query
     let data = await RegisterModule.find({name:name}).limit(limit*1).skip((page-1)*limit); 
     res.send(data); 
+  }else if(email){
+      const data=await RegisterModule.find({email:email})
+      res.send(data[0])
   }else {
     const { page = 1, limit = 5} = req.query;
     let data = await RegisterModule.find()

@@ -5,7 +5,6 @@ import Signup from "../Components/LoginSignup/Signup";
 import Buses from "../Pages/Buses";
 import { Trains } from "../Pages/Trains";
 import HomePage from "../Pages/HomePage";
-import Profile from "../Pages/Profile";
 import PrivateRoute from "./Private.routes";
 import Admin from "../Components/AdminSection/Admin";
 import { AuthContext } from "../Components/Context/Auth.context";
@@ -32,15 +31,6 @@ const AllRoutes = () => {
           element={
             <PrivateRoute>
               <Buses />
-            </PrivateRoute>
-          }
-        ></Route>
-
-        <Route
-          path="/profile"
-          element={
-            <PrivateRoute>
-              <Profile />
             </PrivateRoute>
           }
         ></Route>
@@ -95,9 +85,23 @@ const AllRoutes = () => {
           }
         />
 
-        <Route path="/payment" element={<Payment />} />
+        <Route
+          path="/payment"
+          element={
+            <PrivateRoute>
+              <Payment />
+            </PrivateRoute>
+          }
+        />
 
-        <Route path="/userpage" element={<UserPage />} />
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <UserPage />
+            </PrivateRoute>
+          }
+        />
 
         <Route
           path="/flightcheckout"
