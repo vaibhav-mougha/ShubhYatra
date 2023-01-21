@@ -41,6 +41,19 @@ hotelsRoute.get("/",async(req,res)=>{
     }
    
 })
+
+hotelsRoute.get("/:id",async(req,res)=>{
+    const id=req.params.id
+    try{
+       const data=await HotelModel.findOne({"_id":id})
+       res.send(data)
+    }
+    catch{
+       res.send("Err")
+    }
+})
+
+
 hotelsRoute.delete("/delete/:id",async (req,res)=>{
     const id=req.params.id
     try{
