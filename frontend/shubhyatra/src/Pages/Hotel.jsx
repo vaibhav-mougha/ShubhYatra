@@ -17,13 +17,14 @@ import {
 } from "@chakra-ui/react";
 import styles_buses from "../Styles/buses.module.css";
 import "../Styles/hotel.css";
-
+import Footer from "../Components/HomePage/Footer/Footer";
 
 import axios from "axios"
 import { useEffect, useState } from "react";
 import Allhotel from "../Components/Hotel/Allhotels";
 import NavContainer from "../Components/HomePage/TopSection/Navbar";
 function Hotel() {
+  const [page, setPage] = useState(1);
 const [data,setData]=useState("")
 const [star,setStar]=useState("")
 const [location,setLocation]=useState("")
@@ -53,23 +54,26 @@ const [newDate, setNewDate] = useState("");
 console.log(data.data)
 useEffect(()=>{
   
-    axios.get(`http://localhost:8080/hotels?star_category=${star}&location=${location}&price=${price}&property_type=${property}&rating=${rating}`,
+    axios.get(`http://localhost:8080/hotels?star_category=${star}&location=${location}&price=${price}&property_type=${property}&rating=${rating}&page=${page}`,
   {headers: {
-    Authorization : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2M2M4ZTM0YjYzZjQ1OTgyZWUxZGI5YjMiLCJpYXQiOjE2NzQxMTI5MjF9.USzn4XGNbsFImGcIPo7HHUVu3KKfa2_6ScJVaxzOyOg"
-    }
+    Authorization: localStorage.getItem("token"),
+  }
   }).then((res)=>setData(res.data))
   .catch((err)=>console.log(err))
   
-},[star,location,rating,price,property])
+},[star,location,rating,price,property,page])
 
-
+const handlepage = (p) => {
+  setPage(page + p);
+  
+};
   
 const handleSubmit = () => {
   // setFrom(start);
   axios
-    .get(`http://localhost:8080/hotels/?location=${start}`, {
+    .get(`http://localhost:8080/hotels/?location=${start}&page=${page}`, {
       headers: {
-        Authorization : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2M2M4ZTM0YjYzZjQ1OTgyZWUxZGI5YjMiLCJpYXQiOjE2NzQxMTI5MjF9.USzn4XGNbsFImGcIPo7HHUVu3KKfa2_6ScJVaxzOyOg"
+        Authorization: localStorage.getItem("token"),
       },
     })
     .then((res) => setData(res.data))
@@ -243,9 +247,19 @@ console.log(data)
           </Box>
          </Box>
        </Box>
+       <Box>
        <Allhotel data={data}/>
+       <Box textAlign="center">
+          <Button disabled={page === 1} onClick={() => handlepage(-1)}>
+            Previous
+          </Button>
+          <Button disabled={true}>{page}</Button>
+          <Button onClick={() => handlepage(1)}>Next</Button>
+        </Box>
+       </Box>
            
     </Box>
+    <Footer />
     </>
 
     

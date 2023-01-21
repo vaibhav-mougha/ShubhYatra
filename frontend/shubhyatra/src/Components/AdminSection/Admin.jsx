@@ -14,6 +14,7 @@ import Footer from "../HomePage/Footer/Footer";
 import FlightAdmin from "./FlightAdmin";
 import BusAdmin from "./BusAdmin";
 import UserAdmin from "./UserAdmin";
+import HotelAdmin from "./HotelAdmin";
 
 const Admin = () => {
 
@@ -144,7 +145,7 @@ const Admin = () => {
                     </TabPanel>
 
                     <TabPanel>
-                      <h1>Mohd Ashique Admin</h1>
+                      <HotelAdmin/>
                     </TabPanel>
 
                     <TabPanel>
