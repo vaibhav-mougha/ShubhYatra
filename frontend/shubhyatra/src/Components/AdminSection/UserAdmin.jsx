@@ -3,16 +3,6 @@ import {
   Box,
   Input,
   Button,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  useDisclosure,
-  FormControl,
-  FormLabel,
   TableContainer,
   Table,
   Thead,
@@ -23,7 +13,6 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
-import { useEffect } from "react";
 
 const UserAdmin = () => {
 

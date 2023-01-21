@@ -120,6 +120,12 @@ busRouter.get("/", async (req, res) => {
   }
 });
 
+busRouter.get("/:id",async(req,res)=>{
+  const id = req.params.id;
+  const data=await Busmodel.findById(id)
+  res.send(data)
+})
+
 //bus is added with help of busRouter
 
 busRouter.post("/add",async(req,res)=>{

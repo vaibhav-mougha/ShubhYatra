@@ -10,6 +10,7 @@ import Admin from "../Components/AdminSection/Admin";
 import { AuthContext } from "../Components/Context/Auth.context";
 import NotFound from "../Pages/PageNotFound";
 import FlightBooking from "../Pages/FlightBooking";
+import PaymentPage from "../Pages/PaymentPage";
 
 
 const AllRoutes = () => {
@@ -55,7 +56,14 @@ const AllRoutes = () => {
             </PrivateRoute>
           }
         />
-
+        <Route
+          path="/payment"
+          element={
+            <PrivateRoute>
+              <PaymentPage />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </>
   );

@@ -17,6 +17,7 @@ function AllBuses({ data,date,month }) {
             duration={i.duration}
             date={date}
             month={month}
+            id={i._id}
           />
         )
       }):<Heading>Please Search the buses</Heading>}
