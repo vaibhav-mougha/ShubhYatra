@@ -218,7 +218,7 @@ const BusAdmin = () => {
                 fontWeight="bold"
                 fontSize="2.5rem"
               >
-                Flight Details
+                Bus Details
               </ModalHeader>
               <ModalCloseButton />
 

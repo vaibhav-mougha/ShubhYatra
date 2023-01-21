@@ -1,0 +1,236 @@
+[
+    {
+        "name":"RJPB TEJAS RAJ",
+        "arrival":"5:10 PM",
+        "departure":"9:52 PM",
+        "from":"Delhi",
+        "to":"Kanpur",
+        "classtype":"1st class AC",
+        "price":2340
+    },
+    {
+        "name":"PORVOTR S KRNTI",
+        "arrival":"11:45 PM",
+        "departure":"5:20 AM",
+        "from":"Delhi",
+        "to":"Kanpur",
+        "classtype":"2 Tier AC",
+        "price":1785
+    },
+    {
+        "name":"SWTANTRTA S EXP",
+        "arrival":"9:15 PM",
+        "departure":"2:35 AM",
+        "from":"Delhi",
+        "to":"Kanpur",
+        "classtype":"1st class AC",
+        "price":1620
+    },
+    {
+        "name":"PURUSHOTTAM EXP",
+        "arrival":"10:40 PM",
+        "departure":"4:00 AM",
+        "from":"Delhi",
+        "to":"Kanpur",
+        "classtype":"2 Tier AC",
+        "price":1815
+    },
+    {
+        "name":"PRAYAGRAJ EXP",
+        "arrival":"10:10 PM",
+        "departure":"3:50 AM",
+        "from":"Delhi",
+        "to":"Kanpur",
+        "classtype":"1st class AC",
+        "price":1620
+    },
+    {
+        "name":"SHRAM SHKTI EXP",
+        "arrival":"11:55 PM",
+        "departure":"6:00 AM",
+        "from":"Delhi",
+        "to":"Kanpur",
+        "classtype":"2 Tier AC",
+        "price":1815
+    },
+    {
+        "name":"VAISHALI EXP",
+        "arrival":"8:40 PM,",
+        "departure":"2:25 AM",
+        "from":"Delhi",
+        "to":"Kanpur",
+        "classtype":"1st class AC",
+        "price":1620
+    },
+    {
+        "name":"MAGADH EXPRESS",
+        "arrival":"9:05 PM,",
+        "departure":"3:40 AM,",
+        "from":"Delhi",
+        "to":"Kanpur",
+        "classtype":"3 Tier AC",
+        "price":1645
+    },
+    {
+        "name":"BSBS SF EXPRESS",
+        "arrival":"10:50 PM",
+        "departure":"4:25 AM",
+        "from":"Delhi",
+        "to":"Kanpur",
+        "classtype":"2 Tier AC",
+        "price":1815
+    },
+    {
+        "name":"GORAKHDHAM EXP",
+        "arrival":"9:25 PM",
+        "departure":"2:55 AM",
+        "from":"Delhi",
+        "to":"Kanpur",
+        "classtype":"1st class AC",
+        "price":1645
+    },
+    {
+        "name":"SHIV GANGA EXP",
+        "arrival":"8:05 PM",
+        "departure":"1:00 AM",
+        "from":"Delhi",
+        "to":"Kanpur",
+        "classtype":"2 Tier AC",
+        "price":1645
+    },
+    {
+        "name":"JHELUM EXPRESS",
+        "arrival":"5:20 PM",
+        "departure":"3:42 AM",
+        "from":"Pune",
+        "to":"Kanpur",
+        "classtype":"1st class AC",
+        "price":2370
+    },
+    {
+        "name":"DARSHAN AC EXP",
+        "arrival":"11:10 AM",
+        "departure":"6:45 AM",
+        "from":"Pune",
+        "to":"Delhi",
+        "classtype":"1st class AC",
+        "price":1715
+    },
+    {
+        "name":"JHELUM EXPRESS",
+        "arrival":"5:20 PM",
+        "departure":"9:15 PM",
+        "from":"Pune",
+        "to":"Delhi ",
+        "classtype":"2 Tier AC",
+        "price":2011
+    },
+    {
+        "name":"GOA EXPRESS",
+        "arrival":"9:00 AM",
+        "departure":"11:55 AM",
+        "from":"Pune",
+        "to":"Delhi",
+        "classtype":"2 Tier AC",
+        "price":2300
+    },
+    {
+        "name":"CDG SKRANTI EXP",
+        "arrival":"9:00 AM",
+        "departure":"11:55 AM",
+        "from":"Pune",
+        "to":"Delhi ",
+        "classtype":"3 Tier AC",
+        "price":865
+    },
+    {
+        "name":"AII MYS EXP",
+        "arrival":"2:05 PM",
+        "departure":"11:25 PM",
+        "from":"Ahmedabad",
+        "to":"Bangalore",
+        "classtype":"Sleeper",
+        "price":665
+    },
+    {
+        "name":"RJT CBE EXP",
+        "arrival":"9:45 AM",
+        "departure":"12:48 PM",
+        "from":"Ahmedabad",
+        "to":"Bangalore",
+        "classtype":"3 Tier AC",
+        "price":1705
+    },
+    {
+        "name":"CBE LTT EXP",
+        "arrival":"3:15 PM",
+        "departure":"10:15 AM",
+        "from":"Bangalore",
+        "to":"Pune",
+        "classtype":"Sleeper",
+        "price":600
+    },
+    {
+        "name":"JODHPUR EXP",
+        "arrival":"5:05 PM",
+        "departure":"6:45 PM",
+        "from":"Bangalore",
+        "to":"Pune",
+        "classtype":"3 Tier AC",
+        "price":1350
+    },
+    {
+        "name":"UDYAN EXP",
+        "arrival":"8:40 PM",
+        "departure":"4:00 PM",
+        "from":"Bangalore",
+        "to":"Pune",
+        "classtype":"3 Tier AC",
+        "price":1645
+    },
+    {
+        "name":"BIKANER EXP",
+        "arrival":"11:30 AM",
+        "departure":"9:30 AM",
+        "from":"Bangalore",
+        "to":"Pune",
+        "classtype":"Sleeper",
+        "price":655
+    },
+    {
+        "name":"CBE LTT EXP",
+        "arrival":"3:15 PM",
+        "departure":"1:45 PM",
+        "from":"Bangalore",
+        "to":"Mumbai",
+        "classtype":"Sleeper",
+        "price":470
+    },    
+    {
+        "name":"JODHPUR EXP",
+        "arrival":"5:05 PM",
+        "departure":"10:40 PM",
+        "from":"Bangalore",
+        "to":"Mumbai",
+        "classtype":"3 Tier AC",
+        "price":1840
+    },
+    {
+        "name":"BIKANER EXP",
+        "arrival":"11:30 AM",
+        "departure":"1:20 PM",
+        "from":"Bangalore",
+        "to":"Mumbai",
+        "classtype":"1st class AC",
+        "price":1915
+    },
+    {
+        "name":"CBE LTT EXP",
+        "arrival":"3:15 PM",
+        "departure":"1:45 PM",
+        "from":"Bangalore",
+        "to":"Mumbai ",
+        "classtype":"2 Tier AC",
+        "price":1255
+    }
+]

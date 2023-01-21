@@ -5,7 +5,6 @@ import Signup from "../Components/LoginSignup/Signup";
 import Buses from "../Pages/Buses";
 import { Trains } from "../Pages/Trains";
 import HomePage from "../Pages/HomePage";
-import Profile from "../Pages/Profile";
 import PrivateRoute from "./Private.routes";
 import Admin from "../Components/AdminSection/Admin";
 import { AuthContext } from "../Components/Context/Auth.context";
@@ -15,6 +14,11 @@ import PaymentPage from "../Pages/PaymentPage";
 import Hotel from "../Pages/Hotel";
 import { TrainsListing } from "../Pages/TrainsListing";
 
+import Hotelpayment from "../Pages/Hotelpayment";
+
+import Payment from "../Components/CreditCard/Payment";
+import UserPage from "../Pages/UserPage";
+import FlightPaymentPage from "../Components/FlightBooking/FlightPaymentPage";
 
 const AllRoutes = () => {
   const { authState } = React.useContext(AuthContext);
@@ -28,15 +32,6 @@ const AllRoutes = () => {
           element={
             <PrivateRoute>
               <Buses />
-            </PrivateRoute>
-          }
-        ></Route>
-
-        <Route
-          path="/profile"
-          element={
-            <PrivateRoute>
-              <Profile />
             </PrivateRoute>
           }
         ></Route>
@@ -70,11 +65,13 @@ const AllRoutes = () => {
         />
 
 
+
         <Route path="/trains" element={<PrivateRoute><Trains /></PrivateRoute>} />
 
 
         <Route path="/trains/listing" element={<PrivateRoute><TrainsListing /></PrivateRoute>} />
-        
+       
+
         <Route
           path="/hotels"
           element={
@@ -84,7 +81,41 @@ const AllRoutes = () => {
           }
         />
 
+        <Route
+          path="/hotelcheckout"
+          element={
+            <PrivateRoute>
+              <Hotelpayment />
+            </PrivateRoute>
+          }
+        />
 
+        <Route
+          path="/payment"
+          element={
+            <PrivateRoute>
+              <Payment />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <UserPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/flightcheckout"
+          element={
+            <PrivateRoute>
+              <FlightPaymentPage />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </>
   );

@@ -122,6 +122,12 @@ flightRouter.get("/", async (req, res) => {
   }
 });
 
+flightRouter.get("/:id",async(req,res)=>{
+  const id = req.params.id;
+  const data=await FlightModel.findById(id)
+  res.send(data)
+})
+
 // Strictly for ADMIN only
 
 flightRouter.post("/create", async (req, res) => {

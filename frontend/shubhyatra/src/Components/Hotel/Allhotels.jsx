@@ -19,6 +19,7 @@ export default function Allhotel({data}) {
                  rate={i.rate}
                  price={i.price}
                  tax={i.tax}
+                 id={i._id}
                  />
             
         )}
