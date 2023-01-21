@@ -9,6 +9,7 @@ const {hotelsRoute}=require("./Routes/Hotels.Route")
 const { authenticate,AdminAuthenticate} =require("./Middlewares/authenticate");
 const { usersRoute } =require("./Routes/User.Route")
 const { flightRouter } = require("./Routes/Flight.route");
+const OrderRouter = require("./Routes/order.route");
 const { TrainsRoute } = require("./Routes/trains.routes");
 
 //Middlewares
@@ -20,6 +21,8 @@ app.use(
 );
 //user Route
 app.use("/users",usersRoute)
+//Order Route
+app.use("/order", OrderRouter)
 //Authenticate
 app.use(authenticate)
 //Admin Authenticate
@@ -30,6 +33,7 @@ app.use("/hotels",hotelsRoute)
 app.use("/bus",busRouter)
 // Booked Flight Route
 app.use("/bookedflight", flightRouter);
+//Order Route
 
 // Trains Route
 app.use("/trains", TrainsRoute);
