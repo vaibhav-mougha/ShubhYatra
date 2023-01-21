@@ -449,54 +449,6 @@ function Buses() {
         </Box>
       </Box>
 
-      {/* <Box w="100%" m="auto" className={styles_buses.shubhYatra_wrapper_bus}>
-          <HStack
-            width={["95%", "60%", "55%", "45%"]}
-            m="auto"
-            p="2"
-            justifyContent={"space-evenly"}
-            alignItems="center"
-          >
-            <Select placeholder="From" fontSize={"large"}  color="black" onChange={(e) => setStart(e.target.value)}>
-            <option value="New Delhi">New Delhi</option>
-              <option value="Mumbai">Mumbai</option>
-              <option value="Chennai">Chennai</option>
-              <option value="Kolkata">Kolkata</option>
-            </Select>
-            <BsArrowLeftRight fontSize="75px" />
-            <Select placeholder="To" fontSize={"large"}  color="black" onChange={(e) => setEnd(e.target.value)}>
-            <option value="New Delhi">New Delhi</option>
-              <option value="Mumbai">Mumbai</option>
-              <option value="Chennai">Chennai</option>
-              <option value="Kolkata">Kolkata</option>
-            </Select>
-            <Input
-              placeholder="Select Date and Time"
-              size="md"
-              type="datetime-local"
-              fontSize={"large"}  color="black"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-            />
-            <Button
-            //   colorScheme="teal"
-              fontSize={["lg", "lg", "-moz-initial"]}
-              w={["xs", "sm", "md", "lg", "xl"]}
-              onClick={handleSubmit}
-              _hover={{
-                bg:"#0B5FF4",
-                color:"white" ,
-                border: "2px solid #0B5FF4",
-              }}
-             
-              background="white"
-                color="#0B5FF4"
-            >
-              Search
-            </Button>
-          </HStack>
-        </Box> */}
-
       <Grid
         w="100%"
         gridTemplateColumns={[
