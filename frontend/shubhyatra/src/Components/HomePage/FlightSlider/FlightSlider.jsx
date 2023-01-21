@@ -57,7 +57,7 @@ export default function FlightSlider() {
                 borderRadius="1rem"
                 box-shadow="rgba(0, 0, 0, 0.35) 0px 5px 15px">
                   <Flex border="1px solid white" h="3.5rem">
-                    <Image src={ele.image} alt="" />
+                    <Image w={{base:"1rem",md:"4rem",lg:"5rem"}} src={ele.image} alt="" />
                     <Text
                       textAlign="center"
                       color="black"

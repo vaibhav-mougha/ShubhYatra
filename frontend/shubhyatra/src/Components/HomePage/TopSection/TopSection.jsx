@@ -149,25 +149,6 @@ const NavContainer = () => {
                   fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
                 >
                   <Link to="/">
-                    <FaHome />
-                    <Text
-                      textAlign="center"
-                      fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
-                      color="#555454"
-                      _hover={{ color: "#EB2226" }}
-                    >
-                      Homestays
-                    </Text>
-                  </Link>
-                </Box>
-
-                <Box
-                  bg="white"
-                  color="#555454"
-                  _hover={{ color: "#EB2226" }}
-                  fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
-                >
-                  <Link to="/trains">
                     <FaTrain />
                     <Text
                       textAlign="center"
@@ -186,8 +167,10 @@ const NavContainer = () => {
                   _hover={{ color: "#EB2226" }}
                   fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
                 >
+
                   <Link to="/buses">
                     <FaBus />
+
                     <Text
                       textAlign="center"
                       fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
@@ -195,6 +178,25 @@ const NavContainer = () => {
                       _hover={{ color: "#EB2226" }}
                     >
                       Buses
+                    </Text>
+                  </Link>
+                </Box>
+
+                <Box
+                  bg="white"
+                  color="#555454"
+                  _hover={{ color: "#EB2226" }}
+                  fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
+                >
+                  <Link to="/">
+                    <FaHome />
+                    <Text
+                      textAlign="center"
+                      fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
+                      color="#555454"
+                      _hover={{ color: "#EB2226" }}
+                    >
+                      Homestays
                     </Text>
                   </Link>
                 </Box>
@@ -503,36 +505,6 @@ const NavContainer = () => {
                         _hover={{ color: "#EB2226" }}
                         fontSize="30"
                       >
-                        <FaHome />
-                        <Text
-                          textAlign="center"
-                          fontSize={{
-                            base: "1.2rem",
-                            md: "0.8rem",
-                            lg: "1rem",
-                          }}
-                          // color="#555454"
-                          // _hover={{ color: "#EB2226" }}
-                          ml="1rem"
-                        >
-                          Homestays
-                        </Text>
-                      </Flex>
-                    </AccordionButton>
-                  </h2>
-                </AccordionItem>
-              </Link>
-
-              <Link to="/trains">
-                <AccordionItem>
-                  <h2>
-                    <AccordionButton>
-                      <Flex
-                        bg="white"
-                        color="#555454"
-                        _hover={{ color: "#EB2226" }}
-                        fontSize="30"
-                      >
                         <FaTrain />
                         <Text
                           textAlign="center"
@@ -553,7 +525,7 @@ const NavContainer = () => {
                 </AccordionItem>
               </Link>
 
-              <Link to="/">
+              <Link to="/trains">
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
@@ -580,6 +552,36 @@ const NavContainer = () => {
                         </Text>
                       </Flex>
                       </NavLink>
+                    </AccordionButton>
+                  </h2>
+                </AccordionItem>
+              </Link>
+
+              <Link to="/">
+                <AccordionItem>
+                  <h2>
+                    <AccordionButton>
+                      <Flex
+                        bg="white"
+                        color="#555454"
+                        _hover={{ color: "#EB2226" }}
+                        fontSize="30"
+                      >
+                        <FaHome />
+                        <Text
+                          textAlign="center"
+                          fontSize={{
+                            base: "1.2rem",
+                            md: "0.8rem",
+                            lg: "1rem",
+                          }}
+                          // color="#555454"
+                          // _hover={{ color: "#EB2226" }}
+                          ml="1rem"
+                        >
+                          Homestays
+                        </Text>
+                      </Flex>
                     </AccordionButton>
                   </h2>
                 </AccordionItem>
@@ -709,7 +711,7 @@ const NavContainer = () => {
               {!authState.token ? (
                 <Link to="/login">
                   <Button
-                    fontSize={{ base: "0.4rem", md: "0.6rem", lg: "1rem" }}
+                    fontSize={{ base: "0.8rem", md: "0.6rem", lg: "1rem" }}
                     // w={{ base: "1.7rem", md: "3rem", lg: "8.7rem" }}
                     // h={{ base: "1.2rem", md: "1.8rem", lg: "2.3rem" }}
                     _hover={{
