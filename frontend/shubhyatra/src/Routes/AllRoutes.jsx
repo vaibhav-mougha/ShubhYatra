@@ -12,7 +12,7 @@ import { AuthContext } from "../Components/Context/Auth.context";
 import NotFound from "../Pages/PageNotFound";
 import FlightBooking from "../Pages/FlightBooking";
 import Hotel from "../Pages/Hotel";
-
+import Payment from "../Components/CreditCard/Payment"
 
 const AllRoutes = () => {
   const { authState } = React.useContext(AuthContext);
@@ -20,6 +20,7 @@ const AllRoutes = () => {
     <>
       <Routes>
         <Route path="/" element={<HomePage />} />
+
         <Route
           path="/buses"
           element={
@@ -28,6 +29,7 @@ const AllRoutes = () => {
             </PrivateRoute>
           }
         ></Route>
+
         <Route
           path="/profile"
           element={
@@ -36,18 +38,16 @@ const AllRoutes = () => {
             </PrivateRoute>
           }
         ></Route>
+
         <Route path="/login" element={<Login />} />
+
         <Route path="/signup" element={<Signup />} />
-        
+
         {authState.email === "admin@shubhyatra.com" && (
-          <Route
-            path="/admin"
-            element={
-                <Admin />
-            }
-          ></Route>
+          <Route path="/admin" element={<Admin />}></Route>
         )}
-        <Route path="*" element={<NotFound/>}/>
+
+        <Route path="*" element={<NotFound />} />
 
         <Route
           path="/flight"
@@ -58,10 +58,9 @@ const AllRoutes = () => {
           }
         />
 
-        
         <Route path="/trains" element={<Trains />} />
 
-       <Route
+        <Route
           path="/hotels"
           element={
             <PrivateRoute>
@@ -69,6 +68,8 @@ const AllRoutes = () => {
             </PrivateRoute>
           }
         />
+
+        <Route path="/payment" element={<Payment />} />
 
       </Routes>
     </>
