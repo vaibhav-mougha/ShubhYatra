@@ -49,6 +49,13 @@ function PaymentPage() {
    }).then(Navigate("/payment"))
    .catch((err)=>console.log(err))
   }
+  const current = new Date();
+  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+];
+const dayNames = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
+  const date = `${current.getDate()}${monthNames[current.getMonth()]}'${current.getFullYear()},${dayNames[current.getDay()-1]}`;
+  const Newdate = `${current.getDate()+2}${monthNames[current.getMonth()]}'${current.getFullYear()},${dayNames[current.getDay()-1]}`;
   return (
     <>
     <NavContainer/>
@@ -79,7 +86,7 @@ function PaymentPage() {
               <Flex mt="2" gap="4">
                 <Heading size="lg">{data.start}</Heading>
                 <Heading mt="2" size="md" color="teal">
-                  26JAN'23,THU
+                {date}
                 </Heading>
               </Flex>
               <Heading size="md" color="green.300">
@@ -93,7 +100,7 @@ function PaymentPage() {
               <Flex mt="2" gap="4">
                 <Heading size="lg">{data.end}</Heading>
                 <Heading mt="2" size="md" color="teal">
-                  28JAN'23,THU
+                  {Newdate}
                 </Heading>
               </Flex>
               <Heading size="md" color="green.300">

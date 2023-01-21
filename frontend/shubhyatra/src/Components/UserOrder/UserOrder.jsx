@@ -1,8 +1,16 @@
-import { Box, Button, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Text, VStack } from "@chakra-ui/react";
 import React from "react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
+import { CgArrowLongRight } from "react-icons/cg";
 
-const UserOrder = () => {
+const UserOrder = ({data}) => {
+  const current = new Date();
+  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+];
+const dayNames = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
+  const date = `${current.getDate()}${monthNames[current.getMonth()]}'${current.getFullYear()},${dayNames[current.getDay()-1]}`;
+  const Newdate = `${current.getDate()+2}${monthNames[current.getMonth()]}'${current.getFullYear()},${dayNames[current.getDay()-1]}`;
   return (
     <>
       <Box
@@ -29,7 +37,7 @@ const UserOrder = () => {
               fontSize={{ base: "0.6rem", md: "0.8rem", lg: "1rem" }}
               color="black"
             >
-              Date:"From Auth"
+              Date:{date}
             </Text>
           </Box>
 
@@ -44,7 +52,7 @@ const UserOrder = () => {
               fontSize={{ base: "0.6rem", md: "0.8rem", lg: "1rem" }}
               color="black"
             >
-              ₹ : "Auth"
+              ₹ {data.price}
             </Text>
           </Box>
 
@@ -54,7 +62,7 @@ const UserOrder = () => {
               color="black"
               textAlign="left"
             >
-              Order # "Number"
+              Order #{data._id.slice(0,10)}
             </Text>
           <Box display="flex" justifyContent="space-between">
             <Text
@@ -79,6 +87,50 @@ const UserOrder = () => {
           
         </Box>
 
+        <Box mt="5" w="100%">
+          <Flex w="90%" justifyContent={"space-between"} alignItems="center">
+            <VStack>
+              <Heading size="md">{data.name}</Heading>
+              <Heading color="teal" size="sm">
+                {data.type}
+              </Heading>
+            </VStack>
+            <VStack>
+              <Heading size="md">1 Seat selected</Heading>
+              <Heading color="blue.400" size="sm">
+                Seat No: UB1
+              </Heading>
+            </VStack>
+          </Flex>
+          <Flex w="70%" justifyContent={"space-between"} alignItems="center">
+            <VStack>
+              <Flex mt="2" gap="4">
+                <Heading size="lg">{data.start}</Heading>
+                <Heading mt="2" size="md" color="teal">
+                  {date}
+                </Heading>
+              </Flex>
+              <Heading size="md" color="green.300">
+                {data.from}:Nehru Nagar
+              </Heading>
+            </VStack>
+            <VStack>
+              <CgArrowLongRight fontSize="70px" />
+            </VStack>
+            <VStack>
+              <Flex mt="2" gap="4">
+                <Heading size="lg">{data.end}</Heading>
+                <Heading mt="2" size="md" color="teal">
+                 {Newdate}
+                </Heading>
+              </Flex>
+              <Heading size="md" color="green.300">
+                {data.to}:Tilak Nagar
+              </Heading>
+            </VStack>
+          </Flex>
+        </Box>
+
         <Text
               fontSize={{ base: "0.6rem", md: "0.8rem", lg: "1.7rem" }}
               color="black"
@@ -94,7 +146,7 @@ const UserOrder = () => {
               color="black"
               textAlign="left"
             >
-              Paid on : "date from auth"
+              Paid on : {date}
             </Text>
 
 <Button 
