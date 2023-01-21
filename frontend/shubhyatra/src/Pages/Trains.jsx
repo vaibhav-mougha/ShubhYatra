@@ -7,6 +7,7 @@ import OffersCarousel from "../Components/HomePage/OffersCarousel/OffersCarousel
 import Footer from "../Components/HomePage/Footer/Footer";
 import { Details } from "../Components/Trains/Details";
 import { AboutSite } from "../Components/Trains/AboutSite";
+import { QandA } from "../Components/Trains/QandA";
 
 
 export const Trains = () =>{
@@ -18,6 +19,7 @@ export const Trains = () =>{
             <OffersCarousel />
             <AboutSite />
             <Details />
+            <QandA />
             <Footer />
         </Box>
     )

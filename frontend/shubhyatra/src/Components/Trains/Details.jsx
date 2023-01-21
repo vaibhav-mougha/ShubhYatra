@@ -35,11 +35,8 @@ const data = [
     {
         title:"Why should you book Train Tickets with MakeMyTrip", 
         desc:`MakeMyTrip can provide you the most reliable and secure way of train booking and all you need to do is plan your itinerary. The portal provides a user-friendly experience to our customers. Instead of waiting or queueing up in lines for hours to book a train ticket, you can visit the website. The train tickets online booking system of MakeMyTrip allow you to book your travel package from anywhere. All you need to do is enter your IRCTC login detail and you have all the information you need.`
-    },
-    {
-        title:"", 
-        desc:""
-    },
+    }
+   
 ]
 
 export const Details = () => {
@@ -50,7 +47,7 @@ export const Details = () => {
         >
         <Grid
         templateColumns="repeat(2, 1fr)"
-        gap="20"
+        // gap="20"
        
         w="80%"
         m="auto"
@@ -59,7 +56,10 @@ export const Details = () => {
         >
             {
                 data.map((item, i) =>(
-                    <GridItem key={i}>
+                    <GridItem key={i}
+                    borderBottom="1px solid gray"
+                    p="30px"
+                    >
                         <Heading
                         fontSize="lg"
                         color="gray.800"
