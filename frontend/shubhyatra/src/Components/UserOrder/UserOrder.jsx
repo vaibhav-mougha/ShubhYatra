@@ -24,17 +24,18 @@ const UserOrder = ({ data }) => {
   const date = `${current.getDate()}${
     monthNames[current.getMonth()]
   }'${current.getFullYear()},${
-    dayNames[current.getDay() - 1] === undefined
-      ? "sun"
+    dayNames[current.getDay() - 1] == undefined
+      ? "Sun"
       : dayNames[current.getDay() - 1]
   }`;
   const Newdate = `${current.getDate() + 2}${
     monthNames[current.getMonth()]
   }'${current.getFullYear()},${
-    dayNames[current.getDay() - 1] === undefined
-      ? "sun"
-      : dayNames[current.getDay() - 1]
+    dayNames[current.getDay() - 1] == undefined
+      ? "Mon"
+      : dayNames[current.getDay()]
   }`;
+
   return (
     <>
       <Box
@@ -115,24 +116,32 @@ const UserOrder = ({ data }) => {
                 {data.type}
               </Heading>
             </VStack>
-            <VStack>
+           {data.rating? <VStack>
+              <Heading size="md">1 Room</Heading>
+              <Heading color="blue.400" size="sm">
+                2 Adults
+              </Heading>
+            </VStack>: <VStack>
               <Heading size="md">1 Seat selected</Heading>
               <Heading color="blue.400" size="sm">
                 Seat No: UB1
               </Heading>
-            </VStack>
+            </VStack>}
           </Flex>
           <Flex w="70%" justifyContent={"space-between"} alignItems="center">
             <VStack>
               <Flex mt="2" gap="4">
                 <Heading size="lg">{data.start}</Heading>
-                <Heading mt="2" size="md" color="teal">
+                <Heading mt="2" size="md" color="#0D24A8">
                   {date}
                 </Heading>
               </Flex>
-              <Heading size="md" color="green.300">
-                {data.from}:Nehru Nagar
-              </Heading>
+              {data.rating?<Heading size="md" color="green.300">
+                Check In
+              </Heading>:""}
+              {data.from?<Heading size="md" color="green.300">
+                {data.from}
+              </Heading>:""}
             </VStack>
             <VStack>
               <CgArrowLongRight fontSize="70px" />
@@ -140,20 +149,22 @@ const UserOrder = ({ data }) => {
             <VStack>
               <Flex mt="2" gap="4">
                 <Heading size="lg">{data.end}</Heading>
-                <Heading mt="2" size="md" color="teal">
+                <Heading mt="2" size="md" color="#0D24A8">
                   {Newdate}
                 </Heading>
               </Flex>
-              <Heading size="md" color="green.300">
-                {data.to}:Tilak Nagar
-              </Heading>
+              {data.rating?<Heading size="md" color="#F70000">
+                Check Out
+              </Heading>:<Heading size="md" color="green.300">
+              {data.to}
+              </Heading>}
             </VStack>
           </Flex>
         </Box>
 
         <Text
           fontSize={{ base: "0.6rem", md: "0.8rem", lg: "1.7rem" }}
-          color="black"
+          color="#00F700"
           textAlign="left"
           fontWeight="bold"
           mt="0.7rem"

@@ -114,7 +114,7 @@ function PaymentPage() {
                   </Heading>
                 </Flex>
                 <Heading size="md" color="green.300">
-                  {data.from}:Nehru Nagar
+                  {data.from}
                 </Heading>
               </VStack>
               <VStack>
@@ -128,7 +128,7 @@ function PaymentPage() {
                   </Heading>
                 </Flex>
                 <Heading size="md" color="green.300">
-                  {data.to}:Tilak Nagar
+                  {data.to}
                 </Heading>
               </VStack>
             </Flex>
