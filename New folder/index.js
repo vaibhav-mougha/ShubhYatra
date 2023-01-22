@@ -4,7 +4,7 @@ const busRouter=require("./Routes/bus.routes")
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const { connection } = require("./Configs/db");
+const { connection } = require("./configs/db");
 const {hotelsRoute}=require("./Routes/Hotels.Route")
 const { authenticate,AdminAuthenticate} =require("./Middlewares/authenticate");
 const { usersRoute } =require("./Routes/User.Route")
@@ -12,7 +12,7 @@ const { flightRouter } = require("./Routes/Flight.route");
 const OrderRouter = require("./Routes/order.route");
 const { TrainsRoute } = require("./Routes/trains.routes");
 
-// Middlewares... 
+//Middlewares
 app.use(express.json());
 app.use(
   cors({
