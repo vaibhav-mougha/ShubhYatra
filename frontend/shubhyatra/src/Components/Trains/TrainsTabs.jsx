@@ -1,8 +1,7 @@
-import { Box, Button, Center, Flex, Input, 
-    InputGroup, Radio, RadioGroup, 
+import { Box, Button, Center, Flex, Input,  Radio, RadioGroup, 
     Select, Stack, Text,
  } from "@chakra-ui/react"
-import { Link, Navigate } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 
 export const TrainsTabs = ()=>{

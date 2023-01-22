@@ -3,6 +3,7 @@ import NavContainer from "../Components/HomePage/TopSection/Navbar"
 import { SearchSection } from "../Components/Trains/TrainListing/SearchSection"
 
 
+
 export const TrainsListing = () =>{
     return (
         <Box bgColor="blackAlpha.200">

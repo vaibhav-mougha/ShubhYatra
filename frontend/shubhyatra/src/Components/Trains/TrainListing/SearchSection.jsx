@@ -2,6 +2,7 @@ import { Box, Button, Flex, Input, Text } from "@chakra-ui/react"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { ResultSection } from "./ResultSection"
+import styles_buses from "../../../Styles/buses.module.css";
 
 const iniState = {
     from :"",
@@ -58,7 +59,7 @@ export const SearchSection = () =>{
     return (
         <Box>
             <Box
-            bgColor="blue.900" 
+            className={styles_buses.shubhYatra_wrapper_bus}
             color="white"
             >
                 <Flex
