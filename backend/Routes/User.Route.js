@@ -9,34 +9,30 @@ const bcrypt = require('bcrypt');
 
 usersRoute.post("/register",async (req,res)=>{
   const {name,email,password,phone}=req.body
-  if(name && email && password && phone){
     try{
+      if(name && email && password && phone){
       const cheak=await RegisterModule.find({"email":email})
       if(cheak.length>0){
-        res.send("Email already register")
-
+        res.status(401).json({"message":"Email already register"})
       }else{
         bcrypt.hash(password, 8, async (err, hash)=>{
           const user=new RegisterModule({name,email,password:hash,phone})
           await user.save()
-          res.send("Registered")
+          // res.send("Registered")
           res.status(201).json({"message":"Registered",user});
         });
       }
-      
+    }
       }catch(err){
         res.status(401).json({
-          error,
           message: "Something went wrong",
         });
       
       }
-  }else{
-    res.send("Fill All Details")
-  }
   })
 
-usersRoute.use(login)
+  usersRoute.use(login)
+
 
 usersRoute.get("/",async(req,res)=>{
   const {name} = req.query;

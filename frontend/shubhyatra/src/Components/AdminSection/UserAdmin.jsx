@@ -58,7 +58,7 @@ const UserAdmin = () => {
         getAllData(page)
         toast({
             title: 'User has been deleted Successfully',
-            description:`You successfully deleted User with id: ${id}`,
+            description:`Admin has successfully deleted the User with id: ${id}`,
             status: 'success',
             duration: 2000,
             isClosable: true,
