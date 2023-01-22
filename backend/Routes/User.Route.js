@@ -6,7 +6,7 @@ const {authenticate}=require("../Middlewares/authenticate")
 const {login}=require("../Middlewares/Validetor")
 
 const bcrypt = require('bcrypt');
-usersRoute.use(login)
+
 usersRoute.post("/register",async (req,res)=>{
   const {name,email,password,phone}=req.body
   if(name && email && password && phone){
@@ -35,6 +35,8 @@ usersRoute.post("/register",async (req,res)=>{
     res.send("Fill All Details")
   }
   })
+
+usersRoute.use(login)
 
 usersRoute.get("/",async(req,res)=>{
   const {name} = req.query;
