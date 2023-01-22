@@ -19,6 +19,7 @@ import Hotelpayment from "../Pages/Hotelpayment";
 import Payment from "../Components/CreditCard/Payment";
 import UserPage from "../Pages/UserPage";
 import FlightPaymentPage from "../Components/FlightBooking/FlightPaymentPage";
+import TrainCheckout from "../Components/Trains/TrainBooking/TrainCheckout";
 
 const AllRoutes = () => {
   const { authState } = React.useContext(AuthContext);
@@ -113,6 +114,15 @@ const AllRoutes = () => {
           element={
             <PrivateRoute>
               <FlightPaymentPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/traincheckout"
+          element={
+            <PrivateRoute>
+              <TrainCheckout />
             </PrivateRoute>
           }
         />

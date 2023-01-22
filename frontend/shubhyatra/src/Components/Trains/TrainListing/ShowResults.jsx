@@ -1,8 +1,20 @@
 import { Box, Button, Flex, Heading, Stack, Text, Icon } from "@chakra-ui/react"
+import { useContext } from "react";
 import {TbArrowsRightLeft} from "react-icons/tb"
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Context/Auth.context";
 
 
 export const ShowResults = ({data}) =>{
+    const{handleProdId}=useContext(AuthContext);
+
+    const Navigate=useNavigate();
+
+    const handleBook = (id) =>{
+        handleProdId(id);
+        Navigate("/traincheckout");
+    }
+
     if(data.length <= 0){
         return (
             <Box>
@@ -48,6 +60,7 @@ export const ShowResults = ({data}) =>{
                         <Button 
                         w="fit-content"
                         colorScheme="purple"
+                        onClick={() => handleBook(item._id)}
                         >Book Now</Button>
                     </Stack>
                 ))
