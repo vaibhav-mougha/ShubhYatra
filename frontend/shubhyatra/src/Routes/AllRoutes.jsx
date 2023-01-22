@@ -17,13 +17,14 @@ import Hotelpayment from "../Pages/Hotelpayment";
 import Payment from "../Components/CreditCard/Payment";
 import UserPage from "../Pages/UserPage";
 import FlightPaymentPage from "../Components/FlightBooking/FlightPaymentPage";
+import TrainCheckout from "../Components/Trains/TrainBooking/TrainCheckout";
 import ScrollToTop from "../Components/ScrollToTop/ScrollToTop";
 
 const AllRoutes = () => {
   const { authState } = React.useContext(AuthContext);
   return (
-    <>
-      <ScrollToTop>
+    <>  
+    <ScrollToTop>
         <Routes>
           <Route path="/" element={<HomePage />} />
 
@@ -72,6 +73,15 @@ const AllRoutes = () => {
               </PrivateRoute>
             }
           />
+          
+          <Route
+            path="/traincheckout"
+            element={
+              <PrivateRoute>
+                <TrainCheckout />
+              </PrivateRoute>
+            }
+          />
 
           <Route
             path="/trains/listing"
@@ -81,6 +91,8 @@ const AllRoutes = () => {
               </PrivateRoute>
             }
           />
+          
+          
 
           <Route
             path="/hotels"
@@ -128,6 +140,7 @@ const AllRoutes = () => {
           />
         </Routes>
       </ScrollToTop>
+
     </>
   );
 };
