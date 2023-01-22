@@ -52,19 +52,21 @@ function TrainCheckout() {
   }, [authState.ProdId]);
 
   const handleOrder=()=>{
-    const payload={
-      ...data,
-      email:authState.email
-    }
+    // const payload={
+    //   ...data,
+    //   email:authState.email
+    // }
 
-    fetch("http://localhost:8080/order/add",{
-      method:"POST",
-      body:JSON.stringify(payload),
-      headers:{
-          "content-type":"application/json"
-      }
-   }).then(Navigate("/payment"))
-   .catch((err)=>console.log(err))
+  //   fetch("http://localhost:8080/order/add",{
+  //     method:"POST",
+  //     body:JSON.stringify(payload),
+  //     headers:{
+  //         "content-type":"application/json"
+  //     }
+  //  }).then(Navigate("/payment"))
+  //  .catch((err)=>console.log(err))
+
+    Navigate("/payment");
   }
 
   const current = new Date();
