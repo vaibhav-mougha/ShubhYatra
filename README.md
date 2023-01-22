@@ -87,7 +87,7 @@
 
 ## Trains Page :
 ![TrainsPage1](https://user-images.githubusercontent.com/107460451/213929880-cc5d2963-461b-4b40-9f50-1004d4cef763.jpg)
-![TrainsPage2](https://user-images.githubusercontent.com/107460451/213929897-81fbc441-2018-4b3f-940c-ecf3880acc64.jpg)pg)
+![TrainsPage2](https://user-images.githubusercontent.com/107460451/213929897-81fbc441-2018-4b3f-940c-ecf3880acc64.jpg)
 <br/>
 <h3>Here users can book their train tickets .</h3>
 <br/>
@@ -120,16 +120,15 @@
 <br/>
 
 
-## Admin Page :
+## Admin Section : User,Flight,Hotels,Trains,Buses
 ![UserAdmin](https://user-images.githubusercontent.com/107460451/213930778-4e0865f9-f8fb-402a-aae7-a113ccf2b5c3.jpg)
-<h3>User Admin</h3>
+
 ![FlightAdmin](https://user-images.githubusercontent.com/107460451/213930796-ddcd0875-d460-4b06-a320-de262ad1466a.jpg)
-<h3>Flight Admin</h3>
+
 ![HotelAdminPage](https://user-images.githubusercontent.com/107460451/213930811-bc1f1403-74a8-4117-9f18-2cb3c6b42dc7.jpg)
-<h3>Hotel Admin</h3>
+
 ![BusesAdminPage](https://user-images.githubusercontent.com/107460451/213930816-7e4d2627-cb11-487e-a953-6cc4c8c57518.jpg)
-<h3>Bus Admin</h3>
-<br/>
+
 <h3>Admin Section is responsible for maintaining and updating the data of the website .</h3>
 <br/>
 
