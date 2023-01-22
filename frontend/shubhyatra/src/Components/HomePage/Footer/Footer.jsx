@@ -2,7 +2,7 @@ import React from "react";
 import stylesFooter from "./Footer.module.css";
 import { FaTwitter, FaFacebookF } from "react-icons/fa";
 import { Box, Link } from "@chakra-ui/react";
-import QuesAns from "../QuesAns/QuesAns"
+import QuesAns from "../QuesAns/QuesAns";
 
 const Footer = () => {
   return (

@@ -56,8 +56,8 @@ const NavContainer = () => {
 
   const handleLogout = () => {
     logout();
-    navigate("/")
-  }
+    navigate("/");
+  };
 
   return (
     <div className={styles.shubhYatra_wrapper}>
@@ -167,7 +167,6 @@ const NavContainer = () => {
                   _hover={{ color: "#EB2226" }}
                   fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
                 >
-
                   <Link to="/buses">
                     <FaBus />
 
@@ -318,15 +317,15 @@ const NavContainer = () => {
                         {authState.name.toUpperCase()}
                       </MenuButton>
                       <MenuList color={"black"}>
-                      {authState.email === "admin@shubhyatra.com" ? (
-                        <NavLink to="/admin">
-                          <MenuItem>Admin</MenuItem>
-                        </NavLink>
-                      ) : (
-                        <NavLink to="/profile">
-                          <MenuItem>Profile</MenuItem>
-                        </NavLink>
-                      )}
+                        {authState.email === "admin@shubhyatra.com" ? (
+                          <NavLink to="/admin">
+                            <MenuItem>Admin</MenuItem>
+                          </NavLink>
+                        ) : (
+                          <NavLink to="/profile">
+                            <MenuItem>Profile</MenuItem>
+                          </NavLink>
+                        )}
                         <MenuItem onClick={handleLogout}>Logout</MenuItem>
                       </MenuList>
                     </Menu>
@@ -530,27 +529,27 @@ const NavContainer = () => {
                   <h2>
                     <AccordionButton>
                       <NavLink>
-                      <Flex
-                        bg="white"
-                        color="#555454"
-                        _hover={{ color: "#EB2226" }}
-                        fontSize="30"
-                      >
-                        <FaBus />
-                        <Text
-                          textAlign="center"
-                          fontSize={{
-                            base: "1.2rem",
-                            md: "0.8rem",
-                            lg: "1rem",
-                          }}
-                          // color="#555454"
-                          // _hover={{ color: "#EB2226" }}
-                          ml="1rem"
+                        <Flex
+                          bg="white"
+                          color="#555454"
+                          _hover={{ color: "#EB2226" }}
+                          fontSize="30"
                         >
-                          Buses
-                        </Text>
-                      </Flex>
+                          <FaBus />
+                          <Text
+                            textAlign="center"
+                            fontSize={{
+                              base: "1.2rem",
+                              md: "0.8rem",
+                              lg: "1rem",
+                            }}
+                            // color="#555454"
+                            // _hover={{ color: "#EB2226" }}
+                            ml="1rem"
+                          >
+                            Buses
+                          </Text>
+                        </Flex>
                       </NavLink>
                     </AccordionButton>
                   </h2>
@@ -747,15 +746,15 @@ const NavContainer = () => {
                     {authState.name.toUpperCase()}
                   </MenuButton>
                   <MenuList color={"black"}>
-                  {authState.email === "admin@shubhyatra.com" ? (
-                        <NavLink to="/admin">
-                          <MenuItem>Admin</MenuItem>
-                        </NavLink>
-                      ) : (
-                        <NavLink to="/profile">
-                          <MenuItem>Profile</MenuItem>
-                        </NavLink>
-                      )}
+                    {authState.email === "admin@shubhyatra.com" ? (
+                      <NavLink to="/admin">
+                        <MenuItem>Admin</MenuItem>
+                      </NavLink>
+                    ) : (
+                      <NavLink to="/profile">
+                        <MenuItem>Profile</MenuItem>
+                      </NavLink>
+                    )}
                     <MenuItem onClick={handleLogout}>Logout</MenuItem>
                   </MenuList>
                 </Menu>

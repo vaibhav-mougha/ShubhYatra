@@ -15,13 +15,12 @@ import {
 import axios from "axios";
 
 const UserAdmin = () => {
-
   const [page, setPage] = React.useState(1);
   const [data, setData] = React.useState([]);
   const [query, setQuery] = React.useState("");
 
-  const toast = useToast()
-  const getAllData = (page=1) => {
+  const toast = useToast();
+  const getAllData = (page = 1) => {
     axios
       .get(`http://localhost:8080/users?page=${page}`, {
         headers: {
@@ -47,40 +46,40 @@ const UserAdmin = () => {
       .catch((err) => console.error(err));
   };
 
-  const handleDelete=(id)=>{
-    axios.delete(`http://localhost:8080/users/delete/${id}`,{
+  const handleDelete = (id) => {
+    axios
+      .delete(`http://localhost:8080/users/delete/${id}`, {
         headers: {
-            authorization: localStorage.getItem("token"),
-          },
-    })
-    .then((res)=>{
-        console.log(res)
-        getAllData(page)
+          authorization: localStorage.getItem("token"),
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        getAllData(page);
         toast({
-            title: 'User has been deleted Successfully',
-            description:`Admin has successfully deleted the User with id: ${id}`,
-            status: 'success',
-            duration: 2000,
-            isClosable: true,
-          })
-    })
-    .catch((err) => {
-        console.error(err)
+          title: "User has been deleted Successfully",
+          description: `Admin has successfully deleted the User with id: ${id}`,
+          status: "success",
+          duration: 2000,
+          isClosable: true,
+        });
+      })
+      .catch((err) => {
+        console.error(err);
         toast({
-            title: 'Failed to Delete the User',
-            description:`You are not autherised`,
-            status: 'error',
-            duration: 2000,
-            isClosable: true,
-          })
-    })
-  }
+          title: "Failed to Delete the User",
+          description: `You are not autherised`,
+          status: "error",
+          duration: 2000,
+          isClosable: true,
+        });
+      });
+  };
 
   const handlepage = (p) => {
     setPage(page + p);
-    getAllData(page)
+    getAllData(page);
   };
-
 
   return (
     <Box>
@@ -117,7 +116,7 @@ const UserAdmin = () => {
         >
           {/* All Flights */}
           <Button
-            onClick={()=>getAllData(page)}
+            onClick={() => getAllData(page)}
             variant={"outline"}
             textTransform={"capitalize"}
           >
@@ -164,7 +163,7 @@ const UserAdmin = () => {
               </ModalHeader>
               <ModalCloseButton /> */}
 
-              {/* <ModalBody pb={6}>
+          {/* <ModalBody pb={6}>
                 <FormControl>
                   <FormLabel>Name</FormLabel>
                   <Input
@@ -309,14 +308,19 @@ const UserAdmin = () => {
                       <Td>{i.email}</Td>
                       <Td>{i.phone}</Td>
                       <Td>
-                        <Button onClick={()=>handleDelete(i._id)} colorScheme="red"
-            borderRadius="1rem"
-            variant="solid"
-            _hover={{
-              background: "white",
-              color: "red",
-              border: "2px solid red",
-            }}>Delete</Button>
+                        <Button
+                          onClick={() => handleDelete(i._id)}
+                          colorScheme="red"
+                          borderRadius="1rem"
+                          variant="solid"
+                          _hover={{
+                            background: "white",
+                            color: "red",
+                            border: "2px solid red",
+                          }}
+                        >
+                          Delete
+                        </Button>
                       </Td>
                     </Tr>
                   );

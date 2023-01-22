@@ -148,26 +148,27 @@ export default class App extends React.Component {
               <Input mt="0.7rem" type="hidden" name="issuer" value={issuer} />
               <div className="form-actions">
                 <button className="btn btn-primary btn-block">
-
-                  <Link to="/profile"><Button
-                  // onClick={this.handlePay}
-                    bg="#FFA200"
-                    borderRadius="1rem"
-                    variant="solid"
-                    ml="3rem"
-                    color="white"
-                    _hover={{
-                      background: "white",
-                      color: "#FFA200",
-                      border: "2px solid #FFA200",
-                    }}
-                    mr={3}
-                    //   onClick={handleSubmit}  use onClick for saving new Flight Details
-                    mt="1rem"
-                    w="10rem"
-                  >
-                    Pay Now
-                  </Button></Link>
+                  <Link to="/profile">
+                    <Button
+                      // onClick={this.handlePay}
+                      bg="#FFA200"
+                      borderRadius="1rem"
+                      variant="solid"
+                      ml="3rem"
+                      color="white"
+                      _hover={{
+                        background: "white",
+                        color: "#FFA200",
+                        border: "2px solid #FFA200",
+                      }}
+                      mr={3}
+                      //   onClick={handleSubmit}  use onClick for saving new Flight Details
+                      mt="1rem"
+                      w="10rem"
+                    >
+                      Pay Now
+                    </Button>
+                  </Link>
                 </button>
               </div>
             </Box>

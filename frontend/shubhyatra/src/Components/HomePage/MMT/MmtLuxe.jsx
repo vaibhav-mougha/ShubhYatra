@@ -13,7 +13,12 @@ const MmtLuxe = () => {
         justify="center"
         margin="auto"
       >
-        <Box className={styleMMT.bigcard} p="0.5rem" margin="auto" textAlign="left">
+        <Box
+          className={styleMMT.bigcard}
+          p="0.5rem"
+          margin="auto"
+          textAlign="left"
+        >
           <Box className={styleMMT.title}>
             <h4>
               {" "}
@@ -61,7 +66,10 @@ const MmtLuxe = () => {
                   </Box>
                 </h2>
                 <p>
-                  <Box fontSize={{ base: "0.6rem", md: "0.6rem", lg: "0.8rem" }} textAlign="center">
+                  <Box
+                    fontSize={{ base: "0.6rem", md: "0.6rem", lg: "0.8rem" }}
+                    textAlign="center"
+                  >
                     Taj, Marriott,Oberoi,Hyatt & <br /> More{" "}
                   </Box>
                 </p>
@@ -80,7 +88,10 @@ const MmtLuxe = () => {
                   </Box>
                 </h2>
                 <p>
-                <Box fontSize={{ base: "0.6rem", md: "0.6rem", lg: "0.8rem" }} textAlign="center">
+                  <Box
+                    fontSize={{ base: "0.6rem", md: "0.6rem", lg: "0.8rem" }}
+                    textAlign="center"
+                  >
                     Premimu Villas with Superlative <br /> Experience
                   </Box>
                 </p>
@@ -99,7 +110,10 @@ const MmtLuxe = () => {
                   </Box>
                 </h2>
                 <p>
-                <Box fontSize={{ base: "0.6rem", md: "0.6rem", lg: "0.8rem" }} textAlign="center">
+                  <Box
+                    fontSize={{ base: "0.6rem", md: "0.6rem", lg: "0.8rem" }}
+                    textAlign="center"
+                  >
                     Explore Luxury Stays based on <br /> your interest
                   </Box>
                 </p>

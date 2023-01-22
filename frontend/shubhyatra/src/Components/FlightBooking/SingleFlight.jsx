@@ -29,12 +29,11 @@ function SingleFlight({
   month,
   logo,
 }) {
-
-  const{handleProdId}=useContext(AuthContext)
-  const Navigate=useNavigate()
+  const { handleProdId } = useContext(AuthContext);
+  const Navigate = useNavigate();
   const handleBook = () => {
-    handleProdId(id)
-    Navigate("/flightcheckout")
+    handleProdId(id);
+    Navigate("/flightcheckout");
   };
 
   return (
@@ -138,7 +137,7 @@ function SingleFlight({
             }}
             bg="#0B5FF4"
             color="white"
-            onClick={handleBook} 
+            onClick={handleBook}
           >
             Book Now
           </Button>
