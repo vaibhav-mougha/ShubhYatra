@@ -41,18 +41,7 @@ import { AuthContext } from "../../Context/Auth.context";
 const NavContainer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
-  // const [name, setName] = React.useState("");
-  // const data = localStorage.getItem("name");
-  // const [token, setToken] = React.useState(!!data);
   const { authState, logout } = React.useContext(AuthContext);
-
-  // useEffect(() => {
-  //   if (data) {
-  //     setName(data);
-  //     setToken(true);
-  //     console.log(token);
-  //   }
-  // }, [data, token, name]);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -188,25 +177,6 @@ const NavContainer = () => {
                   fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
                 >
                   <Link to="/">
-                    <FaHome />
-                    <Text
-                      textAlign="center"
-                      fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
-                      color="#555454"
-                      _hover={{ color: "#EB2226" }}
-                    >
-                      Homestays
-                    </Text>
-                  </Link>
-                </Box>
-
-                <Box
-                  bg="white"
-                  color="#555454"
-                  _hover={{ color: "#EB2226" }}
-                  fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
-                >
-                  <Link to="/">
                     <FaCar />
                     <Text
                       textAlign="center"
@@ -272,6 +242,25 @@ const NavContainer = () => {
                       _hover={{ color: "#EB2226" }}
                     >
                       Activites
+                    </Text>
+                  </Link>
+                </Box>
+
+                <Box
+                  bg="white"
+                  color="#555454"
+                  _hover={{ color: "#EB2226" }}
+                  fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
+                >
+                  <Link to="/">
+                    <FaHome />
+                    <Text
+                      textAlign="center"
+                      fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
+                      color="#555454"
+                      _hover={{ color: "#EB2226" }}
+                    >
+                      Homestays
                     </Text>
                   </Link>
                 </Box>
