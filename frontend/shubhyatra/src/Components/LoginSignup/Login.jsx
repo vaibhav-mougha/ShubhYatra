@@ -26,9 +26,9 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const {login}=React.useContext(AuthContext)
-  const Navigate=useNavigate()
-  const toast = useToast()
+  const { login } = React.useContext(AuthContext);
+  const Navigate = useNavigate();
+  const toast = useToast();
   const HnadleLogin = () => {
     const payload = {
       email,
@@ -46,35 +46,35 @@ function Login() {
         // console.log(res);
         localStorage.setItem("token", res.token);
         // localStorage.setItem("name", res.name);
-        console.log(res)
-        if(res.token){
-          login(res.token,res.name,res.email)
+        console.log(res);
+        if (res.token) {
+          login(res.token, res.name, res.email);
           toast({
-            title: 'Login Success.',
-            description:"You have successfully logged in",
-            status: 'success',
+            title: "Login Success.",
+            description: "You have successfully logged in",
+            status: "success",
             duration: 2000,
             isClosable: true,
-          })
+          });
           setTimeout(() => {
             Navigate("/");
           }, 2200);
         }
       })
       .catch((err) => {
-        console.log("err :>> ", err)
+        console.log("err :>> ", err);
         toast({
-          title: 'Login Failed.',
-          description:"Please Enter Correct Details",
-          status: 'error',
+          title: "Login Failed.",
+          description: "Please Enter Correct Details",
+          status: "error",
           duration: 2000,
           isClosable: true,
-        })
+        });
       });
   };
   return (
     <>
-    <NavContainer/>
+      <NavContainer />
       <Flex
         minH={"70vh"}
         align={"center"}
@@ -143,14 +143,18 @@ function Login() {
               </Stack>
               <Stack pt={6}>
                 <Text align={"center"}>
-                  New to Shubhyatra? <NavLink to="/signup"> <Link color={"blue.400"}>SignUp</Link></NavLink>
+                  New to Shubhyatra?{" "}
+                  <NavLink to="/signup">
+                    {" "}
+                    <Link color={"blue.400"}>SignUp</Link>
+                  </NavLink>
                 </Text>
               </Stack>
             </Stack>
           </Box>
         </Stack>
       </Flex>
-      <Footer/>
+      <Footer />
     </>
   );
 }

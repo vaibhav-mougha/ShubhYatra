@@ -15,7 +15,16 @@ function Photo() {
         Photos
       </MenuButton>
       <MenuList w="-webkit-max-content" m="auto" p="5">
-        <Grid gap={["1","2","3"]} gridTemplateColumns={["repeat(1,1fr)","repeat(1,1fr)","repeat(1,1fr)","repeat(2,1fr)","repeat(4,1fr)"]}>
+        <Grid
+          gap={["1", "2", "3"]}
+          gridTemplateColumns={[
+            "repeat(1,1fr)",
+            "repeat(1,1fr)",
+            "repeat(1,1fr)",
+            "repeat(2,1fr)",
+            "repeat(4,1fr)",
+          ]}
+        >
           <Image
             src="https://s3-ap-southeast-1.amazonaws.com/rb-plus/BI/APP/IND/SCALED/18243/1087/SI/DL/stupHw.jpeg"
             alt="IMG1"
