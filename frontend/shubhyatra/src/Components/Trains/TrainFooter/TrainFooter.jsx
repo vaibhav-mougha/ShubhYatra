@@ -1,43 +1,39 @@
 import React from "react";
-import stylesFooter from "./Footer.module.css";
+import stylesTrainFooter from "./TrainFooter.module.css";
 import { FaTwitter, FaFacebookF } from "react-icons/fa";
 import { Box, Link } from "@chakra-ui/react";
-import QuesAns from "../QuesAns/QuesAns"
 
 const Footer = () => {
   return (
     <>
-      <Box mt="3rem">
-        <QuesAns />
-      </Box>
-      <Box className={stylesFooter.container}>
-        <Box className={stylesFooter.f_icon}>
+      <Box className={stylesTrainFooter.container}>
+        <Box className={stylesTrainFooter.f_icon}>
           <a href="https://twitter.com/makemytrip/" target="blank">
             {" "}
-            <FaTwitter className={stylesFooter.twitter} />
+            <FaTwitter className={stylesTrainFooter.twitter} />
           </a>
 
           <a href="https://www.facebook.com/makemytrip/" target="blank">
             {" "}
-            <FaFacebookF className={stylesFooter.facebook} />{" "}
+            <FaFacebookF className={stylesTrainFooter.facebook} />{" "}
           </a>
         </Box>
 
-        <Box className={stylesFooter.f_cright}>
-          <span className={stylesFooter.copyright}>
+        <Box className={stylesTrainFooter.f_cright}>
+          <span className={stylesTrainFooter.copyright}>
             {" "}
             © 2023 SubhaYatra PVT. LTD.
           </span>
-          <span className={stylesFooter.counteryName}>
+          <span className={stylesTrainFooter.counteryName}>
             {" "}
             Country
-            <Link to="/" className={stylesFooter.country}>
+            <Link to="/" className={stylesTrainFooter.country}>
               India
             </Link>
-            <Link to="/" className={stylesFooter.country}>
+            <Link to="/" className={stylesTrainFooter.country}>
               USA
             </Link>
-            <Link to="/" className={stylesFooter.country}>
+            <Link to="/" className={stylesTrainFooter.country}>
               UAE
             </Link>
           </span>
