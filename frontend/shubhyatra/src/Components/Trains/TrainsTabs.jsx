@@ -13,7 +13,7 @@ export const TrainsTabs = ()=>{
         pb="20px"
         >
             <Box 
-            w="6xl"
+            w="60%"
             m="auto"
             p="40px 20px"
             borderRadius="10px"
@@ -22,14 +22,17 @@ export const TrainsTabs = ()=>{
             >
                 <Flex 
                 justifyContent="space-between" 
+                direction = {{base: "column", md:"row"}}
+                gap="20px"
                 >
                         
                     <RadioGroup defaultValue="1">
                         <Stack 
                         color="blackAlpha.600"
                         fontWeight="bold" 
-                        direction={{md:"row"}}
+                        direction={{base:"column", md:"row"}}
                         gap="2"
+
                         >
                             <Radio value = "1">BOOK TRAIN TICKETS</Radio>
                             <Radio value = "2">CHECK PNR STATUS</Radio>
@@ -49,6 +52,7 @@ export const TrainsTabs = ()=>{
                 <Flex
                 mt="20px"
                 gap="4"
+                direction={{base:"column", lg:"row"}}
                 >
                     <Input type="text" value = "Delhi" placeholder="From" />
                     <Input type="text" value = "Mumbai" placeholder="To" />

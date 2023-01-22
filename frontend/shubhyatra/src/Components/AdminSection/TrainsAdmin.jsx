@@ -33,22 +33,22 @@ const TrainsAdmin = () => {
   const [name,setName]=React.useState("")
   const [from,setfrom]=React.useState("")
   const [to,setto]=React.useState("")
-  const [start,setstart]=React.useState("")
-  const [end,setend]=React.useState("")
-  const [type,settype]=React.useState("")
+  const [arrival,setArrival]=React.useState("")
+  const [departure,setDeparture]=React.useState("")
+  const [classtype,setclasstype]=React.useState("")
   const [price,setprice]=React.useState("")
-  const [duration,setduration]=React.useState("")
+  const [date,setDate]=React.useState("")
 
   const postData=()=>{
     const payload={
         name,
+        arrival,
+        departure,
         from,
         to,
-        start,
-        end,
-        type,
-        price,
-        duration
+        date,
+        classtype,
+        price
         
     }
     axios.post("http://localhost:8080/trains/addtrain",payload,{
@@ -94,9 +94,9 @@ const TrainsAdmin = () => {
       .catch((err) => console.error(err));
   };
 
-  const getDataFromCity = () => {
+  const getDataFromName = () => {
     axios
-      .get(`http://localhost:8080/trains?q=${query}&page=${page}`, {
+      .get(`http://localhost:8080/trains/${query}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -155,12 +155,13 @@ const TrainsAdmin = () => {
           <Input
             w="15rem"
             size={["sm", "sm", "md", "md"]}
-            placeholder="Search Buses By City"
+            placeholder="Search Trains By Name"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
+
           <Button
-            onClick={getDataFromCity}
+            onClick={getDataFromName}
             ml="2rem"
             variant="outline"
             size={["sm", "sm", "md", "md"]}
@@ -231,7 +232,7 @@ const TrainsAdmin = () => {
                     ref={initialRef}
                     placeholder="Enter Name of Train"
                     type="text"
-                    name="departtime"
+                    name="name"
                     value={name}
                     onChange={(e)=>setName(e.target.value)}
                   />
@@ -242,7 +243,7 @@ const TrainsAdmin = () => {
                   <Input
                     placeholder="From"
                     type="text"
-                    name="aarivtime"
+                    name="from"
                     value={from}
                     onChange={(e)=>setfrom(e.target.value)}
                   />
@@ -253,30 +254,30 @@ const TrainsAdmin = () => {
                   <Input
                     placeholder="To"
                     type="text"
-                    name="duration"
+                    name="to"
                     value={to}
                     onChange={(e)=>setto(e.target.value)}
                   />
                 </FormControl>
 
                 <FormControl mt={4}>
-                  <FormLabel>Pickup Time</FormLabel>
+                  <FormLabel>Arrival Time</FormLabel>
                   <Input
-                    placeholder="Enter Pickup Time"
+                    placeholder="Enter Arrival Time"
                     type="text"
-                    name="fare"
-                    value={start}
-                    onChange={(e)=>setstart(e.target.value)}
+                    name="arrival"
+                    value={arrival}
+                    onChange={(e)=>setArrival(e.target.value)}
                   />
                 </FormControl>
                 <FormControl mt={4}>
-                  <FormLabel>Drop Time</FormLabel>
+                  <FormLabel>Departure Time</FormLabel>
                   <Input
-                    placeholder="Enter Drop Time"
+                    placeholder="Enter Departure Time"
                     type="text"
-                    name="fare"
-                    value={end}
-                    onChange={(e)=>setend(e.target.value)}
+                    name="departure"
+                    value={departure}
+                    onChange={(e)=>setDeparture(e.target.value)}
                   />
                 </FormControl>
                 <FormControl mt={4}>
@@ -284,9 +285,9 @@ const TrainsAdmin = () => {
                   <Input
                     placeholder="Enter Train Type"
                     type="text"
-                    name="fare"
-                    value={type}
-                    onChange={(e)=>settype(e.target.value)}
+                    name="classtype"
+                    value={classtype}
+                    onChange={(e)=>setclasstype(e.target.value)}
                   />
                 </FormControl>
                 <FormControl mt={4}>
@@ -294,19 +295,19 @@ const TrainsAdmin = () => {
                   <Input
                     placeholder="Enter Train Price"
                     type="text"
-                    name="fare"
+                    name="price"
                     value={price}
                     onChange={(e)=>setprice(e.target.value)}
                   />
                 </FormControl>
                 <FormControl mt={4}>
-                  <FormLabel>Duration</FormLabel>
+                  <FormLabel>Date</FormLabel>
                   <Input
                     placeholder="Enter Duration"
-                    type="text"
-                    name="fare"
-                    value={duration}
-                    onChange={(e)=>setduration(e.target.value)}
+                    type="date"
+                    name="date"
+                    value={date}
+                    onChange={(e)=>setDate(e.target.value)}
                   />
                 </FormControl>
               </ModalBody>
@@ -357,8 +358,8 @@ const TrainsAdmin = () => {
                 <Th>Name</Th>
                 <Th>From</Th>
                 <Th>To</Th>
-                <Th>Start</Th>
-                <Th>End</Th>
+                <Th>Arrival</Th>
+                <Th>Departure</Th>
                 <Th>Price (Rs.) </Th>
               </Tr>
             </Thead>

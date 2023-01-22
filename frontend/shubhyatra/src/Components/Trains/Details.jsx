@@ -46,7 +46,7 @@ export const Details = () => {
          padding="20px"
         >
         <Grid
-        templateColumns="repeat(2, 1fr)"
+        templateColumns={{base:"repeat(1, 1fr)", md:"repeat(2, 1fr)"}}
         // gap="20"
        
         w="80%"
