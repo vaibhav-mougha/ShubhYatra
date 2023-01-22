@@ -23,6 +23,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const TrainsAdmin = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -334,6 +335,8 @@ const TrainsAdmin = () => {
               </ModalFooter>
             </ModalContent>
           </Modal>
+
+          <Link to="/trains">
           <Button
             bg="#31AE33"
             borderRadius="1rem"
@@ -348,6 +351,8 @@ const TrainsAdmin = () => {
           >
             Save
           </Button>
+          </Link>
+          
         </Box>
       </div>
       <Box>
