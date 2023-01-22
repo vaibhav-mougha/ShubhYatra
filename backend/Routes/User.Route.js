@@ -33,6 +33,7 @@ usersRoute.post("/register",async (req,res)=>{
 
   usersRoute.use(login)
 
+
 usersRoute.get("/",async(req,res)=>{
   const {name} = req.query;
   const {email}=req.query
