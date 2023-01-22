@@ -18,19 +18,21 @@ import Footer from "../Components/HomePage/Footer/Footer";
 import Navbar from "../Components/HomePage/TopSection/Navbar";
 import UserOrder from "../Components/UserOrder/UserOrder";
 import { AuthContext } from "../Components/Context/Auth.context";
-import axios from "axios"
+import axios from "axios";
 const UserPage = () => {
-  const {authState}=useContext(AuthContext)
-  const [user,setUser]=useState([])
-  const [data,setData]=useState([])
-  useEffect(()=>{
-      axios.get(`http://localhost:8080/order?email=${authState.email}`)
-      .then((res)=>setData(res.data))
-      .catch((err)=>console.log('err', err))
-      axios.get(`http://localhost:8080/users?email=${authState.email}`)
-      .then((res)=>setUser(res.data))
-      .catch((err)=>console.log('err', err))
-  },[authState.email,user,data])
+  const { authState } = useContext(AuthContext);
+  const [user, setUser] = useState([]);
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/order?email=${authState.email}`)
+      .then((res) => setData(res.data))
+      .catch((err) => console.log("err", err));
+    axios
+      .get(`http://localhost:8080/users?email=${authState.email}`)
+      .then((res) => setUser(res.data))
+      .catch((err) => console.log("err", err));
+  }, [authState.email, user, data]);
   return (
     <>
       <Box bg="#EBF7FF">
@@ -116,7 +118,7 @@ const UserPage = () => {
                   fontSize={{ base: "0.6rem", md: "0.8rem", lg: "1rem" }}
                   color="black"
                 >
-                  Mobile No. : {user.phone?user.phone:7848964863}
+                  Mobile No. : {user.phone ? user.phone : 7848964863}
                 </Text>
               </Box>
 
@@ -177,11 +179,13 @@ const UserPage = () => {
 
                   <TabPanels>
                     <TabPanel>
-                     {data?data.map((i)=>{
-                      return(
-                        <UserOrder data={i} />
-                      )
-                     }):<Heading>No Data available</Heading>}
+                      {data ? (
+                        data.map((i) => {
+                          return <UserOrder data={i} />;
+                        })
+                      ) : (
+                        <Heading>No Data available</Heading>
+                      )}
                     </TabPanel>
 
                     <TabPanel>

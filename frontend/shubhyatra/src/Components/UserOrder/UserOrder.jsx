@@ -4,14 +4,37 @@ import { ChevronDownIcon } from "@chakra-ui/icons";
 import { CgArrowLongRight } from "react-icons/cg";
 import { Link } from "react-router-dom";
 
-const UserOrder = ({data}) => {
+const UserOrder = ({ data }) => {
   const current = new Date();
-  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-];
-const dayNames = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
-  const date = `${current.getDate()}${monthNames[current.getMonth()]}'${current.getFullYear()},${dayNames[current.getDay()-1]==undefined?"sun":dayNames[current.getDay()-1]}`;
-  const Newdate = `${current.getDate()+2}${monthNames[current.getMonth()]}'${current.getFullYear()},${dayNames[current.getDay()-1]==undefined?"sun":dayNames[current.getDay()-1]}`;
+  const monthNames = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  const dayNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  const date = `${current.getDate()}${
+    monthNames[current.getMonth()]
+  }'${current.getFullYear()},${
+    dayNames[current.getDay() - 1] === undefined
+      ? "sun"
+      : dayNames[current.getDay() - 1]
+  }`;
+  const Newdate = `${current.getDate() + 2}${
+    monthNames[current.getMonth()]
+  }'${current.getFullYear()},${
+    dayNames[current.getDay() - 1] === undefined
+      ? "sun"
+      : dayNames[current.getDay() - 1]
+  }`;
   return (
     <>
       <Box
@@ -58,34 +81,30 @@ const dayNames = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
           </Box>
 
           <Box>
-          <Text
+            <Text
               fontSize={{ base: "0.6rem", md: "0.8rem", lg: "1rem" }}
               color="black"
               textAlign="left"
             >
-              Order #{data._id.slice(0,10)}
+              Order #{data._id.slice(0, 10)}
             </Text>
-          <Box display="flex" justifyContent="space-between">
-            <Text
-              fontSize={{ base: "0.6rem", md: "0.8rem", lg: "1rem" }}
-              color="#257CFF"
-            >
-              View Order details
-            </Text>
-            <Text
-              fontSize={{ base: "0.6rem", md: "0.8rem", lg: "1rem" }}
-              color="#257CFF"
-              ml="1rem"
-            >
-              Invoice <ChevronDownIcon />
-            </Text>
-           <Box>
-           
-           </Box>
+            <Box display="flex" justifyContent="space-between">
+              <Text
+                fontSize={{ base: "0.6rem", md: "0.8rem", lg: "1rem" }}
+                color="#257CFF"
+              >
+                View Order details
+              </Text>
+              <Text
+                fontSize={{ base: "0.6rem", md: "0.8rem", lg: "1rem" }}
+                color="#257CFF"
+                ml="1rem"
+              >
+                Invoice <ChevronDownIcon />
+              </Text>
+              <Box></Box>
+            </Box>
           </Box>
-          </Box>
-
-          
         </Box>
 
         <Box mt="5" w="100%">
@@ -122,7 +141,7 @@ const dayNames = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
               <Flex mt="2" gap="4">
                 <Heading size="lg">{data.end}</Heading>
                 <Heading mt="2" size="md" color="teal">
-                 {Newdate}
+                  {Newdate}
                 </Heading>
               </Flex>
               <Heading size="md" color="green.300">
@@ -133,36 +152,41 @@ const dayNames = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
         </Box>
 
         <Text
-              fontSize={{ base: "0.6rem", md: "0.8rem", lg: "1.7rem" }}
-              color="black"
-              textAlign="left"
-              fontWeight="bold"
-              mt="0.7rem"
-            >
-              Successful
-            </Text>
+          fontSize={{ base: "0.6rem", md: "0.8rem", lg: "1.7rem" }}
+          color="black"
+          textAlign="left"
+          fontWeight="bold"
+          mt="0.7rem"
+        >
+          Successful
+        </Text>
 
-            <Text
-              fontSize={{ base: "0.6rem", md: "0.8rem", lg: "1rem" }}
-              color="black"
-              textAlign="left"
-            >
-              Paid on : {date}
-            </Text>
+        <Text
+          fontSize={{ base: "0.6rem", md: "0.8rem", lg: "1rem" }}
+          color="black"
+          textAlign="left"
+        >
+          Paid on : {date}
+        </Text>
 
-<Link to="/"><Button 
-// onClick=route to home page or their respective route
-                  bg="#257CFF"
-                  borderRadius="1rem"
-                  variant="solid"
-                  ml="3rem"
-                  color="white"
-                  _hover={{
-                    background: "white",
-                    color: "#257CFF",
-                    border: "2px solid #257CFF",
-                  }}
-                  mr={3}>Book Again</Button></Link>
+        <Link to="/">
+          <Button
+            // onClick=route to home page or their respective route
+            bg="#257CFF"
+            borderRadius="1rem"
+            variant="solid"
+            ml="3rem"
+            color="white"
+            _hover={{
+              background: "white",
+              color: "#257CFF",
+              border: "2px solid #257CFF",
+            }}
+            mr={3}
+          >
+            Book Again
+          </Button>
+        </Link>
       </Box>
     </>
   );

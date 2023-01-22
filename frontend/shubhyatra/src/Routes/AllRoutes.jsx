@@ -64,13 +64,23 @@ const AllRoutes = () => {
           }
         />
 
+        <Route
+          path="/trains"
+          element={
+            <PrivateRoute>
+              <Trains />
+            </PrivateRoute>
+          }
+        />
 
-
-        <Route path="/trains" element={<PrivateRoute><Trains /></PrivateRoute>} />
-
-
-        <Route path="/trains/listing" element={<PrivateRoute><TrainsListing /></PrivateRoute>} />
-       
+        <Route
+          path="/trains/listing"
+          element={
+            <PrivateRoute>
+              <TrainsListing />
+            </PrivateRoute>
+          }
+        />
 
         <Route
           path="/hotels"

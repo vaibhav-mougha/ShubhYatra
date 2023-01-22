@@ -137,7 +137,12 @@ function Buses() {
           justifyContent={"space-evenly"}
           alignItems="center"
         >
-          <Select placeholder="From" fontSize={"large"}  color="black" onChange={(e) => setStart(e.target.value)}>
+          <Select
+            placeholder="From"
+            fontSize={"large"}
+            color="black"
+            onChange={(e) => setStart(e.target.value)}
+          >
             <option value="Mumbai">Mumbai</option>
             <option value="Pune">Pune</option>
             <option value="Delhi">Delhi</option>
@@ -145,7 +150,12 @@ function Buses() {
             <option value="Chennai">Chennai</option>
           </Select>
           <BsArrowLeftRight fontSize="75px" />
-          <Select placeholder="To" fontSize={"large"}  color="black" onChange={(e) => setEnd(e.target.value)}>
+          <Select
+            placeholder="To"
+            fontSize={"large"}
+            color="black"
+            onChange={(e) => setEnd(e.target.value)}
+          >
             <option value="Mumbai">Mumbai</option>
             <option value="Pune">Pune</option>
             <option value="Delhi">Delhi</option>
@@ -156,7 +166,8 @@ function Buses() {
             placeholder="Select Date and Time"
             size="md"
             type="datetime-local"
-            fontSize={"large"}  color="black"
+            fontSize={"large"}
+            color="black"
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />
