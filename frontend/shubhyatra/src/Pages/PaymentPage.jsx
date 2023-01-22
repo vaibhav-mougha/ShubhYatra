@@ -54,8 +54,8 @@ function PaymentPage() {
   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
 ];
 const dayNames = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
-  const date = `${current.getDate()}${monthNames[current.getMonth()]}'${current.getFullYear()},${dayNames[current.getDay()-1]}`;
-  const Newdate = `${current.getDate()+2}${monthNames[current.getMonth()]}'${current.getFullYear()},${dayNames[current.getDay()-1]}`;
+  const date = `${current.getDate()}${monthNames[current.getMonth()]}'${current.getFullYear()},${dayNames[current.getDay()-1]==undefined?"sun":dayNames[current.getDay()-1]}`;
+  const Newdate = `${current.getDate()+2}${monthNames[current.getMonth()]}'${current.getFullYear()},${dayNames[current.getDay()-1]==undefined?"sun":dayNames[current.getDay()-1]}`;
   return (
     <>
     <NavContainer/>

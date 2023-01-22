@@ -17,7 +17,7 @@ import {
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import React from "react";
-import { NavLink } from "react-router-dom";
+import {  NavLink, useNavigate } from "react-router-dom";
 import NavContainer from "../HomePage/TopSection/Navbar";
 import Footer from "../HomePage/Footer/Footer"
 function Signup() {
@@ -27,6 +27,7 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const toast = useToast()
+  const Navigate=useNavigate()
   const HandleSubmit = () => {
     const payload={
       name,
@@ -43,13 +44,29 @@ function Signup() {
    }).then(res=>res.json())
    .then(res=>{
     console.log(res)
+   if(res.message === "Email already register"){
     toast({
-      title: 'Account Created',
-      description:"Account Has Been Created Success.",
+      title: 'Account already register',
+      description:"Please Login ",
       status: 'success',
       duration: 2000,
       isClosable: true,
     })
+    setTimeout(() => {
+      Navigate("/login");
+    }, 2200);
+   }else{
+    toast({
+      title: 'Account has been created',
+      description:"Welcome to Shubhyatra",
+      status: 'success',
+      duration: 2000,
+      isClosable: true,
+    })
+    setTimeout(() => {
+      Navigate("/login");
+    }, 2200);
+   }
   })
    .catch(err=>{
     console.log('err :>> ', err)

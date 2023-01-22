@@ -56,8 +56,10 @@ function Login() {
             duration: 2000,
             isClosable: true,
           })
+          setTimeout(() => {
+            Navigate("/");
+          }, 2200);
         }
-        Navigate("/")
       })
       .catch((err) => {
         console.log("err :>> ", err)
