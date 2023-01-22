@@ -22,6 +22,7 @@ import {
   Button,
   MenuList,
   MenuItem,
+  Center,
 } from "@chakra-ui/react";
 import { MdFlight, MdDownhillSkiing } from "react-icons/md";
 import {
@@ -99,9 +100,13 @@ const NavContainer = () => {
                   color="#555454"
                   _hover={{ color: "#EB2226" }}
                   fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
+                  textAlign="center" 
+                  align="center"
                 >
                   <Link to="/flight">
-                    <MdFlight />
+                  <Center>
+                  <MdFlight />
+                  </Center>
                     <Text
                       textAlign="center"
                       fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
@@ -120,7 +125,9 @@ const NavContainer = () => {
                   fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
                 >
                   <Link to="/hotels">
-                    <FaHotel />
+                    <Center>
+                      <FaHotel />
+                    </Center>
                     <Text
                       textAlign="center"
                       fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
@@ -139,7 +146,9 @@ const NavContainer = () => {
                   fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
                 >
                   <Link to="/trains">
-                    <FaTrain />
+                    <Center>
+                      <FaTrain />
+                    </Center>
                     <Text
                       textAlign="center"
                       fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
@@ -158,7 +167,10 @@ const NavContainer = () => {
                   fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
                 >
                   <Link to="/buses">
-                    <FaBus />
+                    <Center>
+                      <FaBus />
+                    </Center>
+                    
                     <Text
                       textAlign="center"
                       fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
@@ -177,7 +189,10 @@ const NavContainer = () => {
                   fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
                 >
                   <Link to="/">
-                    <FaCar />
+                    <Center>
+                      <FaCar />
+                    </Center>
+                    
                     <Text
                       textAlign="center"
                       fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
@@ -196,7 +211,10 @@ const NavContainer = () => {
                   fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
                 >
                   <Link to="/">
-                    <FaRegCreditCard />
+                    <Center>
+                      <FaRegCreditCard />
+                    </Center>
+                   
                     <Text
                       textAlign="center"
                       fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
@@ -215,7 +233,10 @@ const NavContainer = () => {
                   fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
                 >
                   <Link to="/">
-                    <GiCommercialAirplane />
+                    <Center>
+                      <GiCommercialAirplane />
+                    </Center>
+                    
                     <Text
                       textAlign="center"
                       fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
@@ -234,7 +255,10 @@ const NavContainer = () => {
                   fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
                 >
                   <Link to="/">
-                    <MdDownhillSkiing />
+                    <Center>
+                      <MdDownhillSkiing />
+                    </Center>
+                    
                     <Text
                       textAlign="center"
                       fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
@@ -253,7 +277,10 @@ const NavContainer = () => {
                   fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
                 >
                   <Link to="/">
-                    <FaHome />
+                    <Center>
+                      <FaHome />
+                    </Center>
+                      
                     <Text
                       textAlign="center"
                       fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
