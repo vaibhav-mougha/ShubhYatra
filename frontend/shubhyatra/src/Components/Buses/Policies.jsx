@@ -31,9 +31,22 @@ function Policies() {
         <MenuButton as={Button} rightIcon={<BsFillCaretDownFill />}>
           Policies
         </MenuButton>
-        <MenuList w={["400px","600px","600px","600px","1200px"]} bg="cyan.50" p="5">
+        <MenuList
+          w={["400px", "600px", "600px", "600px", "1200px"]}
+          bg="cyan.50"
+          p="5"
+        >
           <Tabs variant="soft-rounded" colorScheme="green">
-            <TabList display={"grid"} gridTemplateColumns={["repeat(1,1fr)","repeat(1,1fr)","repeat(1,1fr)","repeat(1,1fr)","repeat(5,1fr)"]}>
+            <TabList
+              display={"grid"}
+              gridTemplateColumns={[
+                "repeat(1,1fr)",
+                "repeat(1,1fr)",
+                "repeat(1,1fr)",
+                "repeat(1,1fr)",
+                "repeat(5,1fr)",
+              ]}
+            >
               <Tab>Cancellation</Tab>
               <Tab>Child Passenger</Tab>
               <Tab>Luggage</Tab>
@@ -42,8 +55,17 @@ function Policies() {
             </TabList>
             <TabPanels>
               <TabPanel>
-                <Grid gap={["3","4","6"]} gridTemplateColumns={["repeat(1,1fr)","repeat(1,1fr)","repeat(1,1fr)","repeat(1,1fr)","repeat(2,1fr)"]}>
-                  <TableContainer w={["100%","90%","90%","90%","70%"]}>
+                <Grid
+                  gap={["3", "4", "6"]}
+                  gridTemplateColumns={[
+                    "repeat(1,1fr)",
+                    "repeat(1,1fr)",
+                    "repeat(1,1fr)",
+                    "repeat(1,1fr)",
+                    "repeat(2,1fr)",
+                  ]}
+                >
+                  <TableContainer w={["100%", "90%", "90%", "90%", "70%"]}>
                     <Table variant="striped" colorScheme="teal">
                       <Thead>
                         <Tr>
@@ -79,7 +101,7 @@ function Policies() {
                       </Tbody>
                     </Table>
                   </TableContainer>
-                  <VStack w={["100%","90%","90%","90%","50%"]}>
+                  <VStack w={["100%", "90%", "90%", "90%", "50%"]}>
                     <Heading size="md">Information:</Heading>
                     <UnorderedList color="teal" fontSize="xs">
                       <ListItem>

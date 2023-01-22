@@ -7,7 +7,7 @@ busRouter.use(express.json());
 //toLowercase is use to check the
 
 busRouter.get("/", async (req, res) => {
-  const { from, to, sort, filter,q } = req.query;
+  const { from, to, sort, filter, q } = req.query;
   try {
     if (from && to) {
       let data = await Busmodel.find();
@@ -103,11 +103,13 @@ busRouter.get("/", async (req, res) => {
       } else {
         res.send("Sorry there is no bus available");
       }
-    }else if(q){
-      const{page=1,limit=10}=req.query
-      let data = await Busmodel.find({from:q}).limit(limit*1).skip((page-1)*limit); 
-      res.send(data); 
-    }else {
+    } else if (q) {
+      const { page = 1, limit = 10 } = req.query;
+      let data = await Busmodel.find({ from: q })
+        .limit(limit * 1)
+        .skip((page - 1) * limit);
+      res.send(data);
+    } else {
       const { page = 1, limit = 10 } = req.query;
       let data = await Busmodel.find()
         .limit(limit * 1)
@@ -120,25 +122,25 @@ busRouter.get("/", async (req, res) => {
   }
 });
 
-busRouter.get("/:id",async(req,res)=>{
+busRouter.get("/:id", async (req, res) => {
   const id = req.params.id;
-  const data=await Busmodel.findById(id)
-  res.send(data)
-})
+  const data = await Busmodel.findById(id);
+  res.send(data);
+});
 
 //bus is added with help of busRouter
 
-busRouter.post("/add",async(req,res)=>{
-    const payload = req.body
-    try{
-        const newBus=new Busmodel(payload)
-        await newBus.save()
-        res.send("New Bus successfully Added")
-    }catch(err){
-        console.log('err :>> ', err);
-        res.send({"msg":err})
-    }
-})
+busRouter.post("/add", async (req, res) => {
+  const payload = req.body;
+  try {
+    const newBus = new Busmodel(payload);
+    await newBus.save();
+    res.send("New Bus successfully Added");
+  } catch (err) {
+    console.log("err :>> ", err);
+    res.send({ msg: err });
+  }
+});
 
 //use update to add the price for multiple data
 
@@ -153,15 +155,14 @@ busRouter.post("/add",async(req,res)=>{
 //    })
 // })
 
-busRouter.delete("/delete/:id",async(req,res)=>{
-  const id=req.params.id
-  try{
-    await Busmodel.findByIdAndDelete({"_id":id})
-    res.send("deleted")
+busRouter.delete("/delete/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    await Busmodel.findByIdAndDelete({ _id: id });
+    res.send("deleted");
+  } catch {
+    res.send("err");
   }
-  catch{
-    res.send("err")
-  }
-})
+});
 
 module.exports = busRouter;
