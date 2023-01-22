@@ -23,6 +23,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const FlightAdmin = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -106,17 +107,13 @@ const FlightAdmin = () => {
   };
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:8080/bookedflight/delete/${id}`, {
-      headers: {
-        authorization: localStorage.getItem("token"),
-      },
-    });
-    fetch(`http://localhost:8080/bookedflight/delete/${id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: localStorage.getItem("token"),
-      },
-    })
+
+    axios
+      .delete(`http://localhost:8080/bookedflight/delete/${id}`, {
+        headers: {
+          authorization: localStorage.getItem("token"),
+        },
+      })
       .then((res) => {
         console.log(res);
         getAllData(page);
@@ -132,7 +129,7 @@ const FlightAdmin = () => {
         console.error(err);
         toast({
           title: "Failed to Delete the Flight",
-          description: `You are not autherised`,
+          description: `You are not Authorised`,
           status: "error",
           duration: 3000,
           isClosable: true,
@@ -336,20 +333,23 @@ const FlightAdmin = () => {
               </ModalFooter>
             </ModalContent>
           </Modal>
-          <Button
-            bg="#31AE33"
-            borderRadius="1rem"
-            variant="solid"
-            // ml="3rem"
-            color="white"
-            _hover={{
-              background: "white",
-              color: "#31AE33",
-              border: "2px solid #31AE33",
-            }}
-          >
-            Save
-          </Button>
+          <Link to="/flight">
+            <Button
+              bg="#31AE33"
+              borderRadius="1rem"
+              variant="solid"
+              // ml="3rem"
+              color="white"
+              _hover={{
+                background: "white",
+                color: "#31AE33",
+                border: "2px solid #31AE33",
+              }}
+              ml="1rem"
+            >
+              Save
+            </Button>
+          </Link>
         </Box>
       </div>
       <Box>

@@ -13,6 +13,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const UserAdmin = () => {
   const [page, setPage] = React.useState(1);
@@ -123,36 +124,24 @@ const UserAdmin = () => {
             All Existing Users
           </Button>
 
-          {/*  Add New Flights */}
-          {/* <Button
-            bg="#257CFF"
-            borderRadius="1rem"
-            variant="solid"
-            ml={{ lg: "2rem" }}
-            mr={{ lg: "2rem" }}
-            mt={{ base: "2rem", lg: "0rem" }}
-            mb={{ base: "2rem" }}
-            color="white"
-            _hover={{
-              background: "white",
-              color: "#257CFF",
-              border: "2px solid #257CFF",
-            }}
-            onClick={onOpen}
-          >
-            Add New Flight
-          </Button> */}
-          {/* Save Flights will route you to the Booked Flights page */}
-          {/* <Modal
-            initialFocusRef={initialRef}
-            isOpen={isOpen}
-            onClose={onClose}
-            size="sm"
-          >
-            <ModalOverlay />
-            <ModalContent
-            // border="1rem solid #257cff"
+          <Link to="/">
+            <Button
+              bg="#31AE33"
+              borderRadius="1rem"
+              variant="solid"
+              // ml="3rem"
+              color="white"
+              _hover={{
+                background: "white",
+                color: "#31AE33",
+                border: "2px solid #31AE33",
+              }}
+              ml="1rem"
             >
+              Save
+            </Button>
+          </Link>
+
               {/* <ModalHeader
                 textDecoration="underline"
                 color="#257cff"
@@ -287,6 +276,7 @@ const UserAdmin = () => {
           >
             Save
           </Button>
+
         </Box>
       </div>
       <Box>

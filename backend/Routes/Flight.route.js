@@ -172,7 +172,7 @@ flightRouter.post("/create", async (req, res) => {
 flightRouter.delete("/delete/:id", async (req, res) => {
   const id = req.params.id;
   try {
-    await Busmodel.findByIdAndDelete({ _id: id });
+    await FlightModel.findByIdAndDelete({ _id: id });
     res.json({ status: 200, message: "Deleted The Flight" });
   } catch {
     res.send("err");
