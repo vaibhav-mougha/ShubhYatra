@@ -27,7 +27,7 @@ function PaymentPage() {
   const Navigate = useNavigate();
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/bus/${authState.ProdId}`, {
+      .get(`https://cheerful-lime-firefly.cyclic.app/bus/${authState.ProdId}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -40,7 +40,7 @@ function PaymentPage() {
       ...data,
       email: authState.email,
     };
-    fetch("http://localhost:8080/order/add", {
+    fetch("https://cheerful-lime-firefly.cyclic.app/order/add", {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {

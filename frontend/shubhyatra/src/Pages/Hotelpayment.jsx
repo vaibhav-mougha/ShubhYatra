@@ -32,7 +32,7 @@ export default function Hotelpayment() {
       ...data,
       email: authState.email,
     };
-    fetch("http://localhost:8080/order/add", {
+    fetch("https://cheerful-lime-firefly.cyclic.app/order/add", {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {
@@ -45,7 +45,7 @@ export default function Hotelpayment() {
   console.log(data);
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/hotels/${authState.ProdId}`, {
+      .get(`https://cheerful-lime-firefly.cyclic.app/hotels/${authState.ProdId}`, {
         headers: {
           Authorization: localStorage.getItem("token"),
         },

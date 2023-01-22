@@ -23,7 +23,7 @@ function Hotel() {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8080/hotels?star_category=${star}&location=${location}&price=${price}&property_type=${property}&rating=${rating}&page=${page}`,
+        `https://cheerful-lime-firefly.cyclic.app/hotels?star_category=${star}&location=${location}&price=${price}&property_type=${property}&rating=${rating}&page=${page}`,
         {
           headers: {
             Authorization: localStorage.getItem("token"),
@@ -41,7 +41,7 @@ function Hotel() {
   const handleSubmit = () => {
     // setFrom(start);
     axios
-      .get(`http://localhost:8080/hotels/?location=${start}&page=${page}`, {
+      .get(`https://cheerful-lime-firefly.cyclic.app/hotels/?location=${start}&page=${page}`, {
         headers: {
           Authorization: localStorage.getItem("token"),
         },

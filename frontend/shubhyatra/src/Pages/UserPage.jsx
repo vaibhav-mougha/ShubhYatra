@@ -25,14 +25,14 @@ const UserPage = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/order?email=${authState.email}`)
+      .get(`https://cheerful-lime-firefly.cyclic.app/order?email=${authState.email}`)
       .then((res) => setData(res.data))
       .catch((err) => console.log("err", err));
     axios
-      .get(`http://localhost:8080/users?email=${authState.email}`)
+      .get(`https://cheerful-lime-firefly.cyclic.app/users?email=${authState.email}`)
       .then((res) => setUser(res.data))
       .catch((err) => console.log("err", err));
-  }, [authState.email, user, data]);
+  }, []);
   return (
     <>
       <Box bg="#EBF7FF">

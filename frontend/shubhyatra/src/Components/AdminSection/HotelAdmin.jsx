@@ -61,7 +61,7 @@ const HotelAdmin = () => {
         rate:Number(rate),
         price:Number(total)
     }
-    axios.post("http://localhost:8080/hotels/addhotels",payload,{
+    axios.post("https://cheerful-lime-firefly.cyclic.app/hotels/addhotels",payload,{
         headers: {
             authorization: localStorage.getItem("token"),
           },
@@ -94,7 +94,7 @@ const HotelAdmin = () => {
   const toast = useToast()
   const getAllData = (page=1) => {
     axios
-      .get(`http://localhost:8080/hotels?page=${page}`, {
+      .get(`https://cheerful-lime-firefly.cyclic.app/hotels?page=${page}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -107,7 +107,7 @@ const HotelAdmin = () => {
   };
   const getDataFromCity = () => {
     axios
-      .get(`http://localhost:8080/hotels?location=${query}&page=${page}`, {
+      .get(`https://cheerful-lime-firefly.cyclic.app/hotels?location=${query}&page=${page}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -119,12 +119,12 @@ const HotelAdmin = () => {
   };
 
   const handleDelete=(id)=>{
-    axios.delete(`http://localhost:8080/hotels/delete/${id}`,{
+    axios.delete(`https://cheerful-lime-firefly.cyclic.app/hotels/delete/${id}`,{
         headers: {
             authorization: localStorage.getItem("token"),
           },
     })
-    fetch(`http://localhost:8080/hotels/delete/${id}`, {
+    fetch(`https://cheerful-lime-firefly.cyclic.app/hotels/delete/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: localStorage.getItem("token"),

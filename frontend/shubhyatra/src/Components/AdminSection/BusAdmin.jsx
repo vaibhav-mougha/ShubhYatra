@@ -55,7 +55,7 @@ const BusAdmin = () => {
    // adding the data from admin page and adding toast for success and error 
 
     axios
-      .post("http://localhost:8080/bus/add", payload, {
+      .post("https://cheerful-lime-firefly.cyclic.app/bus/add", payload, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -87,7 +87,7 @@ const BusAdmin = () => {
   //geting all data from server with default page=1 and limit=10
   const getAllData = (page = 1) => {
     axios
-      .get(`http://localhost:8080/bus?page=${page}`, {
+      .get(`https://cheerful-lime-firefly.cyclic.app/bus?page=${page}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -101,7 +101,7 @@ const BusAdmin = () => {
   //getting data from server for the q=city name
   const getDataFromCity = () => {
     axios
-      .get(`http://localhost:8080/bus?q=${query}&page=${page}`, {
+      .get(`https://cheerful-lime-firefly.cyclic.app/bus?q=${query}&page=${page}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -116,7 +116,7 @@ const BusAdmin = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:8080/bus/delete/${id}`, {
+      .delete(`https://cheerful-lime-firefly.cyclic.app/bus/delete/${id}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },

@@ -39,7 +39,7 @@ function TrainCheckout() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/trains/listing/${authState.ProdId}`, {
+      .get(`https://cheerful-lime-firefly.cyclic.app/trains/listing/${authState.ProdId}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -57,7 +57,7 @@ function TrainCheckout() {
     //   email:authState.email
     // }
 
-  //   fetch("http://localhost:8080/order/add",{
+  //   fetch("https://cheerful-lime-firefly.cyclic.app/order/add",{
   //     method:"POST",
   //     body:JSON.stringify(payload),
   //     headers:{

@@ -52,7 +52,7 @@ const FlightAdmin = () => {
       duration,
     };
     axios
-      .post("http://localhost:8080/bookedflight/create", payload, {
+      .post("https://cheerful-lime-firefly.cyclic.app/bookedflight/create", payload, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -83,7 +83,7 @@ const FlightAdmin = () => {
   const toast = useToast();
   const getAllData = (page = 1) => {
     axios
-      .get(`http://localhost:8080/bookedflight?page=${page}`, {
+      .get(`https://cheerful-lime-firefly.cyclic.app/bookedflight?page=${page}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -95,7 +95,7 @@ const FlightAdmin = () => {
   };
   const getDataFromCity = () => {
     axios
-      .get(`http://localhost:8080/bookedflight?q=${query}&page=${page}`, {
+      .get(`https://cheerful-lime-firefly.cyclic.app/bookedflight?q=${query}&page=${page}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -109,7 +109,7 @@ const FlightAdmin = () => {
   const handleDelete = (id) => {
 
     axios
-      .delete(`http://localhost:8080/bookedflight/delete/${id}`, {
+      .delete(`https://cheerful-lime-firefly.cyclic.app/bookedflight/delete/${id}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },

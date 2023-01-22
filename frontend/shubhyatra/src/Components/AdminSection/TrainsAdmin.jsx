@@ -52,7 +52,7 @@ const TrainsAdmin = () => {
         price
         
     }
-    axios.post("http://localhost:8080/trains/addtrain",payload,{
+    axios.post("https://cheerful-lime-firefly.cyclic.app/trains/addtrain",payload,{
         headers: {
             authorization: localStorage.getItem("token"),
           },
@@ -84,7 +84,7 @@ const TrainsAdmin = () => {
   const toast = useToast()
   const getAllData = () => {
     axios
-      .get(`http://localhost:8080/trains/listing`, {
+      .get(`https://cheerful-lime-firefly.cyclic.app/trains/listing`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -97,7 +97,7 @@ const TrainsAdmin = () => {
 
   const getDataFromName = () => {
     axios
-      .get(`http://localhost:8080/trains/${query}`, {
+      .get(`https://cheerful-lime-firefly.cyclic.app/trains/${query}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -109,7 +109,7 @@ const TrainsAdmin = () => {
   };
 
   const handleDelete=(id)=>{
-    axios.delete(`http://localhost:8080/trains/${id}`,{
+    axios.delete(`https://cheerful-lime-firefly.cyclic.app/trains/${id}`,{
         headers: {
             authorization: localStorage.getItem("token"),
           },
