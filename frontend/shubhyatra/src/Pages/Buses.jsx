@@ -63,7 +63,7 @@ function Buses() {
   const handleSubmit = () => {
     setFrom(start);
     axios
-      .get(`http://localhost:8080/bus/?from=${start}&to=${end}`, {
+      .get(`https://cheerful-lime-firefly.cyclic.app/bus/?from=${start}&to=${end}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -83,7 +83,7 @@ function Buses() {
 
   function handleSort(sort) {
     axios
-      .get(`http://localhost:8080/bus/?from=${start}&to=${end}&sort=${sort}`, {
+      .get(`https://cheerful-lime-firefly.cyclic.app/bus/?from=${start}&to=${end}&sort=${sort}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -104,7 +104,7 @@ function Buses() {
   const handleFilter = (filter) => {
     axios
       .get(
-        `http://localhost:8080/bus/?from=${start}&to=${end}&filter=${filter}`,
+        `https://cheerful-lime-firefly.cyclic.app/bus/?from=${start}&to=${end}&filter=${filter}`,
         {
           headers: {
             authorization: localStorage.getItem("token"),

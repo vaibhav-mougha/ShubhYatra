@@ -35,7 +35,7 @@ function Signup() {
       email,
       password,
     };
-    fetch("http://localhost:8080/users/register", {
+    fetch("https://cheerful-lime-firefly.cyclic.app/users/register", {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {

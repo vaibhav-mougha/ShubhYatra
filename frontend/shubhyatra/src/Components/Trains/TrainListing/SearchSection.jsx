@@ -12,7 +12,7 @@ const iniState = {
 
 const getData = (start, end)=>{
     return axios
-      .get(`http://localhost:8080/trains/listing?from=${start}&to=${end}`, {
+      .get(`https://cheerful-lime-firefly.cyclic.app/trains/listing?from=${start}&to=${end}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },

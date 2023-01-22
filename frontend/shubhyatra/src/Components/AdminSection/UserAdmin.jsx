@@ -23,7 +23,7 @@ const UserAdmin = () => {
   const toast = useToast();
   const getAllData = (page = 1) => {
     axios
-      .get(`http://localhost:8080/users?page=${page}`, {
+      .get(`https://cheerful-lime-firefly.cyclic.app/users?page=${page}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -36,7 +36,7 @@ const UserAdmin = () => {
 
   const getDataFromCity = () => {
     axios
-      .get(`http://localhost:8080/users?name=${query}&page=${page}`, {
+      .get(`https://cheerful-lime-firefly.cyclic.app/users?name=${query}&page=${page}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -49,7 +49,7 @@ const UserAdmin = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:8080/users/delete/${id}`, {
+      .delete(`https://cheerful-lime-firefly.cyclic.app/users/delete/${id}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },

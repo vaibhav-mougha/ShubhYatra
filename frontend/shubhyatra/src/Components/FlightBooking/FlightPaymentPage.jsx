@@ -29,7 +29,7 @@ function FlightPaymentPage() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/bookedflight/${authState.ProdId}`, {
+      .get(`https://cheerful-lime-firefly.cyclic.app/bookedflight/${authState.ProdId}`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -44,7 +44,7 @@ function FlightPaymentPage() {
       email: authState.email,
     };
 
-    fetch("http://localhost:8080/order/add", {
+    fetch("https://cheerful-lime-firefly.cyclic.app/order/add", {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {
