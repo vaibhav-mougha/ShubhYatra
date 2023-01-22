@@ -12,7 +12,7 @@ const { flightRouter } = require("./Routes/Flight.route");
 const OrderRouter = require("./Routes/order.route");
 const { TrainsRoute } = require("./Routes/trains.routes");
 
-//Middlewares
+// Middlewares... 
 app.use(express.json());
 app.use(
   cors({
