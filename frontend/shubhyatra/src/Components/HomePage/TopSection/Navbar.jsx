@@ -57,8 +57,8 @@ const NavContainer = () => {
 
   const handleLogout = () => {
     logout();
-    navigate("/")
-  }
+    navigate("/");
+  };
 
   return (
     <div className={styles.shubhYatra_wrapper}>
@@ -494,8 +494,6 @@ const NavContainer = () => {
                         _hover={{ color: "#EB2226" }}
                         fontSize="30"
                       >
-
-
                         <FaHome />
                         <Text
                           textAlign="center"
@@ -526,7 +524,6 @@ const NavContainer = () => {
                         _hover={{ color: "#EB2226" }}
                         fontSize="30"
                       >
-
                         <FaTrain />
                         <Text
                           textAlign="center"
@@ -733,7 +730,8 @@ const NavContainer = () => {
               {!authState.token ? (
                 <Link to="/login">
                   <Button
-                    fontSize={{ base: "0.4rem", md: "0.6rem", lg: "1rem" }}
+                    mt="2rem"
+                    fontSize={{ base: "1.3rem", md: "0.6rem", lg: "1rem" }}
                     // w={{ base: "1.7rem", md: "3rem", lg: "8.7rem" }}
                     // h={{ base: "1.2rem", md: "1.8rem", lg: "2.3rem" }}
                     _hover={{
@@ -752,7 +750,10 @@ const NavContainer = () => {
               ) : (
                 <Menu>
                   <MenuButton
-                    fontSize={{ base: "0.4rem", md: "0.6rem", lg: "1rem" }}
+                    mt="2rem"
+                    ml="0rem"
+                    w="20rem"
+                    fontSize={{ base: "1.3rem", md: "0.6rem", lg: "1rem" }}
                     // w={{ base: "1.7rem", md: "3rem", lg: "8.7rem" }}
                     // h={{ base: "1.2rem", md: "1.8rem", lg: "2.3rem" }}
                     _hover={{
@@ -763,21 +764,21 @@ const NavContainer = () => {
                     color="white"
                     py={{ base: "0.1rem", md: "0.1rem", lg: "0.5rem" }}
                     px={{ base: "0.1rem", md: "0.5rem", lg: "2.2rem" }}
-                    as={Button}
+                    borderRadius="0.4rem"
                     rightIcon={<ChevronDownIcon />}
                   >
                     {authState.name.toUpperCase()}
                   </MenuButton>
                   <MenuList color={"black"}>
-                  {authState.email === "admin@shubhyatra.com" ? (
-                        <NavLink to="/admin">
-                          <MenuItem>Admin</MenuItem>
-                        </NavLink>
-                      ) : (
-                        <NavLink to="/profile">
-                          <MenuItem>Profile</MenuItem>
-                        </NavLink>
-                      )}
+                    {authState.email === "admin@shubhyatra.com" ? (
+                      <NavLink to="/admin">
+                        <MenuItem>Admin</MenuItem>
+                      </NavLink>
+                    ) : (
+                      <NavLink to="/profile">
+                        <MenuItem>Profile</MenuItem>
+                      </NavLink>
+                    )}
                     <MenuItem onClick={handleLogout}>Logout</MenuItem>
                   </MenuList>
                 </Menu>
