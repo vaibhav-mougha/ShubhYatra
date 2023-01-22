@@ -7,7 +7,7 @@ const TrainsRoute = express.Router();
 //get trains 
 TrainsRoute.get("/listing", async (req, res) => {
     const {from, to, date} = req.query;
-
+    
     try{
         const data = await TrainsModel.find();
         if(!data){
@@ -48,6 +48,29 @@ TrainsRoute.get("/listing/:id", async (req, res) => {
         const train = await TrainsModel.find({_id:id});
         if(train){
             res.send(train);
+        } else {
+            res.send("No train found!");
+        }
+
+    } catch (e){
+        res.send({error: e.message});
+    }
+    
+})
+
+//get train details using name
+TrainsRoute.get("/:name", async (req, res) => {
+    const { name } = req.params;
+
+    if(!name){
+        return res.send("Please Add Train name to get result");
+    }
+
+    try{
+        const trains = await TrainsModel.find({name:name});
+        console.log(trains);
+        if(trains){
+            res.send(trains);
         } else {
             res.send("No train found!");
         }
