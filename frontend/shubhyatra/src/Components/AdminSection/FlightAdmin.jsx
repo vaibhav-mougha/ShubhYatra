@@ -23,6 +23,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const FlightAdmin = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -30,57 +31,57 @@ const FlightAdmin = () => {
   const [page, setPage] = React.useState(1);
   const [data, setData] = React.useState([]);
   const [query, setQuery] = React.useState("");
-  const [name,setName]=React.useState("")
-  const [from,setfrom]=React.useState("")
-  const [to,setto]=React.useState("")
-  const [start,setstart]=React.useState("")
-  const [end,setend]=React.useState("")
-  const [type,settype]=React.useState("")
-  const [price,setprice]=React.useState("")
-  const [duration,setduration]=React.useState("")
+  const [name, setName] = React.useState("");
+  const [from, setfrom] = React.useState("");
+  const [to, setto] = React.useState("");
+  const [start, setstart] = React.useState("");
+  const [end, setend] = React.useState("");
+  const [type, settype] = React.useState("");
+  const [price, setprice] = React.useState("");
+  const [duration, setduration] = React.useState("");
 
-  const postData=()=>{
-    const payload={
-        name,
-        from,
-        to,
-        start,
-        end,
-        type,
-        price,
-        duration
-    }
-    axios.post("http://localhost:8080/bookedflight/create",payload,{
+  const postData = () => {
+    const payload = {
+      name,
+      from,
+      to,
+      start,
+      end,
+      type,
+      price,
+      duration,
+    };
+    axios
+      .post("http://localhost:8080/bookedflight/create", payload, {
         headers: {
-            authorization: localStorage.getItem("token"),
-          },
-    })
-    .then((res)=>{
-        console.log(res)
-        getAllData(page)
+          authorization: localStorage.getItem("token"),
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        getAllData(page);
         toast({
-            title: 'Flight Details Added',
-            description:`You successfully Added`,
-            status: 'success',
-            duration: 3000,
-            isClosable: true,
-          })
-    })
-    .catch((err)=>{
-        console.log('err', err)
+          title: "Flight Details Added",
+          description: `You successfully Added`,
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+      })
+      .catch((err) => {
+        console.log("err", err);
         toast({
-            title: 'Flight Details not added in Admin DB',
-            description:`Please Enter Proper Details`,
-            status: 'error',
-            duration: 3000,
-            isClosable: true,
-          })
-    })
+          title: "Flight Details not added in Admin DB",
+          description: `Please Enter Proper Details`,
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      });
+  };
 
-  }
-
-  const toast = useToast()
-  const getAllData = (page=1) => {
+  const toast = useToast();
+  const getAllData = (page = 1) => {
     axios
       .get(`http://localhost:8080/bookedflight?page=${page}`, {
         headers: {
@@ -105,46 +106,41 @@ const FlightAdmin = () => {
       .catch((err) => console.error(err));
   };
 
-  const handleDelete=(id)=>{
-    axios.delete(`http://localhost:8080/bookedflight/delete/${id}`,{
+  const handleDelete = (id) => {
+
+    axios
+      .delete(`http://localhost:8080/bookedflight/delete/${id}`, {
         headers: {
-            authorization: localStorage.getItem("token"),
-          },
-    })
-    fetch(`http://localhost:8080/bookedflight/delete/${id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: localStorage.getItem("token"),
-      },
-    })
-    .then((res)=>{
-        console.log(res)
-        getAllData(page)
+          authorization: localStorage.getItem("token"),
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        getAllData(page);
         toast({
-            title: 'Flight details has been deleted',
-            description:`You successfully deleted Flight details for id: ${id}`,
-            status: 'success',
-            duration: 3000,
-            isClosable: true,
-          })
-    })
-    .catch((err) => {
-        console.error(err)
+          title: "Flight details has been deleted",
+          description: `You successfully deleted Flight details for id: ${id}`,
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+      })
+      .catch((err) => {
+        console.error(err);
         toast({
-            title: 'Failed to Delete the Flight',
-            description:`You are not autherised`,
-            status: 'error',
-            duration: 3000,
-            isClosable: true,
-          })
-    })
-  }
+          title: "Failed to Delete the Flight",
+          description: `You are not Authorised`,
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      });
+  };
 
   const handlepage = (p) => {
     setPage(page + p);
-    getAllData(page)
+    getAllData(page);
   };
-
 
   return (
     <Box>
@@ -181,7 +177,7 @@ const FlightAdmin = () => {
         >
           {/* All Flights */}
           <Button
-            onClick={()=>getAllData(page)}
+            onClick={() => getAllData(page)}
             variant={"outline"}
             textTransform={"capitalize"}
           >
@@ -237,7 +233,7 @@ const FlightAdmin = () => {
                     type="text"
                     name="departtime"
                     value={name}
-                    onChange={(e)=>setName(e.target.value)}
+                    onChange={(e) => setName(e.target.value)}
                   />
                 </FormControl>
 
@@ -248,7 +244,7 @@ const FlightAdmin = () => {
                     type="text"
                     name="aarivtime"
                     value={from}
-                    onChange={(e)=>setfrom(e.target.value)}
+                    onChange={(e) => setfrom(e.target.value)}
                   />
                 </FormControl>
 
@@ -259,7 +255,7 @@ const FlightAdmin = () => {
                     type="text"
                     name="duration"
                     value={to}
-                    onChange={(e)=>setto(e.target.value)}
+                    onChange={(e) => setto(e.target.value)}
                   />
                 </FormControl>
 
@@ -270,7 +266,7 @@ const FlightAdmin = () => {
                     type="text"
                     name="fare"
                     value={start}
-                    onChange={(e)=>setstart(e.target.value)}
+                    onChange={(e) => setstart(e.target.value)}
                   />
                 </FormControl>
                 <FormControl mt={4}>
@@ -280,7 +276,7 @@ const FlightAdmin = () => {
                     type="text"
                     name="fare"
                     value={end}
-                    onChange={(e)=>setend(e.target.value)}
+                    onChange={(e) => setend(e.target.value)}
                   />
                 </FormControl>
                 <FormControl mt={4}>
@@ -290,7 +286,7 @@ const FlightAdmin = () => {
                     type="text"
                     name="fare"
                     value={type}
-                    onChange={(e)=>settype(e.target.value)}
+                    onChange={(e) => settype(e.target.value)}
                   />
                 </FormControl>
                 <FormControl mt={4}>
@@ -300,7 +296,7 @@ const FlightAdmin = () => {
                     type="text"
                     name="fare"
                     value={price}
-                    onChange={(e)=>setprice(e.target.value)}
+                    onChange={(e) => setprice(e.target.value)}
                   />
                 </FormControl>
                 <FormControl mt={4}>
@@ -310,14 +306,14 @@ const FlightAdmin = () => {
                     type="text"
                     name="fare"
                     value={duration}
-                    onChange={(e)=>setduration(e.target.value)}
+                    onChange={(e) => setduration(e.target.value)}
                   />
                 </FormControl>
               </ModalBody>
 
               <ModalFooter>
                 <Button
-                onClick={postData}
+                  onClick={postData}
                   bg="#257CFF"
                   borderRadius="1rem"
                   variant="solid"
@@ -337,20 +333,23 @@ const FlightAdmin = () => {
               </ModalFooter>
             </ModalContent>
           </Modal>
-          <Button
-            bg="#31AE33"
-            borderRadius="1rem"
-            variant="solid"
-            // ml="3rem"
-            color="white"
-            _hover={{
-              background: "white",
-              color: "#31AE33",
-              border: "2px solid #31AE33",
-            }}
-          >
-            Save
-          </Button>
+          <Link to="/flight">
+            <Button
+              bg="#31AE33"
+              borderRadius="1rem"
+              variant="solid"
+              // ml="3rem"
+              color="white"
+              _hover={{
+                background: "white",
+                color: "#31AE33",
+                border: "2px solid #31AE33",
+              }}
+              ml="1rem"
+            >
+              Save
+            </Button>
+          </Link>
         </Box>
       </div>
       <Box>
@@ -382,14 +381,19 @@ const FlightAdmin = () => {
                       <Td>{i.duration}</Td>
                       <Td>{i.price}</Td>
                       <Td>
-                        <Button onClick={()=>handleDelete(i._id)} colorScheme="red"
-            borderRadius="1rem"
-            variant="solid"
-            _hover={{
-              background: "white",
-              color: "red",
-              border: "2px solid red",
-            }}>Delete</Button>
+                        <Button
+                          onClick={() => handleDelete(i._id)}
+                          colorScheme="red"
+                          borderRadius="1rem"
+                          variant="solid"
+                          _hover={{
+                            background: "white",
+                            color: "red",
+                            border: "2px solid red",
+                          }}
+                        >
+                          Delete
+                        </Button>
                       </Td>
                     </Tr>
                   );

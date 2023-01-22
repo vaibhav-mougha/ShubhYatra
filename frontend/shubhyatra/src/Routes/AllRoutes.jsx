@@ -13,120 +13,134 @@ import FlightBooking from "../Pages/FlightBooking";
 import PaymentPage from "../Pages/PaymentPage";
 import Hotel from "../Pages/Hotel";
 import { TrainsListing } from "../Pages/TrainsListing";
-
 import Hotelpayment from "../Pages/Hotelpayment";
-
 import Payment from "../Components/CreditCard/Payment";
 import UserPage from "../Pages/UserPage";
 import FlightPaymentPage from "../Components/FlightBooking/FlightPaymentPage";
 import TrainCheckout from "../Components/Trains/TrainBooking/TrainCheckout";
+import ScrollToTop from "../Components/ScrollToTop/ScrollToTop";
 
 const AllRoutes = () => {
   const { authState } = React.useContext(AuthContext);
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
+    <>  
+    <ScrollToTop>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
 
-        <Route
-          path="/buses"
-          element={
-            <PrivateRoute>
-              <Buses />
-            </PrivateRoute>
-          }
-        ></Route>
+          <Route
+            path="/buses"
+            element={
+              <PrivateRoute>
+                <Buses />
+              </PrivateRoute>
+            }
+          ></Route>
 
-        <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login />} />
 
-        <Route path="/signup" element={<Signup />} />
+          <Route path="/signup" element={<Signup />} />
 
-        {authState.email === "admin@shubhyatra.com" && (
-          <Route path="/admin" element={<Admin />}></Route>
-        )}
+          {authState.email === "admin@shubhyatra.com" && (
+            <Route path="/admin" element={<Admin />}></Route>
+          )}
 
-        <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
 
-        <Route
-          path="/flight"
-          element={
-            <PrivateRoute>
-              <FlightBooking />
-            </PrivateRoute>
-          }
-        />
+          <Route
+            path="/flight"
+            element={
+              <PrivateRoute>
+                <FlightBooking />
+              </PrivateRoute>
+            }
+          />
 
-        <Route
-          path="/checkout"
-          element={
-            <PrivateRoute>
-              <PaymentPage />
-            </PrivateRoute>
-          }
-        />
+          <Route
+            path="/checkout"
+            element={
+              <PrivateRoute>
+                <PaymentPage />
+              </PrivateRoute>
+            }
+          />
 
+          <Route
+            path="/trains"
+            element={
+              <PrivateRoute>
+                <Trains />
+              </PrivateRoute>
+            }
+          />
+          
+          <Route
+            path="/traincheckout"
+            element={
+              <PrivateRoute>
+                <TrainCheckout />
+              </PrivateRoute>
+            }
+          />
 
+          <Route
+            path="/trains/listing"
+            element={
+              <PrivateRoute>
+                <TrainsListing />
+              </PrivateRoute>
+            }
+          />
+          
+          
 
-        <Route path="/trains" element={<PrivateRoute><Trains /></PrivateRoute>} />
+          <Route
+            path="/hotels"
+            element={
+              <PrivateRoute>
+                <Hotel />
+              </PrivateRoute>
+            }
+          />
 
+          <Route
+            path="/hotelcheckout"
+            element={
+              <PrivateRoute>
+                <Hotelpayment />
+              </PrivateRoute>
+            }
+          />
 
-        <Route path="/trains/listing" element={<PrivateRoute><TrainsListing /></PrivateRoute>} />
-       
+          <Route
+            path="/payment"
+            element={
+              <PrivateRoute>
+                <Payment />
+              </PrivateRoute>
+            }
+          />
 
-        <Route
-          path="/hotels"
-          element={
-            <PrivateRoute>
-              <Hotel />
-            </PrivateRoute>
-          }
-        />
+          <Route
+            path="/profile"
+            element={
+              <PrivateRoute>
+                <UserPage />
+              </PrivateRoute>
+            }
+          />
 
-        <Route
-          path="/hotelcheckout"
-          element={
-            <PrivateRoute>
-              <Hotelpayment />
-            </PrivateRoute>
-          }
-        />
+          <Route
+            path="/flightcheckout"
+            element={
+              <PrivateRoute>
+                <FlightPaymentPage />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
+      </ScrollToTop>
 
-        <Route
-          path="/payment"
-          element={
-            <PrivateRoute>
-              <Payment />
-            </PrivateRoute>
-          }
-        />
-
-        <Route
-          path="/profile"
-          element={
-            <PrivateRoute>
-              <UserPage />
-            </PrivateRoute>
-          }
-        />
-
-        <Route
-          path="/flightcheckout"
-          element={
-            <PrivateRoute>
-              <FlightPaymentPage />
-            </PrivateRoute>
-          }
-        />
-
-        <Route
-          path="/traincheckout"
-          element={
-            <PrivateRoute>
-              <TrainCheckout />
-            </PrivateRoute>
-          }
-        />
-      </Routes>
     </>
   );
 };

@@ -170,7 +170,7 @@ const FlightSection = () => {
               fontWeight="bold"
             >
               <span>{travellers}</span>
-              {travellers > 1 ? "Travellers" : ""}
+              {travellers > 0 ? "Travellers" : ""}
             </Text>
             <Modal
               closeOnOverlayClick={false}

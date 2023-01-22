@@ -18,7 +18,6 @@ import HotelAdmin from "./HotelAdmin";
 import TrainsAdmin from "./TrainsAdmin";
 
 const Admin = () => {
-
   return (
     <div>
       <Box bg="#EBF7FF">
@@ -134,8 +133,7 @@ const Admin = () => {
                   </TabList>
 
                   <TabPanels>
-
-                  <TabPanel>
+                    <TabPanel>
                       {/* <h1>Users</h1> */}
                       <UserAdmin />
                     </TabPanel>
@@ -146,7 +144,7 @@ const Admin = () => {
                     </TabPanel>
 
                     <TabPanel>
-                      <HotelAdmin/>
+                      <HotelAdmin />
                     </TabPanel>
 
                     <TabPanel>
@@ -154,7 +152,7 @@ const Admin = () => {
                     </TabPanel>
 
                     <TabPanel>
-                     <BusAdmin/>
+                      <BusAdmin />
                     </TabPanel>
                   </TabPanels>
                 </Tabs>

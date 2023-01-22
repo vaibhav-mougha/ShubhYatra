@@ -105,28 +105,30 @@ flightRouter.get("/", async (req, res) => {
       } else {
         res.send("Sorry there is no flight available");
       }
-    } else if(q){
-      const{page=1,limit=10}=req.query
-      let data = await FlightModel.find({from:q}).limit(limit*1).skip((page-1)*limit); 
-      res.send(data); 
-    }else {
+    } else if (q) {
+      const { page = 1, limit = 10 } = req.query;
+      let data = await FlightModel.find({ from: q })
+        .limit(limit * 1)
+        .skip((page - 1) * limit);
+      res.send(data);
+    } else {
       const { page = 1, limit = 10 } = req.query;
       let data = await FlightModel.find()
         .limit(limit * 1)
         .skip((page - 1) * limit);
       res.send(data);
     }
-   } catch (err) {
+  } catch (err) {
     console.log("err :>> ", err);
     res.send({ err: err });
   }
 });
 
-flightRouter.get("/:id",async(req,res)=>{
+flightRouter.get("/:id", async (req, res) => {
   const id = req.params.id;
-  const data=await FlightModel.findById(id)
-  res.send(data)
-})
+  const data = await FlightModel.findById(id);
+  res.send(data);
+});
 
 // Strictly for ADMIN only
 
@@ -168,15 +170,14 @@ flightRouter.post("/create", async (req, res) => {
 // });
 
 flightRouter.delete("/delete/:id", async (req, res) => {
-  const id=req.params.id
-  try{
-    await Busmodel.findByIdAndDelete({"_id":id})
-    res.json({status: 200, "message":"Deleted The Flight"});
+  const id = req.params.id;
+  try {
+    await FlightModel.findByIdAndDelete({ _id: id });
+    res.json({ status: 200, message: "Deleted The Flight" });
+  } catch {
+    res.send("err");
   }
-  catch{
-    res.send("err")
-  }
-})
+});
 
 module.exports = {
   flightRouter,

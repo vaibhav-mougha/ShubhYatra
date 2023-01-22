@@ -41,24 +41,13 @@ import { AuthContext } from "../../Context/Auth.context";
 const NavContainer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
-  // const [name, setName] = React.useState("");
-  // const data = localStorage.getItem("name");
-  // const [token, setToken] = React.useState(!!data);
   const { authState, logout } = React.useContext(AuthContext);
-
-  // useEffect(() => {
-  //   if (data) {
-  //     setName(data);
-  //     setToken(true);
-  //     console.log(token);
-  //   }
-  // }, [data, token, name]);
   const navigate = useNavigate();
 
   const handleLogout = () => {
     logout();
-    navigate("/")
-  }
+    navigate("/");
+  };
 
   return (
     <div className={styles.shubhYatra_wrapper}>
@@ -188,25 +177,6 @@ const NavContainer = () => {
                   fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
                 >
                   <Link to="/">
-                    <FaHome />
-                    <Text
-                      textAlign="center"
-                      fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
-                      color="#555454"
-                      _hover={{ color: "#EB2226" }}
-                    >
-                      Homestays
-                    </Text>
-                  </Link>
-                </Box>
-
-                <Box
-                  bg="white"
-                  color="#555454"
-                  _hover={{ color: "#EB2226" }}
-                  fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
-                >
-                  <Link to="/">
                     <FaCar />
                     <Text
                       textAlign="center"
@@ -272,6 +242,25 @@ const NavContainer = () => {
                       _hover={{ color: "#EB2226" }}
                     >
                       Activites
+                    </Text>
+                  </Link>
+                </Box>
+
+                <Box
+                  bg="white"
+                  color="#555454"
+                  _hover={{ color: "#EB2226" }}
+                  fontSize={{ base: "0.7rem", md: "1.5rem", lg: "2.2rem" }}
+                >
+                  <Link to="/">
+                    <FaHome />
+                    <Text
+                      textAlign="center"
+                      fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
+                      color="#555454"
+                      _hover={{ color: "#EB2226" }}
+                    >
+                      Homestays
                     </Text>
                   </Link>
                 </Box>
@@ -494,8 +483,6 @@ const NavContainer = () => {
                         _hover={{ color: "#EB2226" }}
                         fontSize="30"
                       >
-
-
                         <FaHome />
                         <Text
                           textAlign="center"
@@ -526,7 +513,6 @@ const NavContainer = () => {
                         _hover={{ color: "#EB2226" }}
                         fontSize="30"
                       >
-
                         <FaTrain />
                         <Text
                           textAlign="center"
@@ -733,7 +719,8 @@ const NavContainer = () => {
               {!authState.token ? (
                 <Link to="/login">
                   <Button
-                    fontSize={{ base: "0.4rem", md: "0.6rem", lg: "1rem" }}
+                    mt="2rem"
+                    fontSize={{ base: "1.3rem", md: "0.6rem", lg: "1rem" }}
                     // w={{ base: "1.7rem", md: "3rem", lg: "8.7rem" }}
                     // h={{ base: "1.2rem", md: "1.8rem", lg: "2.3rem" }}
                     _hover={{
@@ -752,7 +739,10 @@ const NavContainer = () => {
               ) : (
                 <Menu>
                   <MenuButton
-                    fontSize={{ base: "0.4rem", md: "0.6rem", lg: "1rem" }}
+                    mt="2rem"
+                    ml="0rem"
+                    w="20rem"
+                    fontSize={{ base: "1.3rem", md: "0.6rem", lg: "1rem" }}
                     // w={{ base: "1.7rem", md: "3rem", lg: "8.7rem" }}
                     // h={{ base: "1.2rem", md: "1.8rem", lg: "2.3rem" }}
                     _hover={{
@@ -763,21 +753,21 @@ const NavContainer = () => {
                     color="white"
                     py={{ base: "0.1rem", md: "0.1rem", lg: "0.5rem" }}
                     px={{ base: "0.1rem", md: "0.5rem", lg: "2.2rem" }}
-                    as={Button}
+                    borderRadius="0.4rem"
                     rightIcon={<ChevronDownIcon />}
                   >
                     {authState.name.toUpperCase()}
                   </MenuButton>
                   <MenuList color={"black"}>
-                  {authState.email === "admin@shubhyatra.com" ? (
-                        <NavLink to="/admin">
-                          <MenuItem>Admin</MenuItem>
-                        </NavLink>
-                      ) : (
-                        <NavLink to="/profile">
-                          <MenuItem>Profile</MenuItem>
-                        </NavLink>
-                      )}
+                    {authState.email === "admin@shubhyatra.com" ? (
+                      <NavLink to="/admin">
+                        <MenuItem>Admin</MenuItem>
+                      </NavLink>
+                    ) : (
+                      <NavLink to="/profile">
+                        <MenuItem>Profile</MenuItem>
+                      </NavLink>
+                    )}
                     <MenuItem onClick={handleLogout}>Logout</MenuItem>
                   </MenuList>
                 </Menu>

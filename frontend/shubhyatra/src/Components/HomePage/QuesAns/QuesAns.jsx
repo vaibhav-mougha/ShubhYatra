@@ -6,7 +6,7 @@ import stylesQues from "./QuesAns.module.css";
 const QuesAns = () => {
   return (
     <>
-      <div className={stylesQues.container} >
+      <div className={stylesQues.container}>
         <div className={stylesQues.top}>
           <div className={stylesQues.left}>
             <h4 style={{ fontWeight: "bold", fontSize: "1.4rem" }}>
@@ -57,16 +57,16 @@ const QuesAns = () => {
             </h4>
             <p>
               A. If you are travelling to a city for the first time and are
-              looking for hotels in the best areas, it is <br /> easy  to find
+              looking for hotels in the best areas, it is <br /> easy to find
               them on our website and our app. Let’s say, you are going to Goa
-              and planning to book <br /> one near  the most happening beaches.
-              Once you have hit the Search option, you will find a list of <br /> all
-              the hotels  in North Goa near the famed beach areas
-              including Baga and Calangute. You can even <br /> find out which {" "}
+              and planning to book <br /> one near the most happening beaches.
+              Once you have hit the Search option, you will find a list of{" "}
+              <br /> all the hotels in North Goa near the famed beach areas
+              including Baga and Calangute. You can even <br /> find out which{" "}
               of the areas are ideal for couples and families. Similarly, if you
-              are looking for booking <br /> hotels in  Mumbai, you can either
+              are looking for booking <br /> hotels in Mumbai, you can either
               book ones that are near the city’s major business districts,
-              tourist areas hubs . <br /> 
+              tourist areas hubs . <br />
               {/* transportation hubs. */}
             </p>
           </div>

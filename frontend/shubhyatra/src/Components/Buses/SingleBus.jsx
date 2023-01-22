@@ -27,11 +27,11 @@ function SingleBus({
   date,
   month,
 }) {
-  const{handleProdId}=useContext(AuthContext)
-  const Navigate=useNavigate()
+  const { handleProdId } = useContext(AuthContext);
+  const Navigate = useNavigate();
   const handleBook = () => {
-    handleProdId(id)
-    Navigate("/checkout")
+    handleProdId(id);
+    Navigate("/checkout");
   };
   return (
     <Box

@@ -9,7 +9,7 @@ import {
 
 import "react-credit-cards/es/styles-compiled.css";
 import { Box, Button, Grid, Image, Input, Text } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default class App extends React.Component {
   state = {
@@ -83,6 +83,99 @@ export default class App extends React.Component {
             callback={this.handleCallback}
           />
 
+          <form ref={(c) => (this.form = c)} onSubmit={this.handleSubmit}>
+            <Box
+              // border="1px solid #257CFF"
+              mt="2rem"
+              width="80%"
+              borderRadius="1rem"
+              p="1rem"
+              boxShadow="rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
+            >
+              <div className="form-group">
+                <Input
+                  mt="0.7rem"
+                  type="tel"
+                  name="number"
+                  className="form-control"
+                  placeholder="Enter Card Number"
+                  pattern="[\d| ]{16,22}"
+                  required
+                  onChange={this.handleInputChange}
+                  onFocus={this.handleInputFocus}
+                />
+              </div>
+              <div className="form-group">
+                <Input
+                  mt="0.7rem"
+                  type="text"
+                  name="name"
+                  className="form-control"
+                  placeholder="Enter your Name"
+                  required
+                  onChange={this.handleInputChange}
+                  onFocus={this.handleInputFocus}
+                />
+              </div>
+              <div className="row">
+                <div className="col-6">
+                  <Input
+                    mt="0.7rem"
+                    type="tel"
+                    name="expiry"
+                    className="form-control"
+                    placeholder="Valid Thru"
+                    pattern="\d\d/\d\d"
+                    required
+                    onChange={this.handleInputChange}
+                    onFocus={this.handleInputFocus}
+                  />
+                </div>
+                <div className="col-6">
+                  <Input
+                    mt="0.7rem"
+                    type="tel"
+                    name="cvc"
+                    className="form-control"
+                    placeholder="Enter CVC"
+                    pattern="\d{3,4}"
+                    required
+                    onChange={this.handleInputChange}
+                    onFocus={this.handleInputFocus}
+                  />
+                </div>
+              </div>
+              <Input mt="0.7rem" type="hidden" name="issuer" value={issuer} />
+              <div className="form-actions">
+                <button className="btn btn-primary btn-block">
+                  <Link to="/profile">
+                    <Button
+                      // onClick={this.handlePay}
+                      bg="#FFA200"
+                      borderRadius="1rem"
+                      variant="solid"
+                      ml="3rem"
+                      color="white"
+                      _hover={{
+                        background: "white",
+                        color: "#FFA200",
+                        border: "2px solid #FFA200",
+                      }}
+                      mr={3}
+                      //   onClick={handleSubmit}  use onClick for saving new Flight Details
+                      mt="1rem"
+                      w="10rem"
+                    >
+                      Pay Now
+                    </Button>
+                  </Link>
+                </button>
+              </div>
+            </Box>
+          </form>
+
+          <hr style={{ margin: "60px 0 30px" }} />
+
           <Text fontSize="1.5rem" color="gray" mt="2rem">
             Supported Cards
           </Text>
@@ -154,96 +247,6 @@ export default class App extends React.Component {
           </Grid>
 
           <hr style={{ margin: "60px 0 30px" }} />
-
-          <form ref={(c) => (this.form = c)} onSubmit={this.handleSubmit}>
-            <Box
-              // border="1px solid #257CFF"
-              mt="2rem"
-              width="80%"
-              borderRadius="1rem"
-              p="1rem"
-              boxShadow="rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
-            >
-              <div className="form-group">
-                <Input
-                  mt="0.7rem"
-                  type="tel"
-                  name="number"
-                  className="form-control"
-                  placeholder="Enter Card Number"
-                  pattern="[\d| ]{16,22}"
-                  required
-                  onChange={this.handleInputChange}
-                  onFocus={this.handleInputFocus}
-                />
-              </div>
-              <div className="form-group">
-                <Input
-                  mt="0.7rem"
-                  type="text"
-                  name="name"
-                  className="form-control"
-                  placeholder="Enter your Name"
-                  required
-                  onChange={this.handleInputChange}
-                  onFocus={this.handleInputFocus}
-                />
-              </div>
-              <div className="row">
-                <div className="col-6">
-                  <Input
-                    mt="0.7rem"
-                    type="tel"
-                    name="expiry"
-                    className="form-control"
-                    placeholder="Valid Thru"
-                    pattern="\d\d/\d\d"
-                    required
-                    onChange={this.handleInputChange}
-                    onFocus={this.handleInputFocus}
-                  />
-                </div>
-                <div className="col-6">
-                  <Input
-                    mt="0.7rem"
-                    type="tel"
-                    name="cvc"
-                    className="form-control"
-                    placeholder="Enter CVC"
-                    pattern="\d{3,4}"
-                    required
-                    onChange={this.handleInputChange}
-                    onFocus={this.handleInputFocus}
-                  />
-                </div>
-              </div>
-              <Input mt="0.7rem" type="hidden" name="issuer" value={issuer} />
-              <div className="form-actions">
-                <button className="btn btn-primary btn-block">
-
-                  <Link to="/profile"><Button
-                  // onClick={this.handlePay}
-                    bg="#FFA200"
-                    borderRadius="1rem"
-                    variant="solid"
-                    ml="3rem"
-                    color="white"
-                    _hover={{
-                      background: "white",
-                      color: "#FFA200",
-                      border: "2px solid #FFA200",
-                    }}
-                    mr={3}
-                    //   onClick={handleSubmit}  use onClick for saving new Flight Details
-                    mt="1rem"
-                    w="10rem"
-                  >
-                    Pay Now
-                  </Button></Link>
-                </button>
-              </div>
-            </Box>
-          </form>
         </div>
       </div>
     );
