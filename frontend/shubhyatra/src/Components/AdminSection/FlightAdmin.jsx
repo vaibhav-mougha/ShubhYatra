@@ -107,6 +107,7 @@ const FlightAdmin = () => {
   };
 
   const handleDelete = (id) => {
+
     axios
       .delete(`http://localhost:8080/bookedflight/delete/${id}`, {
         headers: {
@@ -128,7 +129,7 @@ const FlightAdmin = () => {
         console.error(err);
         toast({
           title: "Failed to Delete the Flight",
-          description: `You are not authorised`,
+          description: `You are not Authorised`,
           status: "error",
           duration: 3000,
           isClosable: true,
