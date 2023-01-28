@@ -62,7 +62,7 @@
 
 
 <div align="center">
-  <img width="50%" alt="Home page" src="https://user-images.githubusercontent.com/107460451/213928222-1d9344df-a41c-4ec6-a2e1-567bd87baeff.jpg"/>
+  <img width="80%" alt="Home page" src="https://user-images.githubusercontent.com/107460451/213928222-1d9344df-a41c-4ec6-a2e1-567bd87baeff.jpg"/>
   <!-- ![HomePage](https://user-images.githubusercontent.com/107460451/213928222-1d9344df-a41c-4ec6-a2e1-567bd87baeff.jpg) -->
 </div>
 <br/>
