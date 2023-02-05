@@ -277,7 +277,7 @@ On this journey we faced many issues, but we keep motivated each other with pati
 
 - We also got a glimpse of using GitHub for the version control.
 
-Source Code(GitHub link):- https://github.com/vaibhav-mougha/vacuous-quartz-2667
+Source Code(GitHub link):- https://github.com/vaibhav-mougha/ShubhYatra
 
 ## Show your support
 
